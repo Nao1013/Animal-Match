@@ -1,0 +1,2 @@
+class AnimalTag < ApplicationRecord
+end

@@ -1,0 +1,50 @@
+<div class="container mt-5 mb-5">
+
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2>新規会員登録</h2>
+    </div>
+  </div>
+  <div class="center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%#= render "facilities/shared/error_messages", resource: resource %>
+      
+      <div class="row form-group">
+        <%= f.label :苗字, class: "col-lg-3" %>
+        <%= f.text_field :first_name, autofocus: true, placeholder: "田中", class: "col-lg-2 mr-5" %>
+        <%= f.label :名前, class: "mr-2" %>
+        <%= f.text_field :last_name, autofocus: true, placeholder: "太郎", class: "col-lg-2" %>
+      </div>
+      
+      <div class="row form-group">
+        <%= f.label :フリガナ, class: "col-lg-3" %>
+        <%= f.label :"(ﾐｮｳｼﾞ)", class: "col-lg-1" %>
+        <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "タナカ",  class: "col-lg-2 mr-5" %>
+        <%= f.label :"(ﾅﾏｴ)", class: "mr-3" %>
+        <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "タロウ", class: "col-lg-2" %>
+      </div>
+      
+      <div class="row form-group">
+        <%= f.label :メールアドレス, class: "col-lg-3" %>
+        <div class="col-lg-1"></div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "anima@email", class: "col-lg-5" %>
+      </div>
+      
+      <div class="row form-group">
+        <%= f.label :"パスワード", class: "col-lg-4" %>
+        <%= f.password_field :password, autocomplete: "off",placeholder: "6文字以上の英数字", class: "col-lg-4" %>
+      </div>
+      
+      <div class="row form-group">
+            <%= f.label :"パスワード(確認用)", class: "col-lg-4" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "確認用", class: "col-lg-4" %>
+        </div>
+    
+      <div class="actions">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+    
+    <%#= render "facilities/shared/links" %>
+  </div>
+</div>
