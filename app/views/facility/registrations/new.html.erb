@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="center">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_with model: @facility, url: reader_registration_path do |f| %>
       <%#= render "facilities/shared/error_messages", resource: resource %>
       
       <div class="row form-group">
