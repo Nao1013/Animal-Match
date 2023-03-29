@@ -1,0 +1,29 @@
+<header>
+  <!--施設側ログイン後表示-->
+    <% if facility_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_facility_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_facility_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_facility_session_path %>
+      </li>
+    <% end %>
+    
+    <!--個人側ログイン後表示-->
+    <% if reader_signed_in? %>
+      <li>
+        <%= link_to "ログアウト(個人)", destroy_reader_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録(個人)", new_reader_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン(個人)", new_reader_session_path %>
+      </li>
+    <% end %>
+  </header>

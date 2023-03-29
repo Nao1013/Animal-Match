@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 2023_03_28_045818) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.string "user_facility_name", null: false
+    t.string "user_facility_name"
     t.string "address", null: false
     t.string "telephone", null: false
-    t.text "introduct", null: false
-    t.text "facility_intro", null: false
+    t.text "introduct"
+    t.text "facility_intro"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2023_03_28_045818) do
     t.string "last_name_kana", null: false
     t.string "user_name", null: false
     t.string "prefecture", null: false
-    t.text "introduct", null: false
+    t.text "introduct"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

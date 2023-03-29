@@ -6,45 +6,64 @@
     </div>
   </div>
   <div class="center">
-    <%= form_with model: @facility, url: reader_registration_path do |f| %>
-      <%#= render "facilities/shared/error_messages", resource: resource %>
-      
+    <%= form_with model: @facility, url: facility_registration_path, local: true do |f| %>
+      <%= render "facility/shared/error_messages", resource: resource %>
+
+       <div class="row form-group">
+        <%= f.label :施設名, class: "col-lg-3" %>
+        <div class="col-lg-1"></div>
+        <%= f.text_field :facility_name, autofocus: true, autocomplete: "facility_name",placeholder: "施設名", class: "col-lg-4" %>
+      </div>
+
       <div class="row form-group">
-        <%= f.label :苗字, class: "col-lg-3" %>
+        <%= f.label :代表者名, class: "col-lg-3" %>
+        <%= f.label :苗字, class: "col-lg-1" %>
         <%= f.text_field :first_name, autofocus: true, placeholder: "田中", class: "col-lg-2 mr-5" %>
         <%= f.label :名前, class: "mr-2" %>
         <%= f.text_field :last_name, autofocus: true, placeholder: "太郎", class: "col-lg-2" %>
       </div>
-      
+
       <div class="row form-group">
         <%= f.label :フリガナ, class: "col-lg-3" %>
-        <%= f.label :"(ﾐｮｳｼﾞ)", class: "col-lg-1" %>
+        <%= f.label :ﾐｮｳｼﾞ, class: "col-lg-1" %>
         <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "タナカ",  class: "col-lg-2 mr-5" %>
-        <%= f.label :"(ﾅﾏｴ)", class: "mr-3" %>
+        <%= f.label :ﾅﾏｴ, class: "mr-3" %>
         <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "タロウ", class: "col-lg-2" %>
       </div>
-      
+
       <div class="row form-group">
         <%= f.label :メールアドレス, class: "col-lg-3" %>
         <div class="col-lg-1"></div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "anima@email", class: "col-lg-5" %>
       </div>
-      
+
+      <div class="row form-group">
+        <%= f.label :施設住所, class: "col-lg-3" %>
+        <div class="col-lg-1"></div>
+        <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "住所", class: "col-lg-5" %>
+      </div>
+
+      <div class="row form-group">
+        <%= f.label :電話番号, class: "col-lg-3" %>
+        <div class="col-lg-1"></div>
+        <%= f.text_field :telephone, autofocus: true, autocomplete: "telephone",placeholder: "電話番号", class: "col-lg-5" %>
+      </div>
+
       <div class="row form-group">
         <%= f.label :"パスワード", class: "col-lg-4" %>
         <%= f.password_field :password, autocomplete: "off",placeholder: "6文字以上の英数字", class: "col-lg-4" %>
       </div>
-      
+
       <div class="row form-group">
             <%= f.label :"パスワード(確認用)", class: "col-lg-4" %>
             <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "確認用", class: "col-lg-4" %>
         </div>
-    
-      <div class="actions">
-        <%= f.submit "新規登録" %>
+
+      <div class="actions text-center">
+        <%= f.submit "新規登録", class: "btn btn-success" %><br>
+        <%= render "facility/shared/links" %>
       </div>
     <% end %>
-    
-    <%#= render "facilities/shared/links" %>
+
   </div>
 </div>

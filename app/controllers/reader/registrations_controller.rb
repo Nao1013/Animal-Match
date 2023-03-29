@@ -4,10 +4,10 @@ class Reader::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+   # 新規登録後遷移先
+  def after_sign_up_path_for(resource)
+    reader_animals_path #遷移先のパス
+  end
 
   # POST /resource
   # def create
@@ -59,4 +59,8 @@ class Reader::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :password, :user_name, :prefecture])
+  end
 end

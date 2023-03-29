@@ -38,7 +38,7 @@ class DeviseCreateReaders < ActiveRecord::Migration[6.1]
       t.string :last_name_kana, null: false
       t.string :user_name, null: false
       t.string :prefecture, null: false
-      t.text :introduct, null: false
+      t.text :introduct
       t.boolean :is_deleted, null: false, default: "false"
 
       t.timestamps null: false

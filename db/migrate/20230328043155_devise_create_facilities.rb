@@ -36,11 +36,11 @@ class DeviseCreateFacilities < ActiveRecord::Migration[6.1]
       t.string :last_name, null: false
       t.string :first_name_kana, null: false
       t.string :last_name_kana, null: false
-      t.string :user_facility_name, null: false
+      t.string :user_facility_name
       t.string :address, null: false
       t.string :telephone, null: false
-      t.text :introduct, null: false
-      t.text :facility_intro, null: false
+      t.text :introduct
+      t.text :facility_intro
       t.boolean :is_deleted, null: false, default: "false"
 
       t.timestamps null: false
