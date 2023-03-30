@@ -1,0 +1,17 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-3">
+      <%= image_tag @facility.get_profile_image(200,200), class: "rounded-circle" %>
+      <h5><%= @facility.first_name %>　<%= @facility.last_name %></h5>
+      <h3><%= @facility.user_facility_name %></h3>
+       <p><%= @facility.introduct %></p>
+    </div>
+  </div>
+ 
+ <div class="row">
+   <div class="col-9">
+     <%= image_tag @facility.get_facility_image(500, 200) %>
+     <h3><%= @facility.facility_name %></h3>
+   </div>
+ </div>
+</div>

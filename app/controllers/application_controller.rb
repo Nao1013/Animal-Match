@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     case resource
     # when Customer
       # root_path
-    when facility
+    when Facility
       facility_animals_path
     end
   end

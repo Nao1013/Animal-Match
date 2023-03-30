@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # 施設用ログイン後
   namespace :facility do
     resources :animals, only: [:index, :show, :new, :create, :edit, :update]
+    resources :facilities, only: [:index, :show, :create, :edit, :update]
     end
   
   # 個人用ログイン後
