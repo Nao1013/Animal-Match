@@ -1,5 +1,17 @@
 <div class="container">
   <div class="row">
-    <h1>animal/index</h1>
+    <div class="col3">
+    <%= link_to "新規投稿", new_facility_animal_path %>
+    </div>
+    
+    <div class="col-9">
+      <% @animals.each do |animal| %>
+      <div>
+        <%= image_tag animal.get_images[0] %>
+        <p><%= animal.name %></p>
+        <p><%= animal.introduct %></p>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

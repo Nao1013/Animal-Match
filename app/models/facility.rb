@@ -3,6 +3,9 @@ class Facility < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  # animalとのアソシエーション
+  has_many :animals, dependent: :destroy
   
   # プロフィール画像
   has_one_attached :profile_image
