@@ -1,2 +1,12 @@
-<h1>Facility::Animals#show</h1>
-<p>Find me in app/views/facility/animals/show.html.erb</p>
+<div class="container text-center">
+
+  <%= image_tag @animal.get_images[0] %><br>
+  <%= @animal.name %><br>
+  <%#= tag %>
+  <%= @animal.introduct %><br>
+
+  <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
+
+  <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
+  <%= link_to "削除", facility_animal_path(@animal), class: "btn btn-danger" %>
+</div>

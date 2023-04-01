@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   root :to => 'homes#top'
 
   # 施設側用devise
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   # 施設用ログイン後
   namespace :facility do
-    resources :animals, only: [:index, :show, :new, :create, :edit, :update]
+    resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :facilities, only: [:index, :show, :create, :edit, :update]
     end
   

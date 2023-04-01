@@ -1,0 +1,16 @@
+<div class="container text-center">
+  <hi><%= @animal.name %>の編集</hi>
+  
+  <%= form_with model: @animal, url: facility_animal_path do |f| %>
+  
+  <label for="inputImage", class="mt-3">画像選択</label><br>
+  <%= f.file_field :images, accept: "image/*",  multiple: true %><br>
+  
+  <%= f.text_area :introduct, class: "mt-3" %><br>
+  
+  <%#= tag 選択 %>
+  
+  <%#=　犬・猫選択（固定）%>
+  <%= f.submit "変更を保存", class: "btn btn-success" %>
+<% end %>
+</div>

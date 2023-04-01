@@ -14,6 +14,12 @@ import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
 
+$(function() {
+  $('.images').slick({
+      dots: true,
+  });
+});
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
