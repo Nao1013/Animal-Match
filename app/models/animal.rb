@@ -1,7 +1,7 @@
 class Animal < ApplicationRecord
 
   # 施設側とのアソシエーション
-  belongs_to :facilities
+  belongs_to :facility
 
   # 画像を複数投稿
   has_many_attached :images

@@ -3,10 +3,10 @@ class Facility < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   # animalとのアソシエーション
   has_many :animals, dependent: :destroy
-  
+
   # プロフィール画像
   has_one_attached :profile_image
   def get_profile_image(width, height)
@@ -16,7 +16,7 @@ class Facility < ApplicationRecord
   end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   # ヘッダー画像
   has_one_attached :facility_image
   def get_facility_image(width, height)

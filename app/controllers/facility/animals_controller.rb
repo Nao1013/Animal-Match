@@ -1,24 +1,24 @@
 class Facility::AnimalsController < ApplicationController
-  def index
-    @animals = Animal.all
-  end
-
-  def show
-    @animal = Animal.find(params[:id])
-  end
 
   def new
     @animal = Animal.new
   end
 
   def create
-    @animal = Animal.create
-    @animal.facility_id = current_facility.id
+    @animal = current_facility.animals.build(animal_params)
     if @animal.save
       redirect_to facility_animal_path(@animal)
     else
       render 'new'
     end
+  end
+
+  def index
+    @animals = Animal.all
+  end
+
+  def show
+    @animal = Animal.find(params[:id])
   end
 
   def edit

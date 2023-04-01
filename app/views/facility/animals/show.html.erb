@@ -1,6 +1,8 @@
 <div class="container text-center">
 
-  <%= image_tag @animal.get_images[0] %><br>
+  <% @animal.get_images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
   <%= @animal.name %><br>
   <%#= tag %>
   <%= @animal.introduct %><br>
