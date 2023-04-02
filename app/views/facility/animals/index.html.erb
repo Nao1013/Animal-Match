@@ -10,7 +10,7 @@
         <% @animals.each do |animal| %>
         <div class="col-4">
           <%= link_to facility_animal_path(animal.id) do %>
-            <%= image_tag animal.get_images.first, class: "rounded-circle", size: "200x200" %>
+            <%= image_tag animal.images.first, class: "rounded-circle", size: "200x200" %>
             <p class="text-center"><%= animal.name %></p>
           <% end %>
         </div>

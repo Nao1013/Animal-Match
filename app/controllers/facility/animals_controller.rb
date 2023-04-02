@@ -6,9 +6,10 @@ class Facility::AnimalsController < ApplicationController
 
   def create
     @animal = current_facility.animals.build(animal_params)
-    tag_list=params[:animal][:name].split('#')
+    tags=params[:animal][:tag].split(',')
     if @animal.save
-      @animal.save_tag(tag_list)
+      # @animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
+      @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'投稿しました'
     else
       render 'new'
@@ -21,19 +22,19 @@ class Facility::AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    @animal_tags = @animal.tags
+    @tags = @animal.tags.pluck(:tag).join(',')  # タグ用コード
   end
 
   def edit
     @animal = Animal.find(params[:id])
-    @tag_list=@animal.tags.pluck(:name).join('#')
+    @tags=@animal.tags.pluck(:tag).join(',')
   end
 
   def update
     @animal = Animal.find(params[:id])
-    tag_list=params[:animal][:name].split('#')
+    tags=params[:animal][:tag].split(',')
     if @animal.update(animal_params)
-      @animal.save_tag(tag_list)
+      @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'編集しました'
     else
       render 'edit'
@@ -41,7 +42,9 @@ class Facility::AnimalsController < ApplicationController
   end
 
   def destroy
-
+    animal = Animal.find(params[:id])
+    animal.destroy
+    redirect_to facility_animals_path, notice:'削除しました'
   end
 
   private

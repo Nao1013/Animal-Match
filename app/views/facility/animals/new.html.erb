@@ -1,19 +1,24 @@
 <div class="contaner text-center">
   <h1>新規投稿</h1>
   <%= form_with model: @animal, url: facility_animals_path do |f| %>
-  
+
   <!--画像選択-->
     <h4>画像選択</h4>
       <%= f.file_field :images, accept: "image/*", multiple: true %>
-      
+
       <!--動物の名前記入-->
     <h4>ワンちゃん・猫ちゃんのお名前</h4>
       <%= f.text_field :name %>
-      
+
       <!--動物についての説明欄-->
     <h4>ワンちゃん・猫ちゃんの説明（性格や施設に保護された状況など）</h4>
       <%= f.text_field :introduct %><br>
-      
-    <%= f.submit '新規投稿' %>
+
+    <div class="input-field mt-3">
+      <h4>タグ付け</h4>
+      <%= f.text_field :tag, placeholder: "タグを複数つけるには' , 'で区切ってください", class: "col-5" %>
+    </div>
+
+    <%= f.submit '新規投稿', class: "btn btn-success mt-3" %>
   <% end %>
 </div>

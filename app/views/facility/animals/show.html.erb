@@ -1,15 +1,13 @@
 <div class="container text-center">
 
-  <% @animal.get_images.each do |image| %>
+  <% @animal.images.each do |image| %>
     <%= image_tag image, size: "500x400" %><br>
   <% end %>
   <%= @animal.name %><br>
-  
+
   <%= @animal.introduct %><br>
-  
-  <% @animal_tags.each do |tag| %>
-    <%=tag.name%><%="(#{tag.animals.count})" %>
-  <% end %>
+
+  <%= @tags %><br>　<!--タグ用-->
 
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
