@@ -4,8 +4,8 @@ class Animal < ApplicationRecord
   belongs_to :facility
   
   # tagとのアソシエーション
-  has_many :post_tags,dependent: :destroy
-  has_many :tags,through: :post_tags
+  has_many :animal_tags,dependent: :destroy
+  has_many :tags,through: :animal_tags
   
   # tagについて
   def save_tag(sent_tags)
@@ -25,8 +25,8 @@ class Animal < ApplicationRecord
 
     # 新しいタグを保存
     new_tags.each do |new|
-      new_post_tag = Tag.find_or_create_by(name: new)
-      self.tags << new_post_tag
+      new_animal_tag = Tag.find_or_create_by(name: new)
+      self.tags << new_animal_tag
    end
   end
 

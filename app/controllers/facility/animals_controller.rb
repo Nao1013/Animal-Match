@@ -17,21 +17,27 @@ class Facility::AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
-    @tag_list=Tag.all
   end
 
   def show
     @animal = Animal.find(params[:id])
+    @animal_tags = @animal.tags
   end
 
   def edit
     @animal = Animal.find(params[:id])
+    @tag_list=@animal.tags.pluck(:name).join('#')
   end
 
   def update
     @animal = Animal.find(params[:id])
-    @animal.update(animal_params)
-    redirect_to facility_animal_path(@animal)
+    tag_list=params[:animal][:name].split('#')
+    if @animal.update(animal_params)
+      @animal.save_tag(tag_list)
+      redirect_to facility_animal_path(@animal),notice:'編集しました'
+    else
+      render 'edit'
+    end
   end
 
   def destroy

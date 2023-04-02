@@ -4,8 +4,12 @@
     <%= image_tag image, size: "500x400" %><br>
   <% end %>
   <%= @animal.name %><br>
-  <%#= tag %>
+  
   <%= @animal.introduct %><br>
+  
+  <% @animal_tags.each do |tag| %>
+    <%=tag.name%><%="(#{tag.animals.count})" %>
+  <% end %>
 
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
