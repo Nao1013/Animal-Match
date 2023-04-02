@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :facility do
     resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :facilities, only: [:index, :show, :create, :edit, :update]
+    get '/animal_tag/:tag', to: "animals#search"
     end
   
   # 個人用ログイン後

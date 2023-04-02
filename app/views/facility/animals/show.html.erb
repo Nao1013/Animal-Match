@@ -7,11 +7,14 @@
 
   <%= @animal.introduct %><br>
 
-  <%= @tags %><br>　<!--タグ用-->
-
+  <% @tags.each do |tag| %>
+    <%= link_to facility_animals_path(tag: tag) do %>
+      <i class="fas fa-tag"></i><%= tag %>　<!--タグ用-->
+    <% end %>
+  <% end %><br>
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
   <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
-  <%= link_to "削除", facility_animal_path(@animal), class: "btn btn-danger" %><br>
+  <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %><br>
    <%= link_to "back", facility_animals_path %>
 </div>

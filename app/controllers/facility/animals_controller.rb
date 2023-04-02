@@ -6,7 +6,7 @@ class Facility::AnimalsController < ApplicationController
 
   def create
     @animal = current_facility.animals.build(animal_params)
-    tags=params[:animal][:tag].split(',')
+    tags=params[:animal][:tag].split(',').map(&:strip).uniq
     if @animal.save
       # @animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
       @animal.save_tags(tags)
@@ -17,12 +17,12 @@ class Facility::AnimalsController < ApplicationController
   end
 
   def index
-    @animals = Animal.all
+    @animals = Tag.search(params[:tag])
   end
 
   def show
     @animal = Animal.find(params[:id])
-    @tags = @animal.tags.pluck(:tag).join(',')  # タグ用コード
+    @tags = @animal.tags.pluck(:tag)  # タグ用コード
   end
 
   def edit
@@ -32,9 +32,9 @@ class Facility::AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
-    tags=params[:animal][:tag].split(',')
+    tags=params[:animal][:tag].split(',').map(&:strip).uniq
     if @animal.update(animal_params)
-      @animal.save_tags(tags)
+      @animal.update_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'編集しました'
     else
       render 'edit'
@@ -45,6 +45,14 @@ class Facility::AnimalsController < ApplicationController
     animal = Animal.find(params[:id])
     animal.destroy
     redirect_to facility_animals_path, notice:'削除しました'
+  end
+
+  def search
+    if (params[:keyword])[0] == ','
+      @animals = Tag.search(params[:keyword]).order('created_at DESC')
+    else
+      @animals = Animal.search(params[:keyword]).order('created_at DESC')
+    end
   end
 
   private
