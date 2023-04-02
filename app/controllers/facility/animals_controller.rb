@@ -6,8 +6,10 @@ class Facility::AnimalsController < ApplicationController
 
   def create
     @animal = current_facility.animals.build(animal_params)
+    tag_list=params[:animal][:name].split('#')
     if @animal.save
-      redirect_to facility_animal_path(@animal)
+      @animal.save_tag(tag_list)
+      redirect_to facility_animal_path(@animal),notice:'投稿しました'
     else
       render 'new'
     end
@@ -15,6 +17,7 @@ class Facility::AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+    @tag_list=Tag.all
   end
 
   def show
@@ -27,10 +30,8 @@ class Facility::AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
-    @animal.facility_id = current_facility.id
-    if @animal.update(animal_params)
-      redirect_to facility_animal_path(@animal)
-    end
+    @animal.update(animal_params)
+    redirect_to facility_animal_path(@animal)
   end
 
   def destroy

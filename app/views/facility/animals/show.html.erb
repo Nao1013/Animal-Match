@@ -1,7 +1,7 @@
 <div class="container text-center">
 
   <% @animal.get_images.each do |image| %>
-    <%= image_tag image %>
+    <%= image_tag image, size: "500x400" %><br>
   <% end %>
   <%= @animal.name %><br>
   <%#= tag %>
@@ -10,5 +10,6 @@
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
   <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
-  <%= link_to "削除", facility_animal_path(@animal), class: "btn btn-danger" %>
+  <%= link_to "削除", facility_animal_path(@animal), class: "btn btn-danger" %><br>
+   <%= link_to "back", facility_animals_path %>
 </div>
