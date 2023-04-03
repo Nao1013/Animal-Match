@@ -1,22 +1,30 @@
 <div class="contaner text-center">
-  <h1>新規投稿</h1>
+  <h1 class="btn-success">新規投稿</h1>
   <%= form_with model: @animal, url: facility_animals_path do |f| %>
 
   <!--画像選択-->
-    <h4>画像選択</h4>
+    <h5 class="font-weight-bold">画像選択</h5>
       <%= f.file_field :images, accept: "image/*", multiple: true %>
 
       <!--動物の名前記入-->
-    <h4>ワンちゃん・猫ちゃんのお名前</h4>
-      <%= f.text_field :name %>
+    <h5 class="font-weight-bold mt-3">ワンちゃん・猫ちゃんのお名前</h5>
+      <%= f.text_field :name, class: "form" %>
 
       <!--動物についての説明欄-->
-    <h4>ワンちゃん・猫ちゃんの説明（性格や施設に保護された状況など）</h4>
-      <%= f.text_field :introduct %><br>
+    <h5 class="font-weight-bold mt-3">ワンちゃん・猫ちゃんの説明</h5>
+      <%= f.text_area :introduct,placeholder: "性格や保護期間など", class: "form col-6",rows: "15" %><br>
+      
+      <!--犬・猫種類-->
+    <div class="form-group">
+    　<%= f.radio_button :is_sort, true %>
+    　<%= f.label :is_sort, "犬", {value: :true, style: "display: inline-block;"} %>
+    　<%= f.radio_button :is_sort, false %>
+    　<%= f.label :is_sort, "猫", {value: :false, style: "display: inline-block;"} %>
+    </div>
 
     <div class="input-field mt-3">
       <h4>タグ付け</h4>
-      <%= f.text_field :tag, placeholder: "タグを複数つけるには' , 'で区切ってください", class: "col-5" %>
+      <%= f.text_field :tag, placeholder: "タグを複数つけるには' , 'で区切ってください", class: "col-4" %>
     </div>
 
     <%= f.submit '新規投稿', class: "btn btn-success mt-3" %>
