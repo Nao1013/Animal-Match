@@ -1,5 +1,5 @@
 class Facility::AnimalsController < ApplicationController
-
+  
   def new
     @animal = Animal.new
   end
@@ -18,6 +18,11 @@ class Facility::AnimalsController < ApplicationController
 
   def index
     @animals = Tag.search(params[:tag])
+    if params[:is_sort_dog]
+      @dogs = Animal.is_sort_dog
+    elsif params[:is_sort_cat]
+      @cats = Animal.is_sort_cat
+    end
   end
 
   def show

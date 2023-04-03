@@ -2,6 +2,9 @@
   <!--施設側ログイン後表示-->
     <% if facility_signed_in? %>
       <li>
+        <%= link_to "マイページ", facility_facility_path(current_facility.id) %>
+      </li>
+      <li>
         <%= link_to "ログアウト", destroy_facility_session_path, method: :delete %>
       </li>
     <% else %>

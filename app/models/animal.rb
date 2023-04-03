@@ -2,6 +2,10 @@ class Animal < ApplicationRecord
 
   # 施設側とのアソシエーション
   belongs_to :facility
+  
+  # 犬か猫かの絞り込み
+  scope :is_sort_dog, -> { order(is_sort: :desc) }
+  scope :is_sort_cat, -> { order(is_sort: :asc) }
 
   # tagとのアソシエーション
   has_many :animal_tags,dependent: :destroy

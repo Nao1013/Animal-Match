@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registrations: "facility/registrations",
     sessions: 'facility/sessions'
     }
-  
+
   # 個人用devise
     devise_for :reader,skip: [:passwords], controllers: {
     sessions: "reader/sessions"
@@ -17,9 +17,11 @@ Rails.application.routes.draw do
   namespace :facility do
     resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :facilities, only: [:index, :show, :edit, :update]
+    get "/facilities/unsubscribe" => "facilities#unsubscribe"
+    get "/facilities/withdraw" => "facilities#withdraw"
     # get '/animal_tag/:tag', to: "animals#search"
     end
-  
+
   # 個人用ログイン後
    namespace :reader do
     resources :animals, only: [:index, :show]
