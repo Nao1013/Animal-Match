@@ -6,9 +6,6 @@
     <div class="col-1"></div>
     
     <div class="col-9">
-      <%= link_to "一覧", facility_animals_path %>
-      <%= link_to "犬", facility_animals_path(is_sort_dog: "true") %>
-      <%= link_to "猫", facility_animals_path(is_sort_cat: "true") %>
       <div class="row mt-5">
         <% @animals.each do |animal| %>
         <div class="col-4">
