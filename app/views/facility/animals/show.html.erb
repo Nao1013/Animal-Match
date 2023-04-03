@@ -6,6 +6,10 @@
   <%= @animal.name %><br>
 
   <%= @animal.introduct %><br>
+  
+  <% @animal.genres.each do |genre| %>
+    <%= genre.name %>
+  <% end %><br>
 
   <% @tags.each do |tag| %>
     <%= link_to facility_animals_path(tag: tag) do %>

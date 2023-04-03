@@ -17,7 +17,9 @@ class Facility::AnimalsController < ApplicationController
   end
 
   def index
-    @animals = Tag.search(params[:tag])
+    @genres = Genre.all
+    @animals = params[:name].present? ? Genre.find(params[:name]).animals : Animal.all
+    # @animals = Tag.search(params[:tag])
   end
 
   def show
@@ -58,7 +60,7 @@ class Facility::AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :introduct, :is_decided, images: [])
+    params.require(:animal).permit(:name, :introduct, :is_decided, images: [], genre_ids: [])
   end
 
 end

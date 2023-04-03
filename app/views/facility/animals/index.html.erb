@@ -6,6 +6,20 @@
     <div class="col-1"></div>
     
     <div class="col-9">
+      <%= form_tag facility_animals_path, method: :get, class: 'boards__searchForm' do %>
+      
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to "一覧", facility_animals_path, class: "nav-link active" %>
+        </li>
+        <% @genres.each do |genre| %>
+       <li class="nav-item">
+          <%= link_to genre.name, facility_animals_path(name: genre.id), class: "nav-link" %>
+        <% end %>
+      </li>
+      </ul>
+      <% end %>
+      
       <div class="row mt-5">
         <% @animals.each do |animal| %>
         <div class="col-4">

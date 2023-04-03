@@ -3,8 +3,9 @@ class Animal < ApplicationRecord
   # 施設側とのアソシエーション
   belongs_to :facility
   
-  # genreとのアソシエーション
-  belongs_to :genre, dependent: :destroy
+  # animal_genre(中間テーブル)とのアソシエーション
+  has_many :animal_genres, dependent: :destroy
+  has_many :genres, through: :animal_genres, dependent: :destroy
 
   # tagとのアソシエーション
   has_many :animal_tags,dependent: :destroy

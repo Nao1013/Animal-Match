@@ -15,11 +15,22 @@
       <%= f.text_area :introduct,placeholder: "性格や保護期間など", class: "form col-6",rows: "15" %><br>
       
       <!--犬・猫種類-->
-    <div class="form-group">
-    　<%= f.radio_button :is_sort, true %>
-    　<%= f.label :is_sort, "犬", {value: :true, style: "display: inline-block;"} %>
-    　<%= f.radio_button :is_sort, false %>
-    　<%= f.label :is_sort, "猫", {value: :false, style: "display: inline-block;"} %>
+    <!--<div class="form-group">-->
+    　<%#= f.radio_button :is_sort, true %>
+    　<%#= f.label :is_sort, "犬", {value: :true, style: "display: inline-block;"} %>
+    　<%#= f.radio_button :is_sort, false %>
+    　<%#= f.label :is_sort, "猫", {value: :false, style: "display: inline-block;"} %>
+    <!--</div>-->
+    
+    <div class="check_box">
+      <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+        <!--<div class='form-check'>-->
+       　<%= genre.label do %>
+        　 <%= genre.check_box %>
+        　 <%= genre.text %>
+        　<% end %>
+        <!--</div>-->
+      <% end %>
     </div>
 
     <div class="input-field mt-3">
