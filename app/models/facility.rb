@@ -17,13 +17,4 @@ class Facility < ApplicationRecord
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  # ヘッダー画像
-  has_one_attached :facility_image
-  def get_facility_image(width, height)
-  unless facility_image.attached?
-    file_path = Rails.root.join('app/assets/images/no_facility_image.jpg')
-    profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-  end
-  profile_image.variant(resize_to_limit: [width, height]).processed
-  end
 end
