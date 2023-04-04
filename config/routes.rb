@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   # 施設用ログイン後
   namespace :facility do
     resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-    resources :facilities, only: [:index, :show, :edit, :update]
     get "/facilities/unsubscribe" => "facilities#unsubscribe"
     get "/facilities/withdraw" => "facilities#withdraw"
+    resources :facilities, only: [:show, :edit, :update]
     # get '/animal_tag/:tag', to: "animals#search"
     end
 

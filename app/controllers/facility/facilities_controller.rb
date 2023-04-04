@@ -5,10 +5,6 @@ class Facility::FacilitiesController < ApplicationController
     @facility = Facility.find(params[:id])
   end
 
-  def index
-    @facility = Facility.find(params[:id])
-  end
-
   def edit
     @facility = Facility.find(params[:id])
   end

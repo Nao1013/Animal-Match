@@ -28,8 +28,8 @@ class Facility::SessionsController < Devise::SessionsController
   
   def reject_withdraw_facility
     @facility = Facility.find_by(email: params[:facility][:email].downcase)
-    if @customer
-     if (@customer.valid_password?(params[:facility][:password]) && (@facility.active_for_authentication? == false))
+    if @facility
+     if (@facility.valid_password?(params[:facility][:password]) && @facility.is_deleted)
       flash[:notice] = "退会済みのためログインできません。"
       redirect_to new_facility_session_path
      end

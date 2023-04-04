@@ -18,7 +18,7 @@ class Facility::AnimalsController < ApplicationController
 
   def index
     @genres = Genre.all
-    @animals = params[:name].present? ? Genre.find(params[:name]).animals : Animal.all
+    @animals = params[:name].present? ? Genre.find(params[:name]).animals.where(facility_id:current_facility.id) : current_facility.animals
     # @animals = Tag.search(params[:tag]
     @facility = current_facility
   end
