@@ -1,14 +1,14 @@
 <div class="container text-center">
-  <%= image_tag @facility.get_profile_image(200,300), class: "rounded-circle" %>
+  <%= image_tag @facility.get_profile_image(300,300), class: "rounded-circle" %>
   <h5><%= @facility.first_name %>　<%= @facility.last_name %></h5>
   <h3><%= @facility.user_facility_name %></h3>
    <p><%= @facility.introduct %></p>
-   
+
    <h3><%= @facility.facility_name %></h3>
    <p><%= @facility.facility_intro %></p>
    <p><%= @facility.address %></p>
    <p><%= @facility.telephone %></p>
-   
+
    <%= link_to "編集", edit_facility_facility_path(@facility), class: "btn btn-success" %>
    <%= link_to "投稿一覧", facility_animals_path, class: "btn btn-primary" %>
    <%= link_to "退会", facility_facilities_unsubscribe_path, class: "btn btn-danger" %>

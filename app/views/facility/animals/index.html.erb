@@ -1,13 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col3">
-    <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %>
+      <!--施設側のプロフィール-->
+      <%= image_tag @facility.get_profile_image(50,50), class: "rounded-circle" %>
+      <%= render 'facilities/profile', facility: current_facility %>
+      
+      <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %>
     </div>
     <div class="col-1"></div>
-    
-    <div class="col-9">
+
+    <div class="col-9 mt-3">
       <%= form_tag facility_animals_path, method: :get, class: 'boards__searchForm' do %>
-      
+
       <ul class="nav nav-tabs">
         <li class="nav-item">
           <%= link_to "一覧", facility_animals_path, class: "nav-link active" %>
@@ -19,7 +23,7 @@
       </li>
       </ul>
       <% end %>
-      
+
       <div class="row mt-5">
         <% @animals.each do |animal| %>
         <div class="col-4">

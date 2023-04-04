@@ -1,5 +1,5 @@
-<div class="container text-center">
-  <h1>Welcome to Anima!</h1>
+<div class="container text-center mt-4">
+  <h1 style="background-color: #f0e68c;">Welcome to Anima!</h1>
   <p>
     このアプリは、すべてのワンちゃん、猫ちゃんが幸せなるようにと作りました。<br>
   　これから飼い主になる方、保護犬保護猫の出会いの場になればと思っています<br>
@@ -8,6 +8,8 @@
   </p>
 
   <!--<a href="#">ゲストログインはこちらから</a><br>-->
-  <%= link_to "施設のご登録はこちらから", new_facility_registration_path %><br>
-  <%= link_to "個人のご登録はこちらから", new_reader_registration_path %>
+  <%= link_to "施設のご登録はこちらから", new_facility_registration_path, class: "btn btn-success" %><br>
+  <%= link_to "個人のご登録はこちらから", new_reader_registration_path, class: "btn btn-info mt-3" %><br>
+  
+  <%= image_tag 'top-image.png', width: '40%', height: '50%', class: "mt-3" %>
 </div>

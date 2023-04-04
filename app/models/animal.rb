@@ -2,7 +2,7 @@ class Animal < ApplicationRecord
 
   # 施設側とのアソシエーション
   belongs_to :facility
-  
+
   # animal_genre(中間テーブル)とのアソシエーション
   has_many :animal_genres, dependent: :destroy
   has_many :genres, through: :animal_genres, dependent: :destroy
@@ -19,7 +19,7 @@ class Animal < ApplicationRecord
       # animal_tagsがthroughしているのでtagでアソシエーションを指定すると中間テーブルを通過した際に保存される。
       tag = Tag.find_or_create_by(tag: new_tag) # tag名が存在しないので中間テーブル(animal_tag)に保存される
       self.tags << tag # @animal.tags.save.tagということ
-    end 
+    end
  end
 
   # タグ付けの更新用メソッド

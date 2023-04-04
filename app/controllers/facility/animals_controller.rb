@@ -1,5 +1,5 @@
 class Facility::AnimalsController < ApplicationController
-  
+
   def new
     @animal = Animal.new
   end
@@ -19,7 +19,8 @@ class Facility::AnimalsController < ApplicationController
   def index
     @genres = Genre.all
     @animals = params[:name].present? ? Genre.find(params[:name]).animals : Animal.all
-    # @animals = Tag.search(params[:tag])
+    # @animals = Tag.search(params[:tag]
+    @facility = current_facility
   end
 
   def show

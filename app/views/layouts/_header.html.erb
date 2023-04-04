@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-info bg-info">
+  <nav class="navbar navbar-expand-lg navbar-info" style="background-color: #87cefa;">
     <div class="container">
       <%= link_to image_tag('logo.png', width: '40%', height: '50%', class: "ml-5"), root_path %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,32 +9,45 @@
         <ul class="navbar-nav ml-auto">
           <!--施設側ログイン後表示-->
           <% if facility_signed_in? %>
-            <li>
-              <%= link_to "マイページ", facility_facility_path(current_facility.id) %>
+            <li class= "nav-item">
+              <%= link_to facility_facility_path(current_facility.id), class: "btn btn-light mr-3" do %>
+               <i class="fas fa-user-plus"></i><br>マイページ
+              <% end %>
             </li>
-            <li>
-              <%= link_to "ログアウト", destroy_facility_session_path, method: :delete %>
+            <li class= "nav-item">
+              <%= link_to destroy_facility_session_path, method: :delete, class: "btn btn-light" do %>
+                <i class="fas fa-sign-out-alt"></i><br>ログアウト
+              <% end %>
             </li>
-          <% else %>
-            <li>
-              <%= link_to "新規登録", new_facility_registration_path %>
-            </li>
-            <li>
-              <%= link_to "ログイン", new_facility_session_path %>
-            </li>
-          <% end %>
+          <%# else %>
+          <!--  <li class= "nav-item">-->
+          <!--    <%#= link_to new_facility_registration_path, class: "btn btn-light mr-3" do %>-->
+          <!--       <i class="fas fa-paw"></i><br>新規登録-->
+          <!--    <#% end %>-->
+          <!--  </li>-->
+          <!--  <li class= "nav-item">-->
+          <!--    <%#= link_to new_facility_session_path, class: "btn btn-light mr-3" do %>-->
+          <!--      <i class="fas fa-sign-in-alt"></i><br>ログイン-->
+          <!--    <#% end %>
+          <!--  </li>-->
           
           <!--個人側ログイン後表示-->
-          <% if reader_signed_in? %>
-            <li>
-              <%= link_to "ログアウト(個人)", destroy_reader_session_path, method: :delete %>
+          <% elsif reader_signed_in? %>
+            <li class="nav-item">
+              <%= link_to destroy_reader_session_path, method: :delete, class: "btn btn-light" do %>
+                <i class="fas fa-sign-out-alt"></i><br>ログアウト
+              <% end %>
             </li>
           <% else %>
             <li>
-              <%= link_to "新規登録(個人)", new_reader_registration_path %>
+              <%= link_to new_reader_registration_path, class: "btn btn-light mr-3" do %>
+                <i class="fas fa-users-cog"></i><br>新規登録
+              <% end %>
             </li>
             <li>
-              <%= link_to "ログイン(個人)", new_reader_session_path %>
+              <%= link_to new_reader_session_path, class: "btn btn-light" do %>
+                <i class="fas fa-sign-in-alt"></i><br>ログイン
+              <% end %>
             </li>
           <% end %>
         </ul>

@@ -6,6 +6,7 @@ class Facility::FacilitiesController < ApplicationController
   end
 
   def index
+    @facility = Facility.find(params[:id])
   end
 
   def edit
@@ -20,10 +21,10 @@ class Facility::FacilitiesController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def unsubscribe
   end
-  
+
   def withdraw
     @facility = current_facility
     @facility.update(is_deleted: true)

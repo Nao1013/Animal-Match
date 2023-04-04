@@ -1,0 +1,11 @@
+  <div class="card">
+    <div class="card-body">
+      <%= facility.facility_name %>
+      <% if params[:user_facility_name]%>
+        <%= facility.user_facility_name %>
+      <% else %>
+      <p>代表者名</p>
+        <%= facility.first_name %><%= facility.last_name %>
+      <% end %>
+    </div>
+  </div>
