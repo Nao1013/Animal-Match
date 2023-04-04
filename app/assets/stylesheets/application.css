@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+.logo-text {
+  position: absolute;
+  top: 10;
+  left: 20;
+}
