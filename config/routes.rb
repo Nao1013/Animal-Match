@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   # 個人用ログイン後
    namespace :reader do
     resources :animals, only: [:index, :show]
+    get "/readers/unsubscribe" => "readers#unsubscribe"
+    get "/readers/withdraw" => "readers#withdraw"
+    resources :readers, only: [:edit, :show, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
