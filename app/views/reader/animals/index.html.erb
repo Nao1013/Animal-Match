@@ -31,11 +31,9 @@
             <%= image_tag animal.images.first, class: "rounded-circle", size: "200x200" %>
             <p class="text-center"><%= animal.name %></p>
           <% end %>
+          <i class="fas fa-star"></i><%= animal.favorites.count %><!--気になるボタン-->
         </div>
         <% end %>
-        
-        <!--気になるボタン-->
-        
       </div>
     </div>
   </div>

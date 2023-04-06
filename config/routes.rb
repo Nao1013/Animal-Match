@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # 個人用ログイン後
    namespace :reader do
     resources :animals, only: [:index, :show] do
-      resource :favorites, only: [:create, :destroy]
+      resources :favorites, only: [:index, :create, :destroy]
     end
     get "/readers/unsubscribe" => "readers#unsubscribe"
     get "/readers/withdraw" => "readers#withdraw"

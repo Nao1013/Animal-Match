@@ -18,9 +18,17 @@ class Facility::AnimalsController < ApplicationController
 
   def index
     @genres = Genre.all
-    @animals = Tag.search(params[:tag])
-    @animals = params[:name].present? ? Genre.find(params[:name]).animals.where(facility_id:current_facility.id) : current_facility.animals
+    if params[:tag].present?
+      @animals = Tag.search(params[:tag]).where(facility_id:current_facility.id)
+    elsif params[:name].present?
+      @animals = Genre.find(params[:name]).animals.where(facility_id:current_facility.id)
+    else
+      @animals = current_facility.animals.where(facility_id:current_facility.id)
+    end
     @facility = current_facility
+  # @animals.each{|animal|
+  #   puts animal.is_decided
+  # }
   end
 
   def show

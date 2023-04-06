@@ -1,8 +1,13 @@
 class Reader::AnimalsController < ApplicationController
   def index
     @genres = Genre.all
-    @animals = Tag.search(params[:tag])
-    @animals = params[:name].present? ? Genre.find(params[:name]).animals : Animal.all
+    if params[:tag].present?
+      @animals = Tag.search(params[:tag])
+    elsif params[:name].present?
+      @animals = Genre.find(params[:name]).animals
+    else
+      @animals = Animal.all
+    end
   end
 
   def show
