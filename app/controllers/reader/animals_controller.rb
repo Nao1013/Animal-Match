@@ -8,6 +8,7 @@ class Reader::AnimalsController < ApplicationController
   def show
     @animal = Animal.find(params[:id])
     @tags = @animal.tags.pluck(:tag)
+    @facility = Facility.find(params[:id])
   end
 
   private

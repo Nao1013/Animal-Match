@@ -1,4 +1,11 @@
 class Animal < ApplicationRecord
+  
+  # 個人側とのアソシエーション(いいね)
+  has_many :favorites, dependent: :destroy
+  
+  def favorited_by?(reader)
+    favorites.exists?(reader_id: reader.id)
+  end
 
   # 施設側とのアソシエーション
   belongs_to :facility

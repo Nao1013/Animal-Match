@@ -1,0 +1,2 @@
+module Reader::FavoritesHelper
+end

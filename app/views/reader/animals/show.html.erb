@@ -7,10 +7,27 @@
 
   <%= @animal.introduct %><br>
   
+  <!--★『気になる』ボタン-->
+  <% if @animal.favorited_by?(current_reader) %>
+    <p>
+      <%= link_to reader_animal_favorites_path(@animal), method: :delete do %>
+        <i class="fas fa-star"></i><%= @animal.favorites.count %> 
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to reader_animal_favorites_path(@animal), method: :post do %>
+        <i class="far fa-star"></i><%= @animal.favorites.count %> 
+      <% end %>
+    </p>
+  <% end %>
+  
+  <!--動物種-->
   <% @animal.genres.each do |genre| %>
     <%= genre.name %>
   <% end %><br>
 
+<!--タグ-->
   <% @tags.each do |tag| %>
     <%= link_to reader_animals_path(tag: tag) do %>
       <i class="fas fa-tag"></i><%= tag %>　<!--タグ用-->
@@ -20,5 +37,6 @@
 
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
    
+   <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
    <%#= link_to "DM" %>DMを送る
 </div>

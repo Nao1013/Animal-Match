@@ -37,9 +37,9 @@
                   <i class="far fa-user-circle fa-3x bg-light rounded-circle" style="color: #06109d;"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                   <!--<%#= link_to reader_path(current_facility.id),class: "btn btn-light" do %>-->
-                   <!--  <i class="fas fa-user-cog mr-2"></i>マイページ-->
-                   <!-- <#% end %>-->
+                   <%= link_to reader_reader_path(current_reader.id),class: "btn btn-light" do %>
+                     <i class="fas fa-user-cog mr-2"></i>マイページ
+                    <% end %>
                     <div class="dropdown-divider"></div>
                     <%= link_to reader_animals_path, class: "btn btn-light" do %>
                       <i class="fas fa-paw mr-2"></i>投稿一覧

@@ -35,8 +35,8 @@
         <%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "家族に迎えたい理由や先住猫の有無など", class: "col-lg-5", rows: "10" %>
       </div>
       
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <%= f.submit "変更を保存", class: "btn btn-success" %><br>
     <% end %>
-  
+    <%= link_to "back", reader_reader_path(@reader), class: "mt-5" %>
   </div>
 </div>

@@ -4,9 +4,9 @@ class Reader::ReadersController < ApplicationController
   end
 
   def show
-    @reader = Reader.find(params[:id])
+    @reader = current_reader
   end
-  
+
   def update
     @reader = Reader.find(params[:id])
     if @reader.update(reader_params)
@@ -15,9 +15,9 @@ class Reader::ReadersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   private
-  
+
   def reader_params
     params.require(:reader).permit(:first_name, :last_name, :user_name, :introduct, :prefecture, :profile_image)
   end

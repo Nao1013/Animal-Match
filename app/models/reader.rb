@@ -4,6 +4,8 @@ class Reader < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  has_many :favorites, dependent: :destroy
+  
   # プロフィール画像
   has_one_attached :profile_image
   def get_profile_image(width, height)
