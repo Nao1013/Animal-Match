@@ -28,7 +28,13 @@
       <div class="row form-group">
         <%= f.label :ユーザー名, class: "col-lg-3" %>
         <div class="col-lg-1"></div>
-        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",placeholder: "ユーザー名（アカウント名）", class: "col-lg-5" %>
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",placeholder: "ユーザー名（アカウント名）", class: "col-3" %>
+      </div>
+      
+      <div class="row form-group">
+        <%= f.label :住所, class: "col-lg-3" %>
+        <div class="col-lg-1"></div>
+        <%= f.text_field :prefecture, autofocus: true, autocomplete: "user_name",placeholder: "都道府県" %>
       </div>
 
       <div class="row form-group">

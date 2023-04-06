@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     }
 
   # 個人用devise
-    devise_for :reader,skip: [:passwords], controllers: {
+    devise_for :reader, controllers: {
+    registrations: "reader/registrations",
     sessions: "reader/sessions"
   }
 
