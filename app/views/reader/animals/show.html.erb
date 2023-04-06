@@ -1,2 +1,24 @@
-<h1>Reader::Animals#show</h1>
-<p>Find me in app/views/reader/animals/show.html.erb</p>
+<div class="container text-center">
+
+  <% @animal.images.each do |image| %>
+    <%= image_tag image, size: "500x400" %><br>
+  <% end %>
+  <%= @animal.name %><br>
+
+  <%= @animal.introduct %><br>
+  
+  <% @animal.genres.each do |genre| %>
+    <%= genre.name %>
+  <% end %><br>
+
+  <% @tags.each do |tag| %>
+    <%= link_to reader_animals_path(tag: tag) do %>
+      <i class="fas fa-tag"></i><%= tag %>　<!--タグ用-->
+    <% end %>
+  <% end %><br>
+  <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
+
+   <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
+   
+   <%#= link_to "DM" %>DMを送る
+</div>

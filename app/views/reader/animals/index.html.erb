@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col3 mt-3">
       <h3>プロフィール</h3>
     </div>
     
-    <div class="col-9">
+    <div class="col-1"></div>
+    
+    <div class="col-9 mt-3">
       <!--投稿した動物（犬・ネコ限定）-->
       <%= form_tag reader_animals_path, method: :get, class: 'boards__searchForm' do %>
-      
       
       <!--タブ分け-->
       <ul class="nav nav-tabs">
@@ -23,6 +24,7 @@
       <% end %>
       
       <!--動物一覧-->
+      <div class="row mt-5">
       <% @animals.each do |animal| %>
         <div class="col-4">
           <%= link_to reader_animal_path(animal.id) do %>
@@ -31,6 +33,7 @@
           <% end %>
         </div>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
