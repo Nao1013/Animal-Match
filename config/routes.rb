@@ -26,11 +26,13 @@ Rails.application.routes.draw do
   # 個人用ログイン後
    namespace :reader do
     resources :animals, only: [:index, :show] do
+      get :favorites, on: :collection
       resources :favorites, only: [:index, :create, :destroy]
     end
     get "/readers/unsubscribe" => "readers#unsubscribe"
     get "/readers/withdraw" => "readers#withdraw"
-    resources :readers, only: [:edit, :show, :update]
+    resources :readers, only: [:edit, :show, :update] do
+    end
     resources :facilities, only: [:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

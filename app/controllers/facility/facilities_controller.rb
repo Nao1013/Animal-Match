@@ -34,4 +34,8 @@ class Facility::FacilitiesController < ApplicationController
   def facility_params
     params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :telephone, :profile_image)
   end
+  
+  def reader_params
+    params.require(:reder).permit(:user_name, :get_profile_image)
+  end
 end

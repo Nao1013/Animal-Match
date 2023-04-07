@@ -1,7 +1,7 @@
 <div class="container text-center">
 
   <% @animal.images.each do |image| %>
-    <%= image_tag image, size: "500x400" %><br>
+    <%= image_tag image, size: "500x400", class: "mt-3" %><br>
   <% end %>
   <%= @animal.name %><br>
 
@@ -10,13 +10,19 @@
   <% @animal.genres.each do |genre| %>
     <%= genre.name %>
   <% end %><br>
-
+  
+  <!--気になるカウント-->
+  <%= link_to facility_animals_favorite_path do %>
+    <i class="fas fa-star"></i><%= @animal.favorites.count %><br>
+  <% end %>
+  
+  <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
+  
   <% @tags.each do |tag| %>
     <%= link_to facility_animals_path(tag: tag) do %>
       <i class="fas fa-tag"></i><%= tag %>　<!--タグ用-->
     <% end %>
   <% end %><br>
-  <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
   <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
   <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %><br>

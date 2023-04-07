@@ -5,6 +5,9 @@ class Reader::ReadersController < ApplicationController
 
   def show
     @reader = current_reader
+    @animals = @reader.animals
+    favorites = Favorite.where(reader_id: current_reader.id).pluck(:animal_id)
+    @favorite_animal = Animal.find(favorites)
   end
 
   def update
@@ -14,6 +17,13 @@ class Reader::ReadersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def favorite
+    @reader = current_reader
+    @animals = @reader.animals
+    favorites = Favorite.where(reader_id: current_reader.id).pluck(:animal_id)
+    @favorite_animal = Animal.find(favorites)
   end
 
   private
