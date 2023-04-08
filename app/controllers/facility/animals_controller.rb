@@ -26,9 +26,6 @@ class Facility::AnimalsController < ApplicationController
       @animals = current_facility.animals.where(facility_id:current_facility.id)
     end
     @facility = current_facility
-  # @animals.each{|animal|
-  #   puts animal.is_decided
-  # }
   end
 
   def show

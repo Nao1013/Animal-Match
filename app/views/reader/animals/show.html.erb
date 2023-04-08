@@ -8,19 +8,9 @@
   <%= @animal.introduct %><br>
   
   <!--★『気になる』ボタン-->
-  <% if @animal.favorited_by?(current_reader) %>
-    <p>
-      <%= link_to reader_animal_favorites_path(@animal), method: :delete do %>
-        <i class="fas fa-star"></i><%= @animal.favorites.count %> 
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to reader_animal_favorites_path(@animal), method: :post do %>
-        <i class="far fa-star"></i><%= @animal.favorites.count %> 
-      <% end %>
-    </p>
-  <% end %>
+  <div id="favorite_btn_<%= @animal.id %>">
+    <%= render 'reader/favorites/favorite', animal: @animal %> 
+  </div>
   
   <!--動物種-->
   <% @animal.genres.each do |genre| %>

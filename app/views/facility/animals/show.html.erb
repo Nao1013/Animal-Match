@@ -12,9 +12,7 @@
   <% end %><br>
   
   <!--気になるカウント-->
-  <%= link_to facility_animals_favorite_path do %>
     <i class="fas fa-star"></i><%= @animal.favorites.count %><br>
-  <% end %>
   
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
   

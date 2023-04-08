@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col3 mt-3">
       <h3>プロフィール</h3>
+      <%= link_to "いいね一覧", favorites_reader_reader_path(current_reader) %>
     </div>
     
     <div class="col-1"></div>
@@ -10,17 +11,17 @@
       <!--投稿した動物（犬・ネコ限定）-->
       <%= form_tag reader_animals_path, method: :get, class: 'boards__searchForm' do %>
       
-      <!--タブ分け-->
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <%= link_to "一覧", reader_animals_path, class: "nav-link active" %>
+        <!--タブ分け-->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <%= link_to "一覧", reader_animals_path, class: "nav-link active" %>
+          </li>
+          <% @genres.each do |genre| %>
+         <li class="nav-item">
+            <%= link_to genre.name, reader_animals_path(name: genre.id), class: "nav-link" %>
+          <% end %>
         </li>
-        <% @genres.each do |genre| %>
-       <li class="nav-item">
-          <%= link_to genre.name, reader_animals_path(name: genre.id), class: "nav-link" %>
-        <% end %>
-      </li>
-      </ul>
+        </ul>
       <% end %>
       
       <!--動物一覧-->
