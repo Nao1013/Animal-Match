@@ -1,4 +1,6 @@
 <div class="container text-center">
-  <p>いいねした投稿一覧</p>
-<%= render partial: "reader/animals/favo", collection: @favorite_animals %>
+  <h3 class="border-bottom mt-3">気になる子</h3>
+  <div class="row mt-5">
+    <%= render partial: "reader/animals/favo", collection: @favorite_animals, class: "mt-3" %>
+  </div>
 </div>

@@ -1,2 +1,9 @@
-<%= link_to image_tag favo.images.first, class: "rounded-circle", size: "50x50" %>
-<%= favo.name %>
+
+  <div class="col-3">
+    <div>
+      <%= link_to reader_animal_path(favo.id) do %>
+        <%= image_tag favo.images.first, class: "rounded-circle", size: "100x100" %><br>
+        <%= favo.name %>
+      <% end %>
+    </div>
+  </div>
