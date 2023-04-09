@@ -1,28 +1,27 @@
 <div class="contaner text-center">
-  <h1>新規投稿</h1>
-  
+  <h3 class="mt-3 ">新規投稿</h3>
+
   <%= form_with model: @animal, url: facility_animals_path do |f| %>
 
   <!--画像選択-->
-      <%= f.file_field :images, accept: "image/*", multiple: true, class: "mt-3" %>
+    <div class="field">
+      <%= f.label :"画像選択", class: "font-weight-bold" %><br>
+      <%= f.file_field :images, accept: "image/*", multiple: true %>
+    </div>
 
-      <!--動物の名前記入-->
-    <h5 class="font-weight-bold mt-3">ワンちゃん・ネコちゃんのお名前</h5>
+    <!--動物の名前記入-->
+    <div class="field">
+      <%= f.label :"お名前", class: "font-weight-bold mt-3" %><br>
       <%= f.text_field :name, class: "form", placeholder: "ポチ/タマ" %>
+    </div>
 
       <!--動物についての説明欄-->
-    <h5 class="font-weight-bold mt-3">ワンちゃん・ネコちゃんの説明</h5>
-      <%= f.text_area :introduct,placeholder: "性格や保護期間など", class: "form col-6",rows: "15" %><br>
-
+    <div class="field">
+      <%= f.label :"説明", class: "font-weight-bold mt-3" %><br>
+      <%= f.text_area :introduct,placeholder: "性格や保護期間など", class: "col-7",rows: "20" %>
+    </div>
       <!--犬・猫種類-->
-    <!--<div class="form-group">-->
-    　<%#= f.radio_button :is_sort, true %>
-    　<%#= f.label :is_sort, "犬", {value: :true, style: "display: inline-block;"} %>
-    　<%#= f.radio_button :is_sort, false %>
-    　<%#= f.label :is_sort, "猫", {value: :false, style: "display: inline-block;"} %>
-    <!--</div>-->
-
-    <div class="check_box">
+    <div class="check_box mt-3">
       <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
         <!--<div class='form-check'>-->
        　<%= genre.label do %>
@@ -35,7 +34,7 @@
 
     <div class="input-field mt-3">
       <h4>タグ付け</h4>
-      <%= f.text_field :tag, placeholder: "タグを複数つけるには' , 'で区切ってください", class: "col-4" %>
+      <%= f.text_field :tag, placeholder: "タグを複数つけるには' , 'で区切ってください", class: "col-7" %>
     </div>
 
     <%= f.submit '新規投稿', class: "btn btn-success mt-3" %>
