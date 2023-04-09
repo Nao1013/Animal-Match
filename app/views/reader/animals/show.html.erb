@@ -28,5 +28,5 @@
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
    
    <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
-   <%#= link_to "DM" %>DMを送る
+   <%= link_to "DMを送る", reader_message_path(@facility.id), class: "btn btn-info mt-3" %>
 </div>

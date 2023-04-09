@@ -13,7 +13,7 @@ class Facility::FacilitiesController < ApplicationController
       @room = Room.new
       @room.save
       Room.create(facility_id: current_facility.id, room_id: @room.id)
-      Room.create(facility_id: @user.id, room_id: @room.id)
+      Room.create(facility_id: @facility.id, room_id: @room.id)
     end
     @messages = @room.messages
     @message = Message.new(room_id: @room.id)
