@@ -1,2 +1,0 @@
-module Facility::RoomsHelper
-end

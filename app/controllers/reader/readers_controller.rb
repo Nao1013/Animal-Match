@@ -22,6 +22,13 @@ class Reader::ReadersController < ApplicationController
     favorites = Favorite.where(reader_id: @reader.id).pluck(:animal_id)
     @favorite_animals = Animal.find(favorites)
   end
+  
+  def destroy
+    @reader = Reader.find(params[:id]) 
+    @reader.destroy
+    flash[:notice] = '削除しました。'
+    redirect_to :root #削除に成功すればrootページに戻る
+  end
 
   private
 

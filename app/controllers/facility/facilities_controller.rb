@@ -3,20 +3,6 @@ class Facility::FacilitiesController < ApplicationController
 
   def show
     @facility = Facility.find(params[:id])
-    
-    rooms = current_facility.facility_rooms.pluck(:room_id)
-    facility_rooms = Room.find_by(facility_id: @facility.id, room_id: rooms)
-
-    unless facility_rooms.nil?
-      @room = facility_rooms.room
-    else
-      @room = Room.new
-      @room.save
-      Room.create(facility_id: current_facility.id, room_id: @room.id)
-      Room.create(facility_id: @facility.id, room_id: @room.id)
-    end
-    @messages = @room.messages
-    @message = Message.new(room_id: @room.id)
   end
 
   def edit
@@ -31,17 +17,24 @@ class Facility::FacilitiesController < ApplicationController
       render 'edit'
     end
   end
-
-  def unsubscribe
+  
+  def destroy
+    @facility = Facility.find(params[:id]) 
+    @facility.destroy
+    flash[:notice] = '削除しました。'
+    redirect_to :root #削除に成功すればrootページに戻る
   end
 
-  def withdraw
-    @facility = current_facility
-    @facility.update(is_deleted: true)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
-  end
+  # def unsubscribe
+  # end
+
+  # def withdraw
+  #   @facility = current_facility
+  #   @facility.update(is_deleted: true)
+  #   reset_session
+  #   flash[:notice] = "退会処理を実行いたしました"
+  #   redirect_to root_path
+  # end
 
   private
 
@@ -49,7 +42,4 @@ class Facility::FacilitiesController < ApplicationController
     params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :telephone, :profile_image)
   end
   
-  def reader_params
-    params.require(:reder).permit(:user_name, :get_profile_image)
-  end
 end

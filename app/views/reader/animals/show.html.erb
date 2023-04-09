@@ -1,32 +1,31 @@
 <div class="container text-center">
 
-  <% @animal.images.each do |image| %>
     <%= image_tag image, size: "500x400" %><br>
-  <% end %>
+
   <%= @animal.name %><br>
 
   <%= @animal.introduct %><br>
-  
+
   <!--★『気になる』ボタン-->
   <div id="favorite_btn_<%= @animal.id %>">
-    <%= render 'reader/favorites/favorite', animal: @animal %> 
+    <%= render 'reader/favorites/favorite', animal: @animal %>
   </div>
-  
+
   <!--動物種-->
   <% @animal.genres.each do |genre| %>
     <%= genre.name %>
   <% end %><br>
 
 <!--タグ-->
-  <% @tags.each do |tag| %>
-    <%= link_to reader_animals_path(tag: tag) do %>
-      <i class="fas fa-tag"></i><%= tag %>　<!--タグ用-->
-    <% end %>
-  <% end %><br>
+  <!--<%# @tags.each do |tag| %>-->
+  <!--  <%#= link_to reader_animals_path(tag: tag) do %>-->
+  <!--    <i class="fas fa-tag"></i><%#= tag %>　<!--タグ用-->
+  <!--  <%# end %>-->
+  <!--<%# end %><br>-->
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
-   
+
    <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
    <%= link_to "DMを送る", reader_message_path(@facility.id), class: "btn btn-info mt-3" %>
 </div>

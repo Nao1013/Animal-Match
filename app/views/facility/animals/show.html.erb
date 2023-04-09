@@ -1,29 +1,28 @@
 <div class="container text-center">
 
-  <% @animal.images.each do |image| %>
-  <div class="images">
+  <% @animal.image.each do |image| %>
     <%= image_tag image, size: "500x400", class: "mt-3" %>
-    </div>
-  <% end %>
+  <% end %><br>
+  
   <%= @animal.name %><br>
 
   <%= @animal.introduct %><br>
-  
+
   <% @animal.genres.each do |genre| %>
     <%= genre.name %>
   <% end %><br>
-  
+
   <!--気になるカウント-->
     <i class="fas fa-star"></i><%= @animal.favorites.count %><br>
-  
+
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
-  
-  <% @tags.each do |tag| %>
-    <%= link_to facility_animals_path(tag: tag) do %>
-      <i class="fas fa-tag"></i><%= tag %>　<!--タグ用-->
-    <% end %>
-  <% end %><br>
-  
+
+  <%# @tags.each do |tag| %>
+    <%#= link_to facility_animals_path(tag: tag) do %>
+      <!--<i class="fas fa-tag"></i><%#= tag %>　<!--タグ用-->
+    <%# end %>
+  <%# end %>
+
   <% if @animal.is_decided %>
     <span class="text-danger font-weight-bold">家族が決まりました</span>
   <% else %>

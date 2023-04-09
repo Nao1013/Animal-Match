@@ -1,2 +1,0 @@
-module Reader::MessagesHelper
-end

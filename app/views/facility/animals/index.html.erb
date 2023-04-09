@@ -8,8 +8,6 @@
       <!--新規投稿-->
       <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %><br>
       
-      <!--DM-->
-      <%= link_to "DM", facility_rooms_path, class: "btn btn-primary mt-2" %>
     </div>
 
     <div class="col-1"></div>
@@ -37,7 +35,11 @@
         <% @animals.each do |animal| %>
         <div class="col-4">
           <%= link_to facility_animal_path(animal.id) do %>
-            <%= image_tag animal.images.first, class: "rounded-circle", size: "200x200" %>
+          <% if animal.image.attached? %>
+            <%= image_tag animal.image, class: "rounded-circle", size: "200x200" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "200x200" %>
+            <% end %>
             <p class="text-center"><%= animal.name %></p>
           <% end %>
         </div>

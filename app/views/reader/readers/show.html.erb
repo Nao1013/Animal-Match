@@ -7,7 +7,7 @@
    
   <div>
     <%= link_to "編集", edit_reader_reader_path, class: "btn btn-success mr-3" %>
-    <%= link_to "退会", reader_readers_unsubscribe_path, class: "btn btn-danger mt-2" %>
+    <%= link_to "退会", reader_reader_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に退会しますか？" %>
   </div>
 
 </div>
