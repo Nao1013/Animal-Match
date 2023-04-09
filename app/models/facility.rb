@@ -4,9 +4,13 @@ class Facility < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # DM実装アソシエーション
+  has_many :rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
   # animalとのアソシエーション
   has_many :animals, dependent: :destroy
-  
+
 
   # プロフィール画像
   has_one_attached :profile_image

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   root :to => 'homes#top'
 
   # 施設側用devise
@@ -20,6 +19,8 @@ Rails.application.routes.draw do
     get "/facilities/unsubscribe" => "facilities#unsubscribe"
     get "/facilities/withdraw" => "facilities#withdraw"
     resources :facilities, only: [:show, :edit, :update]
+    resources :messages, only: [:create]
+    resources :rooms, only: [:create, :index, :show]
     # get '/animal_tag/:tag', to: "animals#search"
     end
 
@@ -37,5 +38,7 @@ Rails.application.routes.draw do
     end
     resources :facilities, only: [:show]
   end
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

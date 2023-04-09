@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h3>DM</h3>
+      <% @reader.each do |reader| %>
+        <%= image_tag reader.get_profile_image(200, 200), class: "raunded-circle", size: "100x100" %>
+        <%= reader.user_name %>
+      <% end %>
+    </div>
+  </div>
+</div>

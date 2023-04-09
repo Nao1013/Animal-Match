@@ -6,7 +6,10 @@
       <%= render 'facility/facilities/profile', facility: current_facility %>
 
       <!--新規投稿-->
-      <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %>
+      <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %><br>
+      
+      <!--DM-->
+      <%= link_to "DM", facility_rooms_path, class: "btn btn-primary mt-2" %>
     </div>
 
     <div class="col-1"></div>

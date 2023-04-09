@@ -3,6 +3,20 @@ class Facility::FacilitiesController < ApplicationController
 
   def show
     @facility = Facility.find(params[:id])
+    
+    rooms = current_facility.facility_rooms.pluck(:room_id)
+    facility_rooms = Room.find_by(facility_id: @facility.id, room_id: rooms)
+
+    unless facility_rooms.nil?
+      @room = facility_rooms.room
+    else
+      @room = Room.new
+      @room.save
+      Room.create(facility_id: current_facility.id, room_id: @room.id)
+      Room.create(facility_id: @user.id, room_id: @room.id)
+    end
+    @messages = @room.messages
+    @message = Message.new(room_id: @room.id)
   end
 
   def edit
