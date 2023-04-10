@@ -1,6 +1,6 @@
 <div class="container text-center">
 
-    <%= image_tag image, size: "500x400" %><br>
+    <%= image_tag @animal.image, size: "500x400" %><br>
 
   <%= @animal.name %><br>
 
@@ -8,7 +8,7 @@
 
   <!--★『気になる』ボタン-->
   <div id="favorite_btn_<%= @animal.id %>">
-    <%= render 'reader/favorites/favorite', animal: @animal %>
+    <div class="favorite_btn"><%= render 'reader/favorites/favorite', animal: @animal %></div>
   </div>
 
   <!--動物種-->
@@ -27,5 +27,5 @@
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
 
    <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
-   <%= link_to "DMを送る", reader_message_path(@facility.id), class: "btn btn-info mt-3" %>
+   
 </div>

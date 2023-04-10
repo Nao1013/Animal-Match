@@ -1,9 +1,5 @@
 class Reader::FavoritesController < ApplicationController
-  
-  def index
-    favorites = Favorite.where(reader_id: @reader.id).pluck(:animal_id)
-    @favorite_animals = Animal.find(favorites)
-  end
+  before_action :set_animal
   
   def create
     @animal = Animal.find(params[:animal_id])
@@ -17,6 +13,10 @@ class Reader::FavoritesController < ApplicationController
     favorite = current_reader.favorites.find_by(animal_id: @animal.id)
     favorite.destroy
     # redirect_to reader_animal_path(animal)
+  end
+  
+  def set_animal
+    @animal = Animal.find_by(id: params[:animal_id])
   end
   
 end
