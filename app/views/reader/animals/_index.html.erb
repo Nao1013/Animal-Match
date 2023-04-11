@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="row mt-5">
   <% animals.each do |animal| %>
     <div class="col-4">
       <%= link_to reader_animal_path(animal.id) do %>
@@ -8,4 +8,4 @@
       <i class="fas fa-star"></i><%= animal.favorites.count %><!--気になるボタン-->
     </div>
     <% end %>
-</div>
+  </div>

@@ -26,6 +26,17 @@
   </div>
   
   <%#=　犬・猫選択（固定）%>
+  <div class="check_box mt-3">
+    <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+      <!--<div class='form-check'>-->
+     　<%= genre.label do %>
+      　 <%= genre.check_box %>
+      　 <%= genre.text %>
+      　<% end %>
+      <!--</div>-->
+    <% end %>
+  </div>
+  
   <%= f.submit "変更を保存", class: "btn btn-success" %>
 <% end %>
 <%= link_to "back", facility_animal_path(@animal) %>

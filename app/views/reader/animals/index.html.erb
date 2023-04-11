@@ -1,16 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col3 mt-3">
-      <h3>プロフィール</h3>
-      <%= link_to "いいね一覧", favorites_reader_reader_path(current_reader) %>
+      <%= image_tag @reader.get_profile_image(300,300), class: "rounded-circle mt-5", size: "150x150" %>
+      <h3><%= @reader.user_name %></h3>
+      <p><%= @reader.introduct %></p>
+
+      <%= link_to "いいね一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info" %>
     </div>
-    
+
     <div class="col-1"></div>
-    
+
     <div class="col-9 mt-3">
       <!--投稿した動物（犬・ネコ限定）-->
       <%= form_tag reader_animals_path, method: :get, class: 'boards__searchForm' do %>
-      
+
         <!--タブ分け-->
         <ul class="nav nav-tabs">
           <li class="nav-item">
@@ -23,19 +26,9 @@
         </li>
         </ul>
       <% end %>
-      
+
       <!--動物一覧-->
-      <div class="row mt-5">
-      <% @animals.each do |animal| %>
-        <div class="col-4">
-          <%= link_to reader_animal_path(animal.id) do %>
-            <%= image_tag animal.image, class: "rounded-circle", size: "200x200" %>
-            <p class="text-center"><%= animal.name %></p>
-          <% end %>
-          <i class="fas fa-star"></i><%= animal.favorites.count %><!--気になるボタン-->
-        </div>
-        <% end %>
-      </div>
+      <%= render "reader/animals/index", animals: @animals %>
     </div>
   </div>
 </div>
