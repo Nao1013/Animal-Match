@@ -1,0 +1,2 @@
+module Reader::SearchsHelper
+end
