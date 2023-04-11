@@ -1,0 +1,11 @@
+<div class="container text-center">
+  <% animals.each do |animal| %>
+    <div class="col-4">
+      <%= link_to reader_animal_path(animal.id) do %>
+        <%= image_tag animal.image, class: "rounded-circle", size: "200x200" %>
+        <p class="text-center"><%= animal.name %></p>
+      <% end %>
+      <i class="fas fa-star"></i><%= animal.favorites.count %><!--気になるボタン-->
+    </div>
+    <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="container text-center">
+  <% if @model == 'facility' %>
+    <h3>【Facilitiesモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'reader/facilities/index', facilities: @records %>
+  <% else @model == 'animals' %>
+    <h3>【Animalsモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'reader/animals/index', animals: @records %>
+  <% end %>
+</div>
