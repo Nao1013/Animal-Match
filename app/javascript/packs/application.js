@@ -11,7 +11,7 @@ import "channels"
 
 import "jquery"
 import "popper.js"
-import "javascript/script.js"
+// import "javascript/script.js"
 import "bootstrap"
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
