@@ -20,10 +20,14 @@
   left: 20;
 }
 
-/*.swiper {*/
-/*  width: 600px;*/
-/*  height: 300px;*/
-/*}*/
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
+.swiper-slide {
+  background-size: cover;
+}
 
 :root {
   --swiper-navigation-color: #ffffff;
