@@ -1,10 +1,18 @@
 <div class="container text-center">
 
-    <%= image_tag @animal.image, size: "500x400" %><br>
-
+   <% if @animal.images.attached? %>
+    <% @animal.images.each do |image| %>
+      <%= image_tag image, size: "500x400", class: "mt-3" %>
+    <% end %>
+  <% end %><br>
+  
   <%= @animal.name %><br>
 
-  <%= @animal.introduct %><br>
+  <div class="card">
+    <div class="card-body">
+      <%= @animal.introduct %><br>
+    </div>
+  </div>
 
   <!--★『気になる』ボタン-->
   <div id="favorite_btn_<%= @animal.id %>">
@@ -23,6 +31,12 @@
   <!--  <%# end %>-->
   <!--<%# end %><br>-->
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
+  
+  <% if @animal.is_decided %>
+    <span class="text-danger font-weight-bold">家族が決まりました</span>
+  <% else %>
+    <span class="text-success font-weight-bold">募集中</span>
+  <% end %><br>
 
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
 

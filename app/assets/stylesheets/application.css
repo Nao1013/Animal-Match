@@ -20,10 +20,10 @@
   left: 20;
 }
 
-.swiper {
-  width: 600px;
-  height: 300px;
-}
+/*.swiper {*/
+/*  width: 600px;*/
+/*  height: 300px;*/
+/*}*/
 
 :root {
   --swiper-navigation-color: #ffffff;

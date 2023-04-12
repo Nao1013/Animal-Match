@@ -35,10 +35,10 @@
         <% @animals.each do |animal| %>
         <div class="col-4">
           <%= link_to facility_animal_path(animal.id) do %>
-          <% if animal.image.attached? %>
-            <%= image_tag animal.image, class: "rounded-circle", size: "200x200" %>
+          <% if animal.images.attached? %>
+            <%= image_tag animal.images.first, class: "rounded-circle", size: "200x200" %>
             <% else %>
-              <%= image_tag 'no_image', size: "200x200" %>
+              <%= image_tag 'no_image', size: "200x200", class: "rounded-circle" %>
             <% end %>
             <p class="text-center"><%= animal.name %></p>
           <% end %>

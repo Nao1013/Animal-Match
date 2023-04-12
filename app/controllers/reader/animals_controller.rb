@@ -1,6 +1,6 @@
 class Reader::AnimalsController < ApplicationController
   def index
-    @facilities = Facility.find(params[:facility_name])
+    # @facilities = Facility.find(params[:facility_name])
     @reader = current_reader
     @genres = Genre.all
     # @facilities = Facility.where(is_deleted: false).pluck('id') # 現在登録している施設側を絞り込んでいる

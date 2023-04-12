@@ -2,36 +2,49 @@
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <%= image_tag @animal.image, size: "500x400", class: "mt-3" %><br>
+        <% if @animal.images.attached? %>
+          <% @animal.images.each do |image| %>
+            <%= image_tag image, size: "500x400", class: "mt-3" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-  </div>
-  <%= @animal.name %><br>
+    <div class="swiper-pagination"></div>
+      <!-- ナビゲーションボタン （前、次） -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div><br>
+   
+    <%= @animal.name %><br>
+  
+    <div class="card">
+      <div class="card-body">
+        <%= @animal.introduct %><br>
+      </div>
+    </div>
 
-  <%= @animal.introduct %><br>
-
-  <% @animal.genres.each do |genre| %>
-    <%= genre.name %>
-  <% end %><br>
-
-  <!--気になるカウント-->
-    <i class="fas fa-star"></i><%= @animal.favorites.count %><br>
-
-  <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
-
-  <%# @tags.each do |tag| %>
-    <%#= link_to facility_animals_path(tag: tag) do %>
-      <!--<i class="fas fa-tag"></i><%#= tag %>　<!--タグ用-->
+    <% @animal.genres.each do |genre| %>
+      <%= genre.name %>
+    <% end %><br>
+  
+    <!--気になるカウント-->
+      <i class="fas fa-star"></i><%= @animal.favorites.count %><br>
+  
+    <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
+  
+    <%# @tags.each do |tag| %>
+      <%#= link_to facility_animals_path(tag: tag) do %>
+        <!--<i class="fas fa-tag"></i><%#= tag %>　<!--タグ用-->
+      <%# end %>
     <%# end %>
-  <%# end %>
-
-  <% if @animal.is_decided %>
-    <span class="text-danger font-weight-bold">家族が決まりました</span>
-  <% else %>
-    <span class="text-success font-weight-bold">募集中</span>
-  <% end %><br>
-
-  <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
-  <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %><br>
-   <%= link_to "back", facility_animals_path %>
-</div>
+  
+    <% if @animal.is_decided %>
+      <span class="text-danger font-weight-bold">家族が決まりました</span>
+    <% else %>
+      <span class="text-success font-weight-bold">募集中</span>
+    <% end %><br>
+  
+    <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
+    <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %><br>
+     <%= link_to "back", facility_animals_path %>
+  </div>

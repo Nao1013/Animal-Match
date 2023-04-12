@@ -49,7 +49,7 @@ class Animal < ApplicationRecord
   # end
 
   # 画像を複数投稿/画像のバリデーション
-  has_one_attached :image
-  validates :image, presence: true
+  has_many_attached :images
+  validates :images, presence: true
 
 end
