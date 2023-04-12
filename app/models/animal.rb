@@ -51,5 +51,9 @@ class Animal < ApplicationRecord
   # 画像を複数投稿/画像のバリデーション
   has_many_attached :images
   validates :images, presence: true
+  
+  
+  # 説明文バリデーション
+  validates :introduct, presence: true, length: {in: 5..10000 }
 
 end

@@ -8,6 +8,19 @@
       <%= f.label :"画像選択", class: "font-weight-bold" %><br>
       <%= f.file_field :images, accept: "image/*",multiple: true %>
     </div>
+    <div data-images-target="preview">
+    <% if @animal.images.attached? %>
+      <% @animal.images.each do |image| %>
+        <div class="image-box inline-flex mx-1 mb-5" data-controller="images" data-images-target= "image_box">
+          <div class="text-center">
+            <%= image_tag image, width: "100" %>
+            <a class="link cursor-pointer" data-action="click->images#deleteImage">削除</a>
+            <%= f.hidden_field :images, name: "animal[images][]", style: "display: none", value: "#{image.blob.id}" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
     <!--動物の名前記入-->
     <div class="field">
