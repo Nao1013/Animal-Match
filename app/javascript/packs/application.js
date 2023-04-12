@@ -10,10 +10,12 @@ import "channels"
 
 import "jquery";
 import "popper.js";
+import "script.js"
 import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
-
+import Swiper from 'swiper/swiper-bundle.js';  //この行を追記
+import 'swiper/swiper-bundle.css';
 
 Rails.start()
 Turbolinks.start()
