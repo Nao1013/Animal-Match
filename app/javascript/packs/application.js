@@ -3,23 +3,22 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-
 import Rails from "@rails/ujs"
-// import Turbolinks from "turbolinks"
+ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import "jquery"
 import "popper.js"
-// import "javascript/script.js"
 import "bootstrap"
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
-// import Swiper from 'swiper/swiper-bundle.js';  //この行を追記
-// import 'swiper/swiper-bundle.css';　
+import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
+import "./script.js"
 
 
 Rails.start()
-// Turbolinks.start()
+Turbolinks.start()
 ActiveStorage.start()
 
