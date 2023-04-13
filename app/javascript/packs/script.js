@@ -18,4 +18,4 @@ $(document).on('turbolinks:load', () => {
       prevEl: '.swiper-button-prev', //「前へボタン」要素の指定
     }
   });
-});
+})
