@@ -18,17 +18,16 @@
       <!--動物についての説明欄-->
     <div class="field">
       <%= f.label :"説明", class: "font-weight-bold mt-3" %><br>
-      <%= f.text_area :introduct,placeholder: "性格や保護期間など", class: "col-7",rows: "20" %>
+      <%= f.text_area :introduct, placeholder: "性格や保護期間など", class: "col-7",rows: "20", style: "white-space: pre-line;" %>
     </div>
+    
       <!--犬・猫種類-->
     <div class="check_box mt-3">
       <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
-        <!--<div class='form-check'>-->
-       　<%= genre.label do %>
-        　 <%= genre.check_box %>
-        　 <%= genre.text %>
-        　<% end %>
-        <!--</div>-->
+     　<%= genre.label do %>
+      　 <%= genre.check_box %>
+      　 <%= genre.text %>
+      　<% end %>
       <% end %>
     </div>
 
