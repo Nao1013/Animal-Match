@@ -1,11 +1,20 @@
   <div class="card mt-2">
     <div class="card-body">
-      <%= facility.facility_name %>
-      <% if facility.user_facility_name %>
-        <%= facility.user_facility_name %>
-      <% else %>
-      <p>代表者名</p>
-        <%= facility.first_name %><%= facility.last_name %>
-      <% end %>
+      <table class="table">
+        <tr>
+          <td class="font-weight-bold">
+            <%= facility.facility_name %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <% if facility.user_facility_name %>
+              <%= facility.user_facility_name %>
+            <% else %>
+              <%= facility.first_name %><%= facility.last_name %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>

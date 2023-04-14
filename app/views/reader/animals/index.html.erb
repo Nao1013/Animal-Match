@@ -3,9 +3,9 @@
     <div class="col3 mt-3">
       <%= image_tag @reader.get_profile_image(300,300), class: "rounded-circle mt-5", size: "150x150" %>
       <h3><%= @reader.user_name %></h3>
-      <p><%= @reader.introduct %></p>
 
-      <%= link_to "いいね一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info" %>
+      <%= link_to "いいね一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info" %><br>
+      <%= link_to "マイページ", edit_reader_reader_path(@reader), class: "btn btn-primary mt-2"%>
     </div>
 
     <div class="col-1"></div>

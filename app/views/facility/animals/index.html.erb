@@ -7,12 +7,13 @@
 
       <!--新規投稿-->
       <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %><br>
+      <%= link_to "マイページ", edit_facility_facility_path(current_facility.id), class: "btn btn-primary mt-3"  %>
       
     </div>
 
     <div class="col-1"></div>
 
-    <div class="col-9 mt-3">
+    <div class="col-8 mt-3">
 
       <!--投稿した動物（犬・ネコ限定）-->
       <%= form_tag facility_animals_path, method: :get, class: 'boards__searchForm' do %>
