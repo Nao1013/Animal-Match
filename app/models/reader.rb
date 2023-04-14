@@ -3,9 +3,13 @@ class Reader < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
+  # DM機能
+  has_many :rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
   has_many :favorites, dependent: :destroy
-  
+
   # プロフィール画像
   has_one_attached :profile_image
   def get_profile_image(width, height)
@@ -15,5 +19,5 @@ class Reader < ApplicationRecord
   end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
 end

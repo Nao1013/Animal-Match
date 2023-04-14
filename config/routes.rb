@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     # get "/facilities/unsubscribe" => "facilities#unsubscribe"
     # get "/facilities/withdraw" => "facilities#withdraw"
     resources :facilities, only: [:show, :edit, :update, :destroy]
+    resources :messages, only: [:show, :create]
     # get '/animal_tag/:tag', to: "animals#search"
     end
 
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
       end
     end
     resources :facilities, only: [:show]
+    resources :messages, only: [:show, :create]
     get '/search', to: 'searchs#search'
   end
   

@@ -7,6 +7,9 @@ class Facility < ApplicationRecord
   # animalとのアソシエーション
   has_many :animals, dependent: :destroy
 
+  #DM機能
+  has_many :rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   # プロフィール画像
   has_one_attached :profile_image
