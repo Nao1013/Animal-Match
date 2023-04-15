@@ -1,2 +1,4 @@
 $('#room-messages').html("<%= j(render "reader/rooms/message", messages: @messages) %>");
+
+<!--メッセージ送信後フォームを空にする--><!--valはvalueの略。送信する文字列-->
 $('#room-new-message').val('');

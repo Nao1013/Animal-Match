@@ -1,0 +1,17 @@
+<div class="container text-center">
+  <div class="chat-topbar">
+    <h2 class="mt-3"><%= @reader.user_name %> さんとのチャット</h2>
+  </div>
+  <div id="room-messages" class="message col-8">
+    <%= render "facility/rooms/message", messages: @messages %>
+  </div>
+
+  <div class="chat-form">
+    <%= form_with url: facility_room_messages_path(@room), model: @message, data: {remote: true} do |f| %>
+      <%= f.text_field :body, id: "room-new-message", placeholder: "メッセージを入力してください", autocomplete: "off", class: "col-5" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.hidden_field :reader_id, value: @reader.id %>
+      <%= f.submit "送信" %>
+    <% end %>
+  </div>
+</div>

@@ -1,10 +1,20 @@
 class Facility::RoomsController < ApplicationController
-  def index
-   @messages = room.messages.order(created_at: :desc).first(5)
+
+  def create
+   @reader = Reader.find(params[:reader_id])
+   @room = Room.find_by(reader: @reader, facility: current_facility)
+   redirect_to facility_room_path(@room)
   end
-  
+
   def show
-    @message = Message.new
-    @messages = Message.where(room_id: @room.id)
+    @room = Room.find(params[:id])
+    @reader = @room.reader
+    @messages= @room.messages # チャット一覧
+    @message = Message.new # チャット投稿
+  end
+
+  def index
+    # readersはReaderに紐づいているMessageがログインしているfacilityへのメッセージの場合、そのreader_id(reader.id)を表示する、
+    @readers = Reader.find(Message.where(facility_id: current_facility.id).pluck(:reader_id).uniq)
   end
 end

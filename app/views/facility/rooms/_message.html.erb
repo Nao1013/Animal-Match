@@ -2,14 +2,13 @@
   <% messages.each do |message| %>
     <% if message.facility_id == current_facility.id %>
       <div class="message self">
-        <div class="message-body">
+        <div class="message right" style="text-align: right;">
           <%= message.body %>
         </div>
       </div>
     <% else %>
       <div class="message other">
-        <div class="message-sender"><%= message.facility.facility_name %></div>
-        <div class="message-body">
+        <div class="message left" style="text-align: left;">
           <%= message.body %>
         </div>
       </div>

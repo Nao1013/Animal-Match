@@ -1,2 +1,4 @@
-$('.message').html("<%= j(render 'messages/messages', messages: @messages) %>");
-$('input[type=text]').val("")
+$('#room-messages').html("<%= j(render "facility/rooms/message", messages: @messages) %>");
+
+<!--メッセージ送信後フォームを空にする--><!--valはvalueの略。送信する文字列-->
+$('#room-new-message').val('');
