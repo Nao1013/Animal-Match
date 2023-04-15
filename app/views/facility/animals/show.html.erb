@@ -20,7 +20,7 @@
 
     <div class="card">
       <div class="card-body">
-        <%= @animal.introduct %><br>
+        <%=safe_join(@animal.introduct.split("\n"),tag(:br))%><br>
       </div>
     </div>
 

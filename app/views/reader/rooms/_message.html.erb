@@ -2,13 +2,13 @@
   <% messages.each do |message| %>
     <% if message.reader_id == current_reader.id %>
       <div class="message self">
-        <div class="message-body">
+        <div class="message-body" style="text-align: right;">
           <%= message.body %>
         </div>
       </div>
     <% else %>
       <div class="message other">
-        <div class="message-sender"><%= message.reader.user_name %></div>
+        <div class="message-sender" style="text-align: left;"><%= message.facility_name %></div>
         <div class="message-body">
           <%= message.body %>
         </div>

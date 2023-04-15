@@ -2,10 +2,12 @@
   <%= image_tag @facility.get_profile_image(300,300), class: "rounded-circle", size: "200x200" %>
   <h5><%= @facility.first_name %>　<%= @facility.last_name %></h5>
   <h3><%= @facility.user_facility_name %></h3>
-   <p><%= @facility.introduct %></p>
+   <p><%=safe_join(@facility.introduct.split("\n"),tag(:br))%></p>
 
    <h3><%= @facility.facility_name %></h3>
-   <p><%= @facility.facility_intro %></p>
+   <p><%=safe_join(@facility.facility_intro.split("\n"),tag(:br))%></p>
    <p><%= @facility.address %></p>
    <p><%= @facility.telephone %></p>
+   
+   <%= render 'reader/animals/index', animals: @animals %>
 </div>

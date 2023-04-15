@@ -36,7 +36,9 @@ Rails.application.routes.draw do
       end
     end
     resources :facilities, only: [:show]
-    resources :messages, only: [:show, :create]
+    resources :rooms, only: [:create, :show] do
+      resources :messages, only: [:create]
+    end
     get '/search', to: 'searchs#search'
   end
   

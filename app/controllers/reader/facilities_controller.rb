@@ -1,6 +1,7 @@
 class Reader::FacilitiesController < ApplicationController
   def show
     @facility = Facility.find(params[:id])
+    @animals = Animal.where(facility_id: @facility)
   end
   
   private
