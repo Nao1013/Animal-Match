@@ -26,7 +26,7 @@
 
   <!--★『気になる』ボタン-->
   <div id="favorite_btn_<%= @animal.id %>">
-    <div class="favorite_btn"><%= render 'reader/favorites/favorite', animal: @animal %></div>
+    <div class="favorite_btn mt-5"><%= render 'reader/favorites/favorite', animal: @animal %></div>
   </div>
 
   <!--動物種-->
@@ -48,9 +48,9 @@
     <span class="text-success font-weight-bold">募集中</span>
   <% end %><br>
 
-   <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary" %><br>
+   <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-3 mr-3" %>
 
    <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
    
-   <%= link_to "施設へメッセージを送る", reader_message_path(@facility) %>
+   <%= link_to "施設へメッセージを送る", reader_message_path(@facility), class: "btn btn-success mt-3" %>
 </div>

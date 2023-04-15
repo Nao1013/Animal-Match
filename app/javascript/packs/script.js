@@ -19,18 +19,3 @@ $(document).on('turbolinks:load', () => {
     }
   });
 })
-
-$(function() {
-    $('.nav-link').on('click', function(e) {
-      e.preventDefault();
-      var url = $(this).attr('genre.id');
-      $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'html',
-        success: function(data) {
-          $('.nav-tabs').html(data);
-        }
-      });
-    });
-  });

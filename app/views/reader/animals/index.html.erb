@@ -20,10 +20,10 @@
             <%= link_to "一覧", reader_animals_path, class: "nav-link active" %>
           </li>
           <% @genres.each do |genre| %>
-         <li class="nav-item">
+          <li class="nav-item">
             <%= link_to genre.name, reader_animals_path(name: genre.id), class: "nav-link" %>
           <% end %>
-        </li>
+          </li>
         </ul>
       <% end %>
 
