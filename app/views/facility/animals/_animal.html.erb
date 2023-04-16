@@ -1,0 +1,28 @@
+<div class="swiper">
+    <div class="swiper-wrapper">
+     <% if animal.images.attached? %>
+      <% animal.images.each do |image| %>
+      <div class="swiper-slide">
+        <%= image_tag image, size: "500x400", class: "mt-3" %>
+         </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="swiper-pagination"></div>
+      <!-- ナビゲーションボタン （前、次） -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div><br>
+
+  <%= animal.name %><br>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card center" style="max-width: 600px;">
+      <div class="card-body">
+        <p class="card-text text-left">
+          <%=safe_join(animal.introduct.split("\n"),tag(:br))%>
+        </p><br>
+      </div>
+    </div>
+  </div>

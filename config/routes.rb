@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     # get "/facilities/unsubscribe" => "facilities#unsubscribe"
     # get "/facilities/withdraw" => "facilities#withdraw"
     resources :facilities, only: [:show, :edit, :update, :destroy]
+    resources :favorites, only: [:index]
+    resources :readers, only: [:show]
     resources :rooms, only: [:create, :show, :index] do
       resources :messages, only: [:create]
     end

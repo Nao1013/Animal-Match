@@ -1,0 +1,18 @@
+<%= image_tag reader.get_profile_image(300,300), class: "rounded-circle mt-5", size: "200x200" %>
+  
+  <% if reader == current_reader %>
+    <h5 class="mt-3"><%= reader.first_name %>　<%= reader.last_name %></h5>
+  <% end %>
+  <h3><%= reader.user_name %></h3>
+  <% if reader.prefecture.present? %>
+    <p><%= reader.prefecture %>在住</p>
+  <% end %>
+  <% if reader.introduct.present? %>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="card center" style="max-width: 600px;">
+        <div class="card-body">
+          <p class="card-text text-left"><%=safe_join(reader.introduct.split("\n"),tag(:br))%></p><br>
+        </div>
+      </div>
+    </div>
+  <% end %>

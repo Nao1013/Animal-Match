@@ -1,9 +1,5 @@
 <div class="container text-center">
-  <%= image_tag @reader.get_profile_image(300,300), class: "rounded-circle mt-5", size: "200x200" %>
-  <h5 class="mt-"><%= @reader.first_name %>　<%= @reader.last_name %></h5>
-  <h3><%= @reader.user_name %></h3>
-  <p><%= @reader.prefecture %></p>
-  <p><%= @reader.introduct %></p>
+ <%= render 'info', reader: @reader %>
    
   <div>
     <%= link_to "編集", edit_reader_reader_path, class: "btn btn-success mr-3" %>

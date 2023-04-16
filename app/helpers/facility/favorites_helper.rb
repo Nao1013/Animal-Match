@@ -1,0 +1,2 @@
+module Facility::FavoritesHelper
+end
