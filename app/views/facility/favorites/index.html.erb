@@ -1,15 +1,14 @@
 <div class="container text-center">
-  
-  <% @favorites.each do |favorite| %>
-    <% if @favorites.present? %>
-    <div class="mt-3">
-      <%= link_to facility_reader_path(@reader) do %>
-        <%= image_tag @reader.get_profile_image(150,150), class: "rounded-circle mt-5", size: "100x100" %>
-        <%= favorite.reader.user_name %>
-      <% end %>
-    <% else %>
-      <p>いいねはありません</p>
+  <% if @favorites.present? %>
+    <% @favorites.each do |favorite| %>
+      <div class="mt-3">
+        <%= link_to facility_reader_path(favorite.reader) do %>
+          <%= image_tag favorite.reader.get_profile_image(150,150), class: "rounded-circle mt-5", size: "100x100" %>
+          <%= favorite.reader.user_name %>
+        <% end %>
+      </div>
     <% end %>
-    </div>
+  <% else %>
+    <p>いいねはありません</p>
   <% end %>
 </div>

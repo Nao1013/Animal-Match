@@ -28,6 +28,8 @@
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-3 mr-3" %>
 
    <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
+   
+   <button class="btn btn-secondary mt-3" disabled type="button">DM機能準備中</button>
 
-   <%= link_to "施設へメッセージを送る", reader_rooms_path(params: { facility_id: @facility}), method: :post, class: "btn btn-success mt-3" %>
+   <%#= link_to "施設へメッセージを送る(準備集)", reader_rooms_path(params: { facility_id: @facility}), method: :post, class: "btn btn-success mt-3" %>
 </div>

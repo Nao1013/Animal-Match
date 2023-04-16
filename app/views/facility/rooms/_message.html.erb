@@ -1,9 +1,10 @@
 <div class="chat-messages">
   <% messages.each do |message| %>
+  M:<%= message.facility_id %> C:<%= current_facility.id %>
     <% if message.facility_id == current_facility.id %>
       <div class="message self">
         <div class="message right" style="text-align: right;">
-          <%= message.body %>
+           <%= message.body %>
         </div>
       </div>
     <% else %>

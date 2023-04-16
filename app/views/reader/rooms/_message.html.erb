@@ -3,7 +3,7 @@
     <% if message.reader_id == current_reader.id %>
       <div class="message self">
         <div class="message-body" style="text-align: right;">
-          <%= message.body %>
+          M:<%= message.reader_id %> C:<%= current_reader.id %><%= message.body %>
         </div>
       </div>
     <% else %>
