@@ -5,7 +5,7 @@
       <h3><%= @reader.user_name %></h3>
 
       <%= link_to "いいね一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info" %><br>
-      <%= link_to "マイページ", edit_reader_reader_path(@reader), class: "btn btn-primary mt-2"%>
+      <%= link_to "マイページ", reader_reader_path(@reader), class: "btn btn-primary mt-2"%>
     </div>
 
     <div class="col-1"></div>
