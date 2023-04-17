@@ -1,4 +1,6 @@
 class Reader::AnimalsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found # 存在しないIDを直打ちしたときの制限
+  
   def index
     # @facilities = Facility.find(params[:facility_name])
     @reader = current_reader
@@ -24,5 +26,10 @@ class Reader::AnimalsController < ApplicationController
 
   def animal_params
     params.require(:animal).permit(:name, :introduct, :is_decided, :image, genre_ids: [])
+  end
+  
+   # 存在しないIDに直打ちしたときの表記
+  def record_not_found
+    render plain: "404 Not Found", status: 404
   end
 end
