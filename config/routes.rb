@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   
   # ゲストログイン（reader）
   devise_scope :reader do
-    post 'readers/guest_sign_in', to: 'readers/sessions#guest_sign_in'
+    post 'readers/guest_sign_in', to: 'reader/sessions#guest_sign_in'
   end
 
   # 個人用ログイン後

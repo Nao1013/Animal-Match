@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class Reader::SessionsController < Devise::SessionsController
+  
   # before_action :configure_sign_in_params, only: [:create]
   
   def guest_sign_in
     reader = Reader.guest
     sign_in reader
-    redirect_to readers_animals_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to reader_animals_path, notice: 'ゲストユーザーとしてログインしました。'
   end
  
   # GET /resource/sign_in

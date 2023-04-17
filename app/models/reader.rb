@@ -3,10 +3,10 @@ class Reader < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   # ゲストログイン
   def self.guest
-    find_or_create_by!(user_name: 'guestuser', email: 'guest@example.com') do |reader|
+    find_or_create_by!(email: 'guest@example.com') do |reader|
       reader.password = SecureRandom.urlsafe_base64
       reader.password_confirmation = reader.password
       reader.user_name = "guest"
@@ -32,6 +32,11 @@ class Reader < ApplicationRecord
     profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
   profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+  
+  
+  def guest?
+    email == "guest@example.com"
   end
 
 end
