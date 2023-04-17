@@ -1,6 +1,7 @@
 class Facility::FacilitiesController < ApplicationController
   before_action :authenticate_facility!
-  before_action :is_matching_login_facility, only: [:edit, :update]
+  before_action :is_matching_login_facility, only: [:edit, :update, :show]
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found # 存在しないIDを直打ちしたときの制限
 
   def show
     @facility = Facility.find(params[:id])
@@ -51,4 +52,8 @@ class Facility::FacilitiesController < ApplicationController
     end
   end
   
+   # 存在しないIDに直打ちしたときの表記
+  def record_not_found
+    render plain: "404 Not Found", status: 404
+  end
 end

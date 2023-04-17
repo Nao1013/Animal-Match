@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   devise_scope :reader do
     post 'readers/guest_sign_in', to: 'reader/sessions#guest_sign_in'
   end
+  
+  # ゲストログイン（facility）
+  devise_scope :facility do
+    post 'facilitys/guest_sign_in', to: 'facility/sessions#guest_sign_in'
+  end
 
   # 個人用ログイン後
    namespace :reader do

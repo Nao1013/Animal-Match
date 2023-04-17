@@ -3,6 +3,24 @@ class Facility < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  # ゲストログイン
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |facility|
+      facility.password = SecureRandom.urlsafe_base64
+      facility.facility_name = "施設名"
+      facility.first_name = "ゲスト"
+      facility.last_name = "ユーザー"
+      facility.first_name_kana = "guest"
+      facility.last_name_kana = "guest"
+      facility.address = "tokyo"
+      facility.telephone = "guest"
+    end
+  end
+  
+  def guest?
+    email == 'guest@example.com'
+  end
 
   # animalとのアソシエーション
   has_many :animals, dependent: :destroy

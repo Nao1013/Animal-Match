@@ -13,9 +13,39 @@
       <%= render 'facility/facilities/profile', facility: current_facility %>
 
       <!--新規投稿-->
-      <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %><br>
-      <%= link_to "マイページ", facility_facility_path(current_facility.id), class: "btn btn-primary mt-3"  %><br>
-      <%= link_to "DM", facility_rooms_path, class: "btn btn-info mt-3" %>
+      <% if !current_facility.guest? %>
+        <%= link_to "新規投稿", new_facility_animal_path, class: "btn btn-success mt-3" %>
+      <% else %>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success mt-3" data-toggle="modal" data-target="#exampleModal">
+          新規投稿
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalLabel">※新規登録のお願いします※</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ゲストログインでは、新規投稿はできません。<br>
+                ご利用になりたい場合は、新規登録をお願い致します。
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %><br>
+      
+      <% if !current_facility.guest? %>
+        <%= link_to "マイページ", facility_facility_path(current_facility.id), class: "btn btn-primary mt-3"  %><br>
+        <%= link_to "DM", facility_rooms_path, class: "btn btn-info mt-3" %>
+      <% end %>
     </div>
 
     <div class="col-1"></div>

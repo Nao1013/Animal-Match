@@ -3,6 +3,12 @@
 class Facility::SessionsController < Devise::SessionsController
   # before_action :reject_withdraw_facility, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
+  
+  def guest_sign_in
+    facility = Facility.guest
+    sign_in facility
+    redirect_to facility_animals_path, notice: 'guestuserでログインしました。'
+  end
 
   # GET /resource/sign_in
   # def new
