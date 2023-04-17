@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      reader: 個人
+    attributes:
+      reader:
+        name: 名前
+        address: 住所
+        telephone: 電話番号
+        sex: 性別
+        email: メールアドレス
+        password: パスワード
+
+ja:
+  activerecord:
+    models:
+      facility: 施設側
+    attributes:
+      facility:
+        name: 名前
+        address: 住所
+        telephone: 電話番号
+        sex: 性別
+        email: メールアドレス
+        password: パスワード
