@@ -2,9 +2,11 @@
   <%= render 'facility/animals/animal', animal: @animal %>
   
   <!--★『気になる』ボタン-->
+  <% if !current_reader.guest? %>
   <div id="favorite_btn_<%= @animal.id %>">
     <div class="favorite_btn mt-5"><%= render 'reader/favorites/favorite', animal: @animal %></div>
   </div>
+  <% end %>
 
   <!--動物種-->
   <% @animal.genres.each do |genre| %>
