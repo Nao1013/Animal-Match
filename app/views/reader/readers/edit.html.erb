@@ -37,7 +37,10 @@
       
       <%= f.submit "変更を保存", class: "btn btn-success" %><br>
     <% end %>
-    <%= link_to "退会", reader_reader_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に退会しますか？" %><br>
+    
+    <% if !current_reader.guest?%>
+      <%= link_to "退会", reader_reader_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に退会しますか？" %><br>
+    <% end %>
     <%= link_to "back", reader_reader_path(@reader), class: "mt-5" %>
   </div>
 </div>

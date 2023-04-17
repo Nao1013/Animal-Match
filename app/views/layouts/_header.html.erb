@@ -19,8 +19,10 @@
                      <i class="fas fa-plus mr-2"></i>新規投稿
                     <% end %>
                     <div class="dropdown-divider"></div>
-                   <%= link_to facility_facility_path(current_facility.id),class: "btn btn-light" do %>
-                     <i class="fas fa-user-cog mr-2"></i>マイページ
+                    <% if !current_reader.guest?%>
+                     <%= link_to facility_facility_path(current_facility.id),class: "btn btn-light" do %>
+                       <i class="fas fa-user-cog mr-2"></i>マイページ
+                      <% end %>
                     <% end %>
                     <div class="dropdown-divider"></div>
                     <%= link_to facility_animals_path, class: "btn btn-light" do %>

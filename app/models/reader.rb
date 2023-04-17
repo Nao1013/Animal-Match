@@ -3,6 +3,20 @@ class Reader < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  # ゲストログイン
+  def self.guest
+    find_or_create_by!(user_name: 'guestuser', email: 'guest@example.com') do |reader|
+      reader.password = SecureRandom.urlsafe_base64
+      reader.password_confirmation = reader.password
+      reader.user_name = "guest"
+      reader.first_name = "guest"
+      reader.last_name = "guest"
+      reader.first_name_kana = "guest"
+      reader.last_name_kana = "guest"
+      reader.prefecture = "Tokyo"
+    end
+  end
 
   # DM機能
   has_many :rooms, dependent: :destroy

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'homes#top'
-
+  
+  
+  
   # 施設側用devise
     devise_for :facility, controllers: {
     registrations: "facility/registrations",
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     registrations: "reader/registrations",
     sessions: "reader/sessions"
   }
-
+  
   # 施設用ログイン後
   namespace :facility do
     resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
@@ -25,6 +27,11 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
     end
     # get '/animal_tag/:tag', to: "animals#search"
+  end
+  
+  # ゲストログイン（reader）
+  devise_scope :reader do
+    post 'readers/guest_sign_in', to: 'readers/sessions#guest_sign_in'
   end
 
   # 個人用ログイン後
