@@ -44,16 +44,17 @@
       
       <div class="row form-group">
         <%= f.label :自己紹介, class: "col-lg-3" %>
-        <%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "自己紹介", class: "col-lg-3" %>
+        <%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "自己紹介", class: "col-lg-6", rows: "10" %>
       </div>
       
       <div class="row form-group">
         <%= f.label :施設説明, class: "col-lg-3" %>
-        <%= f.text_area :facility_intro, autofocus: true, autocomplete: "facility_intro",placeholder: "施設説明", class: "col-lg-3" %>
+        <%= f.text_area :facility_intro, autofocus: true, autocomplete: "facility_intro",placeholder: "施設説明", class: "col-lg-6", rows: "10" %>
       </div>
         
       <%= f.submit "変更を保存", class: "btn btn-success" %>
     <% end %>
   
+    <%= link_to "退会する", facility_facility_path(current_facility.id), class: "btn btn-danger mt-3", method: :delete, "data-confirm" => "本当に退会しますか？" %>
   </div>
 </div>

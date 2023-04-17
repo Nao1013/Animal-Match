@@ -1,7 +1,17 @@
 <div class="container text-center">
+  <!--フラッシュメッセージ-->
+  <% if notice %>
+    <div class="alert alert-success mt-3">
+      <%= notice %>
+    </div>
+  <% elsif flash[:notice] %>
+    <div class="alert alert-success mt-3">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <%= render 'info', facility: @facility %>
 
    <%= link_to "編集", edit_facility_facility_path(@facility), class: "btn btn-success" %>
    <%= link_to "投稿一覧", facility_animals_path, class: "btn btn-primary" %>
-   <%= link_to "退会する", facility_facility_path(current_facility.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に退会しますか？" %>
 </div>

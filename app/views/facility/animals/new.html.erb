@@ -1,5 +1,14 @@
 <div class="contaner text-center">
   <h3 class="mt-3 ">新規投稿</h3>
+  
+  <% if @animal.errors.any? %>
+  <%= @animal.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @animal.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
   <%= form_with model: @animal, url: facility_animals_path do |f| %>
 
@@ -7,6 +16,7 @@
     <div class="field">
       <%= f.label :"画像選択", class: "font-weight-bold" %><br>
       <%= f.file_field :images, accept: "image/*",multiple: true %>
+      <p class="text-danger">※画像は３枚まで</p>
     </div>
 
     <!--動物の名前記入-->

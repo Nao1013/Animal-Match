@@ -1,5 +1,6 @@
 class Facility::FacilitiesController < ApplicationController
   before_action :authenticate_facility!
+  before_action :is_matching_login_facility, only: [:edit, :update]
 
   def show
     @facility = Facility.find(params[:id])
@@ -12,6 +13,7 @@ class Facility::FacilitiesController < ApplicationController
   def update
     @facility = Facility.find(params[:id])
     if @facility.update(facility_params)
+      flash[:notice] = '編集しました'
       redirect_to facility_facility_path(@facility)
     else
       render 'edit'
@@ -21,7 +23,7 @@ class Facility::FacilitiesController < ApplicationController
   def destroy
     @facility = Facility.find(params[:id]) 
     @facility.destroy
-    flash[:notice] = '削除しました。'
+    flash[:alert] = '退会しました。'
     redirect_to :root #削除に成功すればrootページに戻る
   end
 
@@ -40,6 +42,13 @@ class Facility::FacilitiesController < ApplicationController
 
   def facility_params
     params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :telephone, :profile_image)
+  end
+  
+  def is_matching_login_facility
+    facility = Facility.find(params[:id])
+    unless facility.id == current_facility.id
+      redirect_to root_path
+    end
   end
   
 end

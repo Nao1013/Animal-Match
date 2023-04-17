@@ -1,4 +1,11 @@
 <div class="container text-center">
+  <!--エラー文-->
+  <% if flash[:notice] %>
+    <div class="alert alert-success mt-3">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  
   <%= render 'animal', animal: @animal %>
 
     <% @animal.genres.each do |genre| %>

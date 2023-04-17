@@ -1,5 +1,7 @@
 class Reader::ReadersController < ApplicationController
   before_action :set_reader, only: [:favorites]
+  before_action :authenticate_reader!
+  before_action :is_matching_login_reader, only: [:edit, :update]
   
   def edit
     @reader = Reader.find(params[:id])
@@ -12,7 +14,7 @@ class Reader::ReadersController < ApplicationController
   def update
     @reader = Reader.find(params[:id])
     if @reader.update(reader_params)
-      redirect_to reader_reader_path(@reader)
+      redirect_to reader_reader_path(@reader),notice:'編集しました'
     else
       render 'edit'
     end
@@ -26,7 +28,7 @@ class Reader::ReadersController < ApplicationController
   def destroy
     @reader = Reader.find(params[:id]) 
     @reader.destroy
-    flash[:notice] = '削除しました。'
+    flash[:alert] = '退会しました。'
     redirect_to :root #削除に成功すればrootページに戻る
   end
 
@@ -38,5 +40,12 @@ class Reader::ReadersController < ApplicationController
   
   def set_reader
     @reader = Reader.find(params[:id])
+  end
+  
+  def is_matching_login_reader
+    reader = Reader.find(params[:id])
+    unless reader.id == current_reader.id
+      redirect_to root_path
+    end
   end
 end

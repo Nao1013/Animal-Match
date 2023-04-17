@@ -1,4 +1,9 @@
 <div class="container">
+  <% if notice %>
+    <div class="alert alert-success mt-3">
+      <%= notice %>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-3 mt-3">
       <%= image_tag @reader.get_profile_image(150,150), class: "rounded-circle mt-5", size: "150x150" %>

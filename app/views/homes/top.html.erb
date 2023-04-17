@@ -1,4 +1,11 @@
 <div class="container text-center mt-4">
+  
+  <% if flash[:alert] %>
+    <div class="alert alert-danger mt-3">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+  
   <h1 style="background-color: #f0e68c;">Welcome to Anima!</h1>
   <p>
     このアプリは、すべてのワンちゃん、猫ちゃんが幸せなるようにと作りました。<br>
