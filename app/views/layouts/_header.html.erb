@@ -35,7 +35,9 @@
 
             <!--個人側ログイン後表示-->
           <% elsif reader_signed_in? %>
-            <%= render 'reader/searchs/form' %>
+            <% if !current_reader.guest? %>
+              <%= render 'reader/searchs/form' %>
+            <% end %>
             <div class="pl-1"></div>
               <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
