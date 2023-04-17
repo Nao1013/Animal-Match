@@ -1,4 +1,11 @@
 <div class="container">
+  <!--フラッシュメッセージ-->
+  <% if notice %>
+    <div class="alert alert-success mt-3">
+      <%= notice %>
+    </div>
+  <% end %>
+  
   <div class="row">
     <div class="col-3">
       <!--施設側のプロフィール-->
