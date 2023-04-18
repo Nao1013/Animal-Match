@@ -9,6 +9,12 @@ class Facility::SessionsController < Devise::SessionsController
     sign_in facility
     redirect_to facility_animals_path, notice: 'guestuserでログインしました。'
   end
+  
+  # def logout
+  #   reset_session
+  #   response.headers['Cache-Control'] = 'no-store' # ブラウザのキャッシュを無効化する
+  #   redirect_to root_path # ログアウト後にトップページに遷移する
+  # end
 
   # GET /resource/sign_in
   # def new

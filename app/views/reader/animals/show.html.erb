@@ -1,6 +1,6 @@
 <div class="container text-center">
   <%= render 'facility/animals/animal', animal: @animal %>
-  
+
   <!--★『気になる』ボタン-->
   <% if !current_reader.guest? %>
   <div id="favorite_btn_<%= @animal.id %>">
@@ -28,7 +28,7 @@
   <% end %><br>
 
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-3 mr-3" %>
-   
+
    <% if !current_reader.guest? %>
      <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
    <% end %>

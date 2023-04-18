@@ -54,7 +54,8 @@ class Facility::AnimalsController < ApplicationController
   def destroy
     animal = Animal.find(params[:id])
     animal.destroy
-    redirect_to facility_animals_path, notice:'削除しました'
+    flash[:alert] = '削除しました'
+    redirect_to facility_animals_path
   end
 
   # def search

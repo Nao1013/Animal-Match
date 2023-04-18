@@ -4,6 +4,10 @@
     <div class="alert alert-success mt-3">
       <%= notice %>
     </div>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-danger mt-3">
+      <%= flash[:alert] %>
+    </div>
   <% end %>
   
   <div class="row">
@@ -44,8 +48,12 @@
       
       <% if !current_facility.guest? %>
         <%= link_to "マイページ", facility_facility_path(current_facility.id), class: "btn btn-primary mt-3"  %><br>
-        <%= link_to "DM", facility_rooms_path, class: "btn btn-info mt-3" %>
       <% end %>
+      <div>
+       <button class="btn btn-secondary mt-3" disabled type="button">DM機能準備中</button>
+      </div>
+        <%#= link_to "DM", facility_rooms_path, class: "btn btn-info mt-3" %>
+      
     </div>
 
     <div class="col-1"></div>
