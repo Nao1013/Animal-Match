@@ -1,6 +1,6 @@
 class Facility::AnimalsController < ApplicationController
-  before_action :ensure_user, only: [:edit, :update, :show]
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found # 存在しないIDを直打ちしたときの制限
+  before_action :authenticate_facility! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
+  before_action :ensure_user, only: [:edit, :update, :show] 
   
   def new
     @animal = Animal.new
@@ -76,11 +76,6 @@ class Facility::AnimalsController < ApplicationController
     @animals = current_facility.animals
     @animal = @animals.find_by(id: params[:id])
     redirect_to root_path unless @animal
-  end
-  
-   # 存在しないIDに直打ちしたときの表記
-  def record_not_found
-    render plain: "404 Not Found", status: 404
   end
 
 end

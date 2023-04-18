@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'homes#top'
   
-  # ログアウト処理用のルーティング
-  # delete '/logout', to: 'facility/sessions#logout', as: 'logout'
-  
   # 施設側用devise
     devise_for :facility, controllers: {
     registrations: "facility/registrations",

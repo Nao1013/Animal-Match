@@ -1,18 +1,15 @@
 class Facility::FacilitiesController < ApplicationController
-  before_action :authenticate_facility!
-  before_action :is_matching_login_facility, only: [:edit, :update, :show]
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found # 存在しないIDを直打ちしたときの制限
+  before_action :authenticate_facility! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
+  before_action :set_facility, only: [:show, :edit, :update, :destroy] # IDが存在してるかどうかのみ探している
+  before_action :is_matching_login_facility, only: [:edit, :update, :show] # @readerとログインしているreaderが同一なのか確認している
 
   def show
-    @facility = Facility.find(params[:id])
   end
 
   def edit
-    @facility = Facility.find(params[:id])
   end
 
   def update
-    @facility = Facility.find(params[:id])
     if @facility.update(facility_params)
       flash[:notice] = '編集しました'
       redirect_to facility_facility_path(@facility)
@@ -22,7 +19,6 @@ class Facility::FacilitiesController < ApplicationController
   end
   
   def destroy
-    @facility = Facility.find(params[:id]) 
     @facility.destroy
     flash[:alert] = '退会しました。再度ご利用の場合は、新規登録をお願い致します。'
     redirect_to :root #削除に成功すればrootページに戻る
@@ -52,8 +48,8 @@ class Facility::FacilitiesController < ApplicationController
     end
   end
   
-   # 存在しないIDに直打ちしたときの表記
-  def record_not_found
-    render plain: "404 Not Found", status: 404
+  def set_facility
+    @facility = Facility.find_by(id: params[:id])
+    redirect_to root_path unless @facility
   end
 end
