@@ -21,7 +21,7 @@
     <!--動物の名前記入-->
     <div class="field">
       <%= f.label :必須, class: "badge badge-danger" %>
-      <%= f.label :"お名前", class: "font-weight-bold mt-3" %><br>
+      <%= f.label :"お名前", class: "font-weight-bold" %><br>
       <%= f.text_field :name, class: "form", placeholder: "ポチ/タマ" %>
     </div>
 
@@ -33,7 +33,6 @@
     </div>
     
       <!--犬・猫種類-->
-      
     <div class="check_box mt-3">
       <p class="badge badge-danger">必須</p>
       <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
