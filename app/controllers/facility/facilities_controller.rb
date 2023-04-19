@@ -1,7 +1,7 @@
 class Facility::FacilitiesController < ApplicationController
   before_action :authenticate_facility! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
-  before_action :set_facility, only: [:show, :edit, :update, :destroy] # IDが存在してるかどうかのみ探している
-  before_action :is_matching_login_facility, only: [:edit, :update, :show] # @readerとログインしているreaderが同一なのか確認している
+  before_action :set_facility, only: [:show, :edit, :update, :destroy, :index] # IDが存在してるかどうかのみ探している
+  before_action :is_matching_login_facility, only: [:edit, :update, :show] # @facilityとログインしているfacilityが同一なのか確認している
 
   def show
   end
