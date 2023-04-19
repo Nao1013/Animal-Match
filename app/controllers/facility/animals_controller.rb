@@ -58,20 +58,13 @@ class Facility::AnimalsController < ApplicationController
     redirect_to facility_animals_path
   end
 
-  # def search
-  #   if (params[:keyword])[0] == ','
-  #     @animals = Tag.search(params[:keyword]).order('created_at DESC')
-  #   else
-  #     @animals = Animal.search(params[:keyword]).order('created_at DESC')
-  #   end
-  # end
-
   private
 
   def animal_params
     params.require(:animal).permit(:name, :introduct, :is_decided, images: [], genre_ids: [])
   end
   
+  # URLに直打ちしたときの制約
   def ensure_user
     @animals = current_facility.animals
     @animal = @animals.find_by(id: params[:id])

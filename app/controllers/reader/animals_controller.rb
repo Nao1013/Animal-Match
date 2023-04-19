@@ -1,7 +1,6 @@
 class Reader::AnimalsController < ApplicationController
  before_action :authenticate_reader! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
  
-  
   def index
     # @facilities = Facility.find(params[:facility_name])
     @reader = current_reader

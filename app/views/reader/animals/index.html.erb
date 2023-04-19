@@ -9,11 +9,11 @@
     <div class="col-3 mt-3">
       <%= image_tag @reader.get_profile_image(150,150), class: "rounded-circle mt-5", size: "150x150" %>
       <h4><%= @reader.user_name %></h4>
-
-      <%= link_to "気になる一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info" %><br>
+      
       <% if !current_reader.guest? %>
         <%= link_to "マイページ", reader_reader_path(@reader), class: "btn btn-primary mt-2"%>
-      <% end %>
+      <% end %><br>
+      <%= link_to "気になる一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info mt-3" %>
     </div>
 
     <!--<div class="col-1"></div>-->
