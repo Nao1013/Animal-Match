@@ -8,7 +8,7 @@
         </tr>
         <tr>
           <td>
-            <% if facility.user_facility_name %>
+            <% if facility.user_facility_name.present? %>
               <%= facility.user_facility_name %>
             <% else %>
               <%= facility.first_name %><%= facility.last_name %>
