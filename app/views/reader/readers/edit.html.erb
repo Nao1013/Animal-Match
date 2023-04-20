@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-sm">
   <div class="mt-3">
    <h3>プロフィール編集</h3>
   </div>
@@ -8,31 +8,31 @@
     
     <!--代表者名固定/変更不可-->
       <div class="row form-group">
-        <%= f.label :氏名, class: "col-lg-3" %>
-        <%= @reader.first_name %><%= @reader.last_name %>
+        <%= f.label :氏名, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= @reader.first_name %><%= @reader.last_name %></div>
       </div>
     
     <!--プロフィール画像-->
       <div class="row form-group">
-        <%= f.label :プロフィール画像, class: "col-lg-3" %>
-        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> 
+        <%= f.label :プロフィール画像, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> </div>
       </div>
     
     <!--ユーザー名-->
       <div class="row form-group">
-        <%= f.label :ユーザー名, class: "col-lg-3" %>
-        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",placeholder: "ユーザー名（アカウント名）" %>
+        <%= f.label :ユーザー名, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",placeholder: "ユーザー名(アカウント名)" %></div>
       </div>
       
       <!--現都道府県-->
       <div class="row form-group">
-        <%= f.label :都道府県, class: "col-lg-3" %>
-        <%= f.text_field :prefecture, autofocus: true, autocomplete: "prefecture",placeholder: "現住県" %>
+        <%= f.label :都道府県, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_field :prefecture, autofocus: true, autocomplete: "prefecture",placeholder: "現住県" %></div>
       </div>
       
       <div class="row form-group">
-        <%= f.label :自己紹介, class: "col-lg-3" %>
-        <%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "家族に迎えたい理由や先住猫の有無など", class: "col-lg-5", rows: "10" %>
+        <%= f.label :自己紹介, class: "col-sm-3 font-weight-bold" %>
+        <%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "家族に迎えたい理由や先住猫の有無など", class: "col-sm-5", rows: "10" %>
       </div>
       
       <%= f.submit "変更を保存", class: "btn btn-success" %><br>

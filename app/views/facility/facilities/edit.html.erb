@@ -1,60 +1,60 @@
-<div class="container">
+<div class="container-sm">
   <div class="mt-3">
    <h3>プロフィール編集</h3>
   </div>
-   
+
    <div class="text-center mt-4">
     <%= form_with model: @facility, url: facility_facility_path, method: :patch do |f| %>
-    
+
     <!--代表者名固定/変更不可-->
       <div class="row form-group">
-        <%= f.label :代表者名, class: "col-lg-3" %>
-        <%= @facility.first_name %><%= @facility.last_name %>
+        <%= f.label :代表者名, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= @facility.first_name %><%= @facility.last_name %></div>
       </div>
-    
+
     <!--プロフィール画像-->
       <div class="row form-group">
-        <%= f.label :プロフィール画像, class: "col-lg-3" %>
-        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> 
+        <%= f.label :プロフィール画像, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></div>
       </div>
-    
+
     <!--ユーザー名-->
       <div class="row form-group">
-        <%= f.label :ユーザー名, class: "col-lg-3" %>
-        <%= f.text_field :user_facility_name, autofocus: true, autocomplete: "user_facility_name",placeholder: "ユーザー名（アカウント名）", class: "col-lg-3" %>
+        <%= f.label :ユーザー名, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_field :user_facility_name, autofocus: true, autocomplete: "user_facility_name",placeholder: "ユーザー名(アカウント名)" %></div>
       </div>
-      
+
       <!--施設名-->
       <div class="row form-group">
-        <%= f.label :施設名, class: "col-lg-3" %>
-        <%= f.text_field :facility_name, autofocus: true, autocomplete: "facility_name",placeholder: "施設名", class: "col-lg-4" %>
+        <%= f.label :施設名, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_field :facility_name, autofocus: true, autocomplete: "facility_name",placeholder: "施設名", class: "col-sm-4" %></div>
       </div>
-      
+
       <!--施設住所-->
       <div class="row form-group">
-        <%= f.label :施設住所, class: "col-lg-3" %>
-        <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "住所", class: "col-lg-5" %>
+        <%= f.label :施設住所, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "住所", class: "col-sm-5" %></div>
       </div>
-      
+
       <!--電話番号-->
       <div class="row form-group">
-        <%= f.label :電話番号, class: "col-lg-3" %>
-        <%= f.text_field :telephone, autofocus: true, autocomplete: "telephone",placeholder: "電話番号", class: "col-lg-3" %>
+        <%= f.label :電話番号, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_field :telephone, autofocus: true, autocomplete: "telephone",placeholder: "電話番号", class: "col-sm-3" %></div>
       </div>
-      
+
       <div class="row form-group">
-        <%= f.label :自己紹介, class: "col-lg-3" %>
-        <%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "自己紹介", class: "col-lg-6", rows: "10" %>
+        <%= f.label :自己紹介, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_area :introduct, autofocus: true, autocomplete: "introduct",placeholder: "自己紹介", class: "col-sm-6", rows: "10" %></div>
       </div>
-      
+
       <div class="row form-group">
-        <%= f.label :施設説明, class: "col-lg-3" %>
-        <%= f.text_area :facility_intro, autofocus: true, autocomplete: "facility_intro",placeholder: "施設説明", class: "col-lg-6", rows: "10" %>
+        <%= f.label :施設説明, class: "col-sm-3 font-weight-bold" %>
+        <div class="col-sm-3"><%= f.text_area :facility_intro, autofocus: true, autocomplete: "facility_intro",placeholder: "施設説明", class: "col-sm-6", rows: "10" %></div>
       </div>
-        
+
       <%= f.submit "変更を保存", class: "btn btn-success" %>
     <% end %>
-  
+
     <%= link_to "退会する", facility_facility_path(current_facility.id), class: "btn btn-danger mt-3", method: :delete, "data-confirm" => "本当に退会しますか？" %>
   </div>
 </div>
