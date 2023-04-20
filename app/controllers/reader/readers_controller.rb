@@ -24,7 +24,7 @@ class Reader::ReadersController < ApplicationController
 
   def destroy
     @reader.destroy
-    flash[:alert] = '退会しました。'
+    flash[:alert] = '退会しました。再度ご利用したい場合は新規登録をお願い致します。'
     redirect_to :root #削除に成功すればrootページに戻る
   end
 
