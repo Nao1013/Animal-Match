@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand navbar-info" style="background-color: sandybrown;">
+  <nav class="navbar navbar-expand" style="background-color: sandybrown;">
     <div class="container">
-      <%= link_to image_tag('logo.png', width: '40%', height: '50%', class: "ml-5"), root_path %>
+      <%= link_to image_tag('logo.png', width: '40%', height: '50%'), root_path, width: "40" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -62,27 +62,16 @@
                   </div>
               </li>
               
-              
               <!--ログイン前-->
           <% else %>
-            <!--<li class= "nav-item">-->
-            <!--  <%#= link_to new_facility_registration_path, class: "btn btn-light mr-3" do %>-->
-            <!--     <i class="fas fa-paw"></i><br>施設新規登録-->
-            <!--  <#% end %>-->
-            <!--</li>-->
             <li class= "nav-item">
-              <%= link_to new_facility_session_path, class: "btn btn-light mr-3" do %>
+              <%= link_to new_facility_session_path, class: "btn btn-light col-sm-3 mr-3" do %>
                 <i class="fas fa-sign-in-alt"></i><br>施設ログイン
               <% end %>
             </li>
 
-            <!--<li>-->
-            <!--  <%#= link_to new_reader_registration_path, class: "btn btn-light mr-3" do %>-->
-            <!--    <i class="fas fa-users-cog"></i><br>新規登録-->
-            <!--  <%# end %>-->
-            <!--</li>-->
-            <li>
-              <%= link_to new_reader_session_path, class: "btn btn-light" do %>
+            <li class="nav-item">
+              <%= link_to new_reader_session_path, class: "btn btn-light col-sm-3" do %>
                 <i class="fas fa-sign-in-alt"></i><br>ログイン
               <% end %>
             </li>

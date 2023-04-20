@@ -21,20 +21,20 @@
         <%= f.label :代表者名, class: "mr-1 ml-3" %>
         <%= f.label :必須, class: "badge badge-danger mr-2" %>
         <div class="col-2 mr-4"></div>
-        <%= f.label :苗字, class: "mr-2" %>
-        <%= f.text_field :first_name, autofocus: true, placeholder: "田中", class: "col-lg-2 mr-5" %>
-        <%= f.label :名前, class: "mr-2" %>
-        <%= f.text_field :last_name, autofocus: true, placeholder: "太郎", class: "col-lg-2" %>
+        <%= f.label :苗字, class: "mr-2 d-none d-lg-inline" %>
+        <%= f.text_field :first_name, autofocus: true, placeholder: "田中", class: "col-2-sm-2 mr-5" %>
+        <%= f.label :名前, class: "mr-2 d-none d-lg-inline" %>
+        <%= f.text_field :last_name, autofocus: true, placeholder: "太郎", class: "col-2-sm-2" %>
       </div>
 
       <div class="row form-group">
         <%= f.label :フリガナ, class: "mr-1 ml-3" %>
         <%= f.label :必須, class: "badge badge-danger mr-1" %>
         <div class="col-2 mr-4"></div>
-        <%= f.label :ﾐｮｳｼﾞ, class: "mr-1" %>
-        <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "タナカ",  class: "col-lg-2 mr-5" %>
-        <%= f.label :ﾅﾏｴ, class: "mr-3" %>
-        <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "タロウ", class: "col-lg-2" %>
+        <%= f.label :ﾐｮｳｼﾞ, class: "mr-1 d-none d-lg-inline" %>
+        <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "タナカ",  class: "col-2-sm-2 mr-5" %>
+        <%= f.label :ﾅﾏｴ, class: "mr-3 d-none d-lg-inline" %>
+        <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "タロウ", class: "col-2-sm-2" %>
       </div>
 
       <div class="row form-group">

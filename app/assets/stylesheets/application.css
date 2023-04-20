@@ -24,3 +24,9 @@
   --swiper-navigation-color: #ffffff;
   --swiper-pagination-color: #ffffff;
 }
+
+@media screen and (max-width: 425px) {
+  .btn {
+    color: red;
+  }
+}

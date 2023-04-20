@@ -1,24 +1,24 @@
-<div class="container">
+<div class="container-sm">
   <% if notice %>
     <div class="alert alert-success mt-3">
       <%= notice %>
     </div>
   <% end %>
-  
+
   <div class="row">
-    <div class="col-3 mt-3">
+    <div class="col-3-sm-2 mt-3 text-center">
       <%= image_tag @reader.get_profile_image(150,150), class: "rounded-circle mt-5", size: "150x150" %>
       <h4><%= @reader.user_name %></h4>
-      
+
       <% if !current_reader.guest? %>
         <%= link_to "マイページ", reader_reader_path(@reader), class: "btn btn-primary mt-2"%>
       <% end %><br>
       <%= link_to "気になる一覧", favorites_reader_reader_path(current_reader), class: "btn btn-info mt-3" %>
     </div>
 
-    <!--<div class="col-1"></div>-->
+    <div class="col-1"></div>
 
-    <div class="col-9 mt-3">
+    <div class="col-8 mt-3">
       <!--投稿した動物（犬・ネコ限定）-->
       <%= form_tag reader_animals_path, method: :get, class: 'boards__searchForm' do %>
 

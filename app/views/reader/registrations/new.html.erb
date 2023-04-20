@@ -13,27 +13,27 @@
         <%= f.label :氏名, class: "mr-1 ml-3" %>
         <%= f.label :必須, class: "badge badge-danger mr-5" %>
         <div class="col-2 mr-3"></div>
-        <%= f.label :苗字, class: "mr-2" %>
-        <%= f.text_field :first_name, autofocus: true, placeholder: "田中", class: "col-lg-2 mr-5" %>
-        <%= f.label :名前, class: "mr-2" %>
-        <%= f.text_field :last_name, autofocus: true, placeholder: "太郎", class: "col-lg-2" %>
+        <%= f.label :苗字, class: "mr-2 d-none d-lg-inline" %>
+        <%= f.text_field :first_name, autofocus: true, placeholder: "田中", class: "col-2-sm-2 mr-5" %>
+        <%= f.label :名前, class: "mr-2 d-none d-lg-inline" %>
+        <%= f.text_field :last_name, autofocus: true, placeholder: "太郎", class: "col-2-sm-2" %>
       </div>
 
       <div class="row form-group">
         <%= f.label :フリガナ, class: "mr-1 ml-3" %>
         <%= f.label :必須, class: "badge badge-danger mr-4" %>
         <div class="col-2"></div>
-        <%= f.label :ﾐｮｳｼﾞ, class: "mr-2" %>
-        <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "タナカ",  class: "col-lg-2 mr-5" %>
-        <%= f.label :ﾅﾏｴ, class: "mr-3" %>
-        <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "タロウ", class: "col-lg-2" %>
+        <%= f.label :ﾐｮｳｼﾞ, class: "mr-2 d-none d-lg-inline" %>
+        <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "タナカ",  class: "col-2-sm-2 mr-5" %>
+        <%= f.label :ﾅﾏｴ, class: "mr-3 d-none d-lg-inline" %>
+        <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "タロウ", class: "col-2-sm-2" %>
       </div>
 
       <div class="row form-group">
         <%= f.label :ユーザー名, class: "mr-1 ml-3" %>
         <%= f.label :必須, class: "badge badge-danger mr-5" %>
         <div class="col-2 mr-2"></div>
-        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",placeholder: "ユーザー名（アカウント名）", class: "col-3" %>
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",placeholder: "ユーザー名(アカウント名)", class: "col-3-sm-2" %>
       </div>
       
       <div class="row form-group">
