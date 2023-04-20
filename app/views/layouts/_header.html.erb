@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand" style="background-color: sandybrown;">
     <div class="container">
-      <%= link_to image_tag('logo.png', width: '40%', height: '50%'), root_path, width: "40" %>
+      <%= link_to image_tag('logo.png', width: '50%', height: '50%'), root_path %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,9 +37,11 @@
 
             <!--個人側ログイン後表示-->
           <% elsif reader_signed_in? %>
-            <% if !current_reader.guest? %>
-              <%= render 'reader/searchs/form' %>
-            <% end %>
+            <div class="search">
+              <% if !current_reader.guest? %>
+                <%= render 'reader/searchs/form' %>
+              <% end %>
+            </div>
             <div class="pl-1"></div>
               <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,17 +66,19 @@
               
               <!--ログイン前-->
           <% else %>
+          <ul class="navbar-nav ml-auto">
             <li class= "nav-item">
-              <%= link_to new_facility_session_path, class: "btn btn-light col-sm-3 mr-3" do %>
+              <%= link_to new_facility_session_path, class: " f-login btn btn-light mr-3" do %>
                 <i class="fas fa-sign-in-alt"></i><br>施設ログイン
               <% end %>
             </li>
 
             <li class="nav-item">
-              <%= link_to new_reader_session_path, class: "btn btn-light col-sm-3" do %>
+              <%= link_to new_reader_session_path, class: "login btn btn-light" do %>
                 <i class="fas fa-sign-in-alt"></i><br>ログイン
               <% end %>
             </li>
+          </ul>
           <% end %>
         </ul>
       </div>

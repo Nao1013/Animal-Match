@@ -1,2 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.login {
+  min-width: 90px;
+}
+
+.f-login {
+  min-width: 125px;
+}
+
+.logo-text {
+  position: absolute;
+  top: 10;
+  left: 20;
+}
+
+:root {
+  --swiper-navigation-color: black;
+  --swiper-pagination-color: black;
+}

@@ -13,20 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-.logo-text {
-  position: absolute;
-  top: 10;
-  left: 20;
-}
-
-:root {
-  --swiper-navigation-color: #ffffff;
-  --swiper-pagination-color: #ffffff;
-}
-
-@media screen and (max-width: 425px) {
-  .btn {
-    color: red;
-  }
-}
