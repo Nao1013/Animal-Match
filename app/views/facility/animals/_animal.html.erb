@@ -3,7 +3,7 @@
      <% if animal.images.attached? %>
       <% animal.images.each do |image| %>
       <div class="swiper-slide">
-        <%= image_tag image, size: "500x400", class: "mt-3 col-sm-4" %>
+        <%= image_tag image, size: "500x400", class: "col-sm-4" %>
          </div>
         <% end %>
       <% end %>
