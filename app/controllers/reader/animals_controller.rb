@@ -5,9 +5,6 @@ class Reader::AnimalsController < ApplicationController
     # @facilities = Facility.find(params[:facility_name])
     @reader = current_reader
     @genres = Genre.all
-    # @facilities = Facility.where(is_deleted: false).pluck('id') # 現在登録している施設側を絞り込んでいる
-    # if params[:tag].present?
-    #   @animals = Tag.search(params[:tag])
     if params[:name].present?
       @animals = Genre.find(params[:name]).animals
     else
@@ -18,7 +15,6 @@ class Reader::AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    # @tags = @animal.tags.pluck(:tag)
     @facility = Facility.find(@animal.facility_id)
   end
 

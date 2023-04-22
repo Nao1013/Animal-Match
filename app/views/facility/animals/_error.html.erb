@@ -1,0 +1,6 @@
+<% if animal.errors.any? %>
+    <%= animal.errors.count %>件のエラーが発生しました
+      <% animal.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+  <% end %>
