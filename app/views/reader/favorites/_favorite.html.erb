@@ -1,13 +1,13 @@
 <% if animal.favorited_by?(current_reader) %>
     <p>
       <%= link_to reader_animal_favorites_path(animal), method: :delete, remote: true do %>
-        <i class="fas fa-star favo"></i><span class="favo"><%= animal.favorites.count %></span>
+        <i class="fas fa-star favo mr-1"></i><span class="favo"><%= animal.favorites.count %></span>
       <% end %>
     </p>
     <% else %>
     <p>
       <%= link_to reader_animal_favorites_path(animal), method: :post, remote: true do %>
-        <i class="far fa-star no-favo"></i><span class="no-favo"><%= animal.favorites.count %></span>
+        <i class="far fa-star no-favo mr-1"></i><span class="no-favo"><%= animal.favorites.count %></span>
       <% end %>
     </p>
   <% end %>

@@ -9,15 +9,15 @@
           <% end %>
           <p class="text-center"><%= animal.name %></p>
         <% end %>
-      
+
       <% if animal.is_decided %>
         <span class="text-danger font-weight-bold ml-4">家族が決まりました</span>
       <% else %>
         <span class="text-success font-weight-bold ml-4">募集中</span>
       <% end %><br>
-      
+
       <!--気になるボタン-->
-      <i class="fas fa-star ml-4 favo"></i></i><%= animal.favorites.count %>
+      <i class="fas fa-star ml-4 mr-1 favo"></i></i><%= animal.favorites.count %>
     </div>
     <% end %>
   </div>
