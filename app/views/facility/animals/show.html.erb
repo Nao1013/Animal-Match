@@ -19,21 +19,13 @@
    
     <!--気になるカウント-->
     <%= link_to facility_favorites_path(animal_id: @animal.id) do %>
-      <i class="fas fa-star"></i><%= @animal.favorites.count %><br>
+      <i class="fas fa-star favo"></i><span class="no-favo"><%= @animal.favorites.count %></span><br>
     <% end %>
 
     <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
-    <%# @tags.each do |tag| %>
-      <%#= link_to facility_animals_path(tag: tag) do %>
-        <!--<i class="fas fa-tag"></i><%#= tag %>　<!--タグ用-->
-      <%# end %>
-    <%# end %>
-
-    
-
     <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success" %>
     <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %><br>
-     <%= link_to "back", facility_animals_path %>
+    <%= link_to "back", facility_animals_path %>
 
   </div>
