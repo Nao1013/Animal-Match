@@ -1,0 +1,4 @@
+<%= form_with url: reader_animal_comments_path(animal_id: animal.id), model: [animal, comment], method: :post, local: false do |f| %>
+  <%= f.text_area :comment, rows: '1', placeholder: "コメントをここに", class: "mt-5 form-control-md" %>
+  <%= f.submit "送信", class: "btn btn-success" %>
+<% end %>

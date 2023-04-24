@@ -1,0 +1,3 @@
+$('#comment').html("<%= j(render 'reader/comments/comment', animal: @animal) %>");
+$('#form').html("<%= j(render 'reader/comments/form', animal: @animal, comment: @comment) %>");
+$("textarea").val("");

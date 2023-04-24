@@ -32,7 +32,8 @@ class Facility::AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    @comment = Comment.new
+    @comment = Comment.where(animal_id: @animal.id)
+    # @comment = Comment.new
     # @tags = @animal.tags.pluck(:tag)  # タグ用コード
   end
 
