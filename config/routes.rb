@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   
   # 施設用ログイン後
   namespace :facility do
-    resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:create, :destroy]
+    end
     # get "/facilities/unsubscribe" => "facilities#unsubscribe"
     # get "/facilities/withdraw" => "facilities#withdraw"
     resources :facilities, only: [:show, :edit, :update, :destroy]
@@ -41,6 +43,7 @@ Rails.application.routes.draw do
    namespace :reader do
     resources :animals, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
     # get "/readers/unsubscribe" => "readers#unsubscribe"
     # get "/readers/withdraw" => "readers#withdraw"

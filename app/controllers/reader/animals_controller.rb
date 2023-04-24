@@ -16,6 +16,7 @@ class Reader::AnimalsController < ApplicationController
   def show
     @animal = Animal.find(params[:id])
     @facility = Facility.find(@animal.facility_id)
+    @comment = Comment.new
   end
 
   private

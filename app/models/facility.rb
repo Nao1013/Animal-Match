@@ -21,6 +21,9 @@ class Facility < ApplicationRecord
   def guest?
     email == 'guest@example.com'
   end
+  
+  # コメントとのアソシエーション
+  has_many :comments, dependent: :destroy
 
   # animalとのアソシエーション
   has_many :animals, dependent: :destroy

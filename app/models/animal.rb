@@ -14,14 +14,8 @@ class Animal < ApplicationRecord
   has_many :animal_genres, dependent: :destroy
   has_many :genres, through: :animal_genres, dependent: :destroy
 
-  # キーワード検索
-  # def self.search(search)
-  #   if search != nil
-  #     Animal.where('name LIKE(?) or introduct LIKE(?)' , "%#{search}%",  "%#{search}%")
-  #   else
-  #     Animal.all
-  #   end
-  # end
+  # コメントのアソシエーション
+  has_many :comments, dependent: :destroy
   
    # 説明文バリデーション
   validates :introduct, presence: true, length: {in: 5..10000 }

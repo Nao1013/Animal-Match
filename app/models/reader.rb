@@ -17,6 +17,9 @@ class Reader < ApplicationRecord
       reader.prefecture = "Tokyo"
     end
   end
+  
+  # コメントのアソシエーション
+  has_many :comments, dependent: :destroy
 
   # DM機能
   has_many :rooms, dependent: :destroy
