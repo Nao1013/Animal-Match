@@ -9,8 +9,9 @@ class Reader::CommentsController < ApplicationController
   end
   
   def destroy
-    @comment = Comment.find(params[:comment_id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
+    # redirect_to reader_animal_path(params[:animal_id])
   end
 
   private

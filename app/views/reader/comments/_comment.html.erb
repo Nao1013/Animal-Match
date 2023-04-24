@@ -6,7 +6,7 @@
       <div class="time_ago text-right mr-2 mb-2"><%= time_ago_in_words(comment.created_at) %></div>
     </div>
     <% if comment.reader == current_reader %>
-      <%= link_to "削除", reader_animal_comment_path(animal, comment), method: :delete, class: "btn btn-danger", remote: true %>
+      <%= link_to "削除", reader_animal_comment_path(comment.animal, comment), method: :delete, class: "btn btn-danger", remote: true %>
     <% end %>
   </div>
 <% end %>

@@ -17,18 +17,13 @@
   <!--動物種-->
   <%= render "facility/animals/genre_name", animal: @animal %>
 
-<!--タグ-->
-  <!--<%# @tags.each do |tag| %>-->
-  <!--  <%#= link_to reader_animals_path(tag: tag) do %>-->
-  <!--    <i class="fas fa-tag"></i><%#= tag %>　<!--タグ用-->
-  <!--  <%# end %>-->
-  <!--<%# end %><br>-->
   <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
 
   <!--コメント-->
     <!--個人側コメント-->
+    <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
     <div class="mt-3" id="comment">
-      <%= render "reader/comments/comment", animal: @animal, comment: @comment %>
+      <%= render "reader/comments/comment", animal: @animal %>
     </div>
 
     <div id="form">
