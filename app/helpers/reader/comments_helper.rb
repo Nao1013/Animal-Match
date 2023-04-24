@@ -1,0 +1,2 @@
+module Reader::CommentsHelper
+end

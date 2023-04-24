@@ -24,6 +24,25 @@
 
     <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
     
+    <!--コメント-->
+    <!--施設側コメント-->
+    <% @animal.comments.each do |comment| %>
+      <%= comment.facility_name %>
+      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% end %>
+    
+    <!--個人側コメント-->
+    <% @animal.comments.each do |comment| %>
+      <%= comment.user_name %>
+      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% end %>
+    
+    <div>
+      <%= form_with url: facility_animal_comments_path(animal_id: @animal.id), model: [@animal, @comment] do |f| %>
+        <%= f.text_area :comment, rows: '1', placeholder: "コメントをここに", class: "mt-5 form-control-md" %>
+        <%= f.submit "送信", class: "btn btn-success" %>
+      <% end %>
+    </div>
 
     <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success mt-5" %>
     <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mt-5" %><br>

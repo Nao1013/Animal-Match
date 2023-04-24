@@ -1,0 +1,2 @@
+module Facility::CommentsHelper
+end
