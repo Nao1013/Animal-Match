@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :animal
   belongs_to :facility, optional: true
   
-  validates :comment, presence: true, length: { minimum: 3 } 
+  validates :comment, presence: true, length: { minimum: 1 } 
 end

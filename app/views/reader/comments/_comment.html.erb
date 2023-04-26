@@ -1,16 +1,21 @@
 <% animal.comments.each do |comment| %>
-  <div class="text-center">
     <% if comment.reader_id %>
     <div class="font-weight-bold mt-3"><%= comment.reader.user_name %></div>
     <% elsif comment.facility_id %>
      <div class="font-weight-bold mt-3"><%= comment.facility.facility_name %></div>
     <% end %>
     
-    <div class="come rounded">
-      <p class="text-left ml-2 mt-2"><%= comment.comment %></p>
-      <div class="time_ago text-right mr-2 mb-2"><%= time_ago_in_words(comment.created_at) %></div>
-    <% if comment.reader == current_reader %>
-      <%= link_to "削除", reader_animal_comment_path(comment.animal, comment), method: :delete, class: "btn btn-danger", remote: true %>
-    <% end %>
-  </div>
+    <div class="card card-comment mx-auto  border border-0">
+      <div class="card-body">
+        <p class="text-left"><%= comment.comment %></p>
+        <div class="time_ago text-right"><%= time_ago_in_words(comment.created_at) %></div>
+      </div>
+    </div>
+    <span>
+      <% if comment.reader == current_reader %>
+        <%= link_to reader_animal_comment_path(comment.animal, comment), method: :delete, remote: true do %>
+          <i class="fas fa-times-circle" style="color: #f1041b;"></i>
+        <% end %>
+      <% end %>
+    </span>
 <% end %>

@@ -1,0 +1,3 @@
+$('#comment_facility').html("<%= j(render 'facility/comments/comment', animal: @animal) %>")
+$('#form_comment').html("<%= j(render 'facility/comments/form', animal: @animal, comment: @comment) %>");
+$("textarea").val("");

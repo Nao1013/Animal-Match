@@ -3,7 +3,7 @@ class Facility < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   # ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |facility|
@@ -17,11 +17,11 @@ class Facility < ApplicationRecord
       facility.telephone = "guest"
     end
   end
-  
+
   def guest?
     email == 'guest@example.com'
   end
-  
+
   # コメントとのアソシエーション
   has_many :comments, dependent: :destroy
 

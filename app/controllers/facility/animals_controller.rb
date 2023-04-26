@@ -1,7 +1,7 @@
 class Facility::AnimalsController < ApplicationController
   before_action :authenticate_facility! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
-  before_action :ensure_user, only: [:edit, :update, :show] 
-  
+  before_action :ensure_user, only: [:edit, :update, :show]
+
   def new
     @animal = Animal.new
   end
@@ -32,8 +32,8 @@ class Facility::AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    @comment = Comment.where(animal_id: @animal.id)
-    # @comment = Comment.new
+    @comment_reader = Comment.where(animal_id: @animal.id)
+    @comment = Comment.new
     # @tags = @animal.tags.pluck(:tag)  # タグ用コード
   end
 
@@ -65,7 +65,7 @@ class Facility::AnimalsController < ApplicationController
   def animal_params
     params.require(:animal).permit(:name, :introduct, :is_decided, images: [], genre_ids: [])
   end
-  
+
   # URLに直打ちしたときの制約
   def ensure_user
     @animals = current_facility.animals

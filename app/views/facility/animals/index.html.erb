@@ -88,9 +88,13 @@
             <% end %>
             <p class="text-center"><%= animal.name %></p>
           <% end %>
+          <i class="fas fa-star favo mr-1"></i><%= animal.favorites.count %>
+          <i class="far fa-comment ml-3"></i><%= animal.comments.count %>
         </div>
         <% end %>
       </div>
+      
+      
 
     </div>
   </div>
