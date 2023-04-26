@@ -1,24 +1,28 @@
-<div class="row mt-5">
+<div class="row">
   <% animals.each do |animal| %>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mt-4">
       <%= link_to reader_animal_path(animal.id) do %>
         <% if animal.images.attached? %>
           <%= image_tag animal.images.first, class: "rounded-circle", size: "200x200" %>
           <% else %>
             <%= image_tag 'no_image', class: "rounded-circle", size: "200x200" %>
           <% end %>
-          <p class="text-center"><%= animal.name %></p>
+          <div class="text-center"><%= animal.name %></div>
         <% end %>
-
-      <% if animal.is_decided %>
-        <span class="text-danger font-weight-bold ml-4">家族が決まりました</span>
-      <% else %>
-        <span class="text-success font-weight-bold ml-4">募集中</span>
-      <% end %><br>
-
-      <!--気になるボタン-->
-      <i class="fas fa-star ml-4 mr-1 favo"></i><%= animal.favorites.count %>
-      <i class="far fa-comment ml-3"></i><%= animal.comments.count %>
+        
+        <div class="text-center font-weight-bold">
+          <% if animal.is_decided %>
+            <div class-"text-danger">家族が決まりました</div>
+          <% else %>
+            <div class="text-success">募集中</div>
+          <% end %>
+        </div>
+        
+      <!--気になる数とコメント数-->
+      <div class="text-center">
+        <i class="fas fa-star favo"></i><%= animal.favorites.count %>
+        <i class="far fa-comment ml-3"></i><%= animal.comments.count %>
+      </div>
     </div>
     <% end %>
   </div>
