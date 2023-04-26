@@ -1,4 +1,4 @@
-<div class="container text-center col-sm-12">
+<div class="container-sm text-center">
   
   <% if flash[:alert] %>
     <div class="alert alert-danger mt-3">
@@ -6,36 +6,35 @@
     </div>
   <% end %>
   
-  <div class="image" style="background-image">
-    <%= image_tag asset_path("top-image.jpg"), width: '100%' %>
-  </div>
-  
-  <h1 class="welcome text-center ">Welcome to Anima!</h1>
-
-    <div class="card text-center mt-5">
-    <div class="card-body">
-      <h3 class="font-weight-bold" style="border: thick outset silver">サイトについて</h3>
-      <p class="card-text">
-        このアプリは、すべてのワンちゃん、猫ちゃんが幸せなるようにと作りました。<br>
-      　これから飼い主になる方、保護犬保護猫の出会いの場になればと思っています<br>
-        もちろん、癒され目的でも大丈夫です。<br>
-        どうか良いご縁がありますように、と願っています。
-      </p>
+    <div class="image" style="background-image">
+      <%= image_tag asset_path("top-image.jpg"), width: '100%' %>
     </div>
-  </div>
+    
+    <h1 class="welcome">Welcome to Anima!</h1>
+    
+    <%= link_to '施設側ゲストログイン（閲覧用）', facilitys_guest_sign_in_path, class: "btn btn-secondary mt-4 sign_in", method: :post %>
+    <%= link_to '個人ゲストログイン（閲覧用）', readers_guest_sign_in_path, class: "btn btn-secondary mt-4 sign_in", method: :post %><br>
+    <%= link_to "施設のご登録はこちらから", new_facility_registration_path, class: "btn btn-success mt-4" %>
+    <%= link_to "個人のご登録はこちらから", new_reader_registration_path, class: "btn btn-info mt-4" %><br>
   
-  <h3 class="text-danger font-weight-bold mt-5">※注意事項※</h3>
-  <p>
-    <li><span class="list">施設側の住所を載せていますが、動物の遺棄や廃棄目的で利用をお断りしております</span></li>
-    <li><span class="list">お迎えするにあたり、動物の介護や食事代、病気に罹ったときなどのことを考慮してお迎えしてください</span></li>
-    <li><span class="list">無理のない多頭飼いをお願い致します</span></li>
-    <li><span class="list">お迎えを考えている方には、お迎えしたワンちゃん、ネコちゃんを一生愛することを誓える方の利用を推奨しております</span></li>
-    <li><span class="list">当サイトは、施設側、個人側に不利益が生じても一切の責任を負いません</span></li>
-  </p>
-  
-  <%= link_to '施設側ゲストログイン（閲覧用）', facilitys_guest_sign_in_path, class: "btn btn-secondary mt-4 sign_in", method: :post %>
-  <%= link_to '個人ゲストログイン（閲覧用）', readers_guest_sign_in_path, class: "btn btn-secondary mt-4 sign_in", method: :post %><br>
-  <%= link_to "施設のご登録はこちらから", new_facility_registration_path, class: "btn btn-success mt-4" %>
-  <%= link_to "個人のご登録はこちらから", new_reader_registration_path, class: "btn btn-info mt-4" %><br>
-
+      <div class="card text-center mt-4">
+      <div class="card-body">
+        <h3 class="font-weight-bold" style="border: thick outset silver">サイトについて</h3>
+        <p class="card-text">
+          このアプリは、すべてのワンちゃん、猫ちゃんが幸せなるようにと作りました。<br>
+        　これから飼い主になる方、保護犬保護猫の出会いの場になればと思っています<br>
+          もちろん、癒され目的でも大丈夫です。<br>
+          どうか良いご縁がありますように、と願っています。
+        </p>
+      </div>
+    </div>
+    
+    <div class="mb-5">
+      <h3 class="text-danger font-weight-bold mt-4">※注意事項※</h3>
+      <span class="list">施設側の住所を載せていますが、動物の遺棄や廃棄目的でのご利用をお断りしております。</span><br>
+      <span class="list">お迎えするにあたり、動物の介護や食事代、病気に罹ったときなどのことを考慮してください。</span><br>
+      <span class="list">無理のない多頭飼育をお願い致します。</span><br>
+      <span class="list">お迎えを考えている方は、お迎えしたワンちゃん、ネコちゃんを一生愛することを誓える方のご利用を推奨しております。</span><br>
+      <span class="list">当サイトは、施設側、個人側に不利益が生じても一切の責任を負いません。</span>
+    </div>
 </div>
