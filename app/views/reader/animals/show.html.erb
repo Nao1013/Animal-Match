@@ -35,7 +35,7 @@
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-5 mr-3" %>
 
    <% if !current_reader.guest? %>
-     <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-3" %><br>
+     <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-5" %><br>
    <% end %>
    <div>
      <button class="btn btn-secondary mt-3" disabled type="button">DM機能準備中</button>
