@@ -1,11 +1,13 @@
 
 <% animal.comments.each do |comment| %>
   <% if comment.reader_id %>
-  <div class="font-weight-bold mt-3"><%= comment.reader.user_name %></div>
+    <%= link_to facility_reader_path(comment.reader) do %>
+      <div class="font-weight-bold mt-3 comment-name"><%= comment.reader.user_name %></div>
+    <% end %>
   <% elsif comment.facility_id %>
    <div class="font-weight-bold mt-3"><%= comment.facility.facility_name %></div>
   <% end %>
-  
+
   <div class="card card-comment mx-auto border border-0">
     <div class="card-body">
       <p class="text-left"><%= comment.comment %></p>
