@@ -10,7 +10,7 @@
 
   <div class="card card-comment mx-auto border border-0">
     <div class="card-body">
-      <p class="text-left"><%= comment.comment %></p>
+      <p class="text-left"><%=safe_join(comment.comment.split("\n"),tag(:br))%></p>
       <div class="time_ago text-right"><%= time_ago_in_words(comment.created_at) %></div>
     </div>
   </div>
