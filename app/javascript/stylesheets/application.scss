@@ -1,6 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+}
+
 .welcome {
   position: absolute;
   top: 600px;
@@ -60,7 +70,7 @@
 }
 
 .card-comment {
-  width: 400px;
+  width: 300px;
   background-color: #d4d9dc;
   display: inline-block;
 }
