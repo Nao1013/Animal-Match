@@ -3,7 +3,7 @@
   <div class="mt-3">
     <%= render "facility/animals/decided", animal: @animal %>
   </div>
-  
+
   <!--動物詳細-->
   <%= render 'facility/animals/animal', animal: @animal %>
 
@@ -21,12 +21,12 @@
 
   <!--コメント-->
     <!--個人側コメント-->
+    <% if !current_reader.guest? %>
     <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
     <div class="mt-3" id="comment">
       <%= render "reader/comments/comment", animal: @animal %>
     </div>
-      
-    <% if !current_reader.guest? %>
+    
       <div id="form">
         <%= render "reader/comments/form", animal: @animal, comment: @comment %>
       </div>

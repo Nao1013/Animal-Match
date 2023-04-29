@@ -87,6 +87,10 @@
 
 // タブレット横置き
 @media screen and (max-width: 1180px) {
+  .reader-login {
+    display: inline-block;
+  }
+  
   .welcome {
     position: absolute;
     top: 400px;
