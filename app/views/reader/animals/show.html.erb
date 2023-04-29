@@ -21,15 +21,15 @@
 
   <!--コメント-->
     <!--個人側コメント-->
-    <% if !current_reader.guest? %>
     <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
+    <% if !current_reader.guest? %>
     <div class="mt-3" id="comment">
       <%= render "reader/comments/comment", animal: @animal %>
     </div>
     
-      <div id="form">
-        <%= render "reader/comments/form", animal: @animal, comment: @comment %>
-      </div>
+    <div id="form">
+      <%= render "reader/comments/form", animal: @animal, comment: @comment %>
+    </div>
     <% end %>
 
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-5 mr-3" %>
