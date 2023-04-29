@@ -39,6 +39,7 @@
 .list {
   background: linear-gradient(transparent 30%, yellow 0%);
   padding-bottom: 2px;
+  animation: marker 3s ease 0s; /*マーカーを引く速度*/
 }
 
 :root {
