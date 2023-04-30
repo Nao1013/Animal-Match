@@ -22,21 +22,38 @@
       <!--投稿した動物（犬・ネコ限定）-->
       <%= form_tag reader_animals_path, method: :get, class: 'boards__searchForm' do %>
 
-        <!--タブ分け-->
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <%= link_to "一覧", reader_animals_path, class: "nav-link active" %>
-          </li>
-          <% @genres.each do |genre| %>
-          <li class="nav-item">
-            <%= link_to genre.name, reader_animals_path(name: genre.id), class: "nav-link" %>
-          <% end %>
-          </li>
-        </ul>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#all" role="tab" aria-controls="home" aria-selected="true">一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#dog" role="tab" aria-controls="profile" aria-selected="false">犬</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#cat" role="tab" aria-controls="contact" aria-selected="false">猫</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="home-tab"> <%= render "reader/animals/index", animals: @animals %></div>
+        <div class="tab-pane fade" id="dog" role="tabpanel" aria-labelledby="profile-tab"><%= render "reader/animals/index", animals: @animals_dog %></div>
+        <div class="tab-pane fade" id="cat" role="tabpanel" aria-labelledby="contact-tab"><%= render "reader/animals/index", animals: @animals_cat %></div>
+      </div>
       <% end %>
+        <!--タブ分け(each文で切り替えられるようにしたい)-->
+      <!--  <ul class="nav nav-tabs">-->
+      <!--    <li class="nav-item">-->
+      <!--      <%#= link_to "一覧", reader_animals_path, class: "nav-link active" %>-->
+      <!--    </li>-->
+      <!--    <%# @genres.each do |genre| %>-->
+      <!--    <li class="nav-item">-->
+      <!--      <%#= link_to genre.name, reader_animals_path(name: genre.id), class: "nav-link" %>-->
+      <!--    <%# end %>-->
+      <!--    </li>-->
+      <!--  </ul>-->
+      <!---->
 
       <!--動物一覧-->
-      <%= render "reader/animals/index", animals: @animals %>
+      <%#= render "reader/animals/index", animals: @animals %>
     </div>
   </div>
 </div>

@@ -21,8 +21,9 @@
 
   <!--コメント-->
     <!--個人側コメント-->
-    <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
     <% if !current_reader.guest? %>
+    <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
+   
     <div class="mt-3" id="comment">
       <%= render "reader/comments/comment", animal: @animal %>
     </div>
