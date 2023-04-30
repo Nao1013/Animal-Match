@@ -22,11 +22,12 @@ class Facility::AnimalsController < ApplicationController
     @genres = Genre.all
     # if params[:tag].present?
     #   @animals = Tag.search(params[:tag]).where(facility_id:current_facility.id)
-    if params[:name].present?
-      @animals = Genre.find(params[:name]).animals.where(facility_id:current_facility.id)
-    else
+    # if params[:name].present?
+      @animals_dog = Genre.find_by(name: "犬").animals.where(facility_id:current_facility.id)
+      @animals_cat = Genre.find_by(name: "猫").animals.where(facility_id:current_facility.id)
+    # else
       @animals = current_facility.animals.where(facility_id:current_facility.id)
-    end
+    # end
     @facility = current_facility
   end
 
