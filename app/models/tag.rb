@@ -3,6 +3,9 @@ class Tag < ApplicationRecord
   has_many :animal_tags,dependent: :destroy
   has_many :animals,through: :animal_tags
 
+has_many :post_images, through: :post_image_tags
+  has_many :post_image_tags, dependent: :destroy
+
   # タグ名のバリデーション
   validates :tag, uniqueness: true, presence: true
   # 重複NG
@@ -10,11 +13,11 @@ class Tag < ApplicationRecord
   
   # タグ検索
   def self.search(search)
-    if search.present?
+    if search.present
       tag = Tag.where(tag: search)
       tag[0].animals
     else
-      Animal.all
+      Animals.all
     end
   end
 end

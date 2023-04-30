@@ -4,14 +4,15 @@ class Facility::AnimalsController < ApplicationController
 
   def new
     @animal = Animal.new
+    @tag = Tag.new
   end
 
   def create
     @animal = current_facility.animals.new(animal_params)
-    # tags=params[:animal][:tag].split(',').map(&:strip).uniq
+    tags = params[:animal][:tag].split(',').map(&:strip).uniq
     if @animal.save
       # @animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
-      # @animal.save_tags(tags)
+      @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'投稿しました'
     else
       render 'new'
@@ -36,18 +37,19 @@ class Facility::AnimalsController < ApplicationController
     @comment_reader = Comment.where(animal_id: @animal.id)
     @comment = Comment.new
     # @tags = @animal.tags.pluck(:tag)  # タグ用コード
+    
   end
 
   def edit
     @animal = Animal.find(params[:id])
-    # @tags=@animal.tags.pluck(:tag).join(',')
+    @tags=@animal.tags.pluck(:tag).join(',')
   end
 
   def update
     @animal = Animal.find(params[:id])
-    # tags=params[:animal][:tag].split(',').map(&:strip).uniq
+    tags = params[:animal][:tag].split(',').map(&:strip).uniq
     if @animal.update(animal_params)
-      # @animal.update_tags(tags)
+      @animal.update_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'編集しました'
     else
       render 'edit'
@@ -73,5 +75,10 @@ class Facility::AnimalsController < ApplicationController
     @animal = @animals.find_by(id: params[:id])
     redirect_to root_path unless @animal
   end
+  
+   # タグのフォーム入力値に対応するストロングパラメータ
+   def tag_params
+     params.require(:animal).permit(:tag)
+   end
 
 end
