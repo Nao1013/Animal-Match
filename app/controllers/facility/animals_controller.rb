@@ -9,10 +9,10 @@ class Facility::AnimalsController < ApplicationController
 
   def create
     @animal = current_facility.animals.new(animal_params)
-    tags = params[:animal][:tag].split(',').map(&:strip).uniq
+    # tags = params[:animal][:tag].split(',').map(&:strip).uniq
     if @animal.save
       # @animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
-      @animal.save_tags(tags)
+      # @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'投稿しました'
     else
       render 'new'
