@@ -36,7 +36,7 @@ class Facility::AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     @comment_reader = Comment.where(animal_id: @animal.id)
     @comment = Comment.new
-    # @tags = @animal.tags.pluck(:tag)  # タグ用コード
+    @tags = @animal.tags.pluck(:tag)  # タグ用コード
     
   end
 

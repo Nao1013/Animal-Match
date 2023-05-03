@@ -1,16 +1,16 @@
 class Animal < ApplicationRecord
-  
+
   # 個人側とのアソシエーション(いいね)
   has_many :favorites, dependent: :destroy
-  
+
   def favorited_by?(reader)
     favorites.exists?(reader_id: reader.id)
   end
-  
+
   # タグとのアソシエーション
   has_many :animal_tags, dependent: :destroy
   has_many :tags, through: :animal_tags
-  
+
   def save_tags(save_animal_tags)
     # 登録されているタグを取得
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
@@ -40,7 +40,7 @@ class Animal < ApplicationRecord
 
   # コメントのアソシエーション
   has_many :comments, dependent: :destroy
-  
+
    # 説明文バリデーション
   validates :introduct, presence: true, length: {in: 5..10000 }
 
@@ -48,11 +48,11 @@ class Animal < ApplicationRecord
   has_many_attached :images
   validates :images, presence: true
   validate :validate_image_number
-  
+
   private
 
   def validate_image_number
     errors.add(:images, 'は3枚までです。') if images.size > 3
   end
-  
+
 end
