@@ -1,23 +1,23 @@
 <div class="container-sm text-center">
-  
+
   <% if flash[:alert] %>
     <div class="alert alert-danger mt-3">
       <%= flash[:alert] %>
     </div>
   <% end %>
-  
+
     <div class="image" style="background-image">
       <%= image_tag asset_path("top-image.jpg"), width: '100%' %>
     </div>
-    
+
     <h1 class="welcome">Welcome to Anima!</h1>
-    
+
     <%= link_to '施設側ゲストログイン（閲覧用）', facilitys_guest_sign_in_path, class: "btn btn-secondary mt-4 sign_in", method: :post %>
     <%= link_to '個人ゲストログイン（閲覧用）', readers_guest_sign_in_path, class: "btn btn-secondary mt-4 sign_in", method: :post %><br>
     <%= link_to "施設のご登録はこちらから", new_facility_registration_path, class: "btn btn-success mt-4" %>
     <%= link_to "個人のご登録はこちらから", new_reader_registration_path, class: "btn btn-info mt-4" %><br>
-  
-      <div class="card text-center mt-4 border border-0">
+
+    <div class="card text-center mt-4 border border-0">
       <div class="card-body">
         <h3 class="font-weight-bold" style="border: thick outset silver">サイトについて</h3>
         <p class="card-text">
@@ -28,7 +28,28 @@
         </p>
       </div>
     </div>
-    
+
+    <div class="mt-4 border-top border-dark">
+      <h3 class="font-weight-bold pt-3">ご利用方法</h3>
+      <p style="text-decoration: underline double;" class="top-infomation">【施設側】</p>
+        <div class="d-flex justify-content-sm-center">
+          <div class="border-right pr-2 border-dark">
+            <%= image_tag "camera_cat.png", size: "200x200" %>
+            <p class="text-left">①保護しているワンちゃん、ネコちゃんの<br>写真撮影をします。</p>
+          </div>
+          <div class="border-right border-dark border-width-5 pr-2 pl-2">
+            <%= image_tag "website_sns.png", size: "200x200" %>
+            <p class="text-left">②撮影したものを『新規登録』にてサイトに上げます</p>
+          </div>
+          <div class="pl-2">
+            <%= image_tag "pet_dog_dakko.png", size: "200x200" %>
+            <p class="text-left">③『気になるボタン』やコメントなどでやり取りし、<br>新しい飼い主様へ迎えれて頂く</p>
+          </div>
+        </div>
+
+      <p>個人側</p>
+    </div>
+
     <div class="mb-5">
       <h3 class="text-danger font-weight-bold mt-4">※注意事項※</h3>
       <span class="list">施設側の住所を載せていますが、動物の遺棄や廃棄目的でのご利用をお断りしております。</span><br>

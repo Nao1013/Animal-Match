@@ -14,10 +14,10 @@
     <%= f.text_area :introduct, rows: "20", class: "col-sm-7" %>
   </div>
   
-  <!--<div class="field mt-3">-->
-  <!--  <%#= f.label"タグ", class: "font-weight-bold" %><br>-->
-  <!--  <%#= f.text_field :tag,value: @tags, class:"col-sm-7"%>-->
-  <!--</div>-->
+  <div class="field mt-3">
+    <%= f.label"タグ", class: "font-weight-bold" %><br>
+    <%= f.text_field :tag, value: @tags, placeholder: "タグを複数つけるには' , 'で区切ってください", class:"col-sm-7"%>
+  </div>
   
   <!--引き取りて決定有無-->
   <div class="form-group mt-3">

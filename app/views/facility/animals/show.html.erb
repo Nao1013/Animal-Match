@@ -13,6 +13,11 @@
   
   <!--動物詳細-->
   <%= render 'animal', animal: @animal %>
+  
+  <!--タグ-->
+  <% @tags.each do |tag| %>
+    <i class="fas fa-tag"></i><%= tag.tag %>
+  <% end %>
    
    <!--動物種-->
    <%= render "genre_name", animal: @animal %>

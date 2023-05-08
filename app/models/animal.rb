@@ -7,31 +7,7 @@ class Animal < ApplicationRecord
     favorites.exists?(reader_id: reader.id)
   end
 
-  # タグとのアソシエーション
-  has_many :animal_tags, dependent: :destroy
-  has_many :tags, through: :animal_tags
-
-  def save_tags(save_animal_tags)
-    # 登録されているタグを取得
-    current_tags = self.tags.pluck(:name) unless self.tags.nil?
-    # 古いタグを取得（登録されているタグ - フォームから新規に送られてきたタグ）
-    old_tags = current_tags - save_animal_tags
-    # 新しいタグの取得（フォームから新規に送られてきたタグ - 登録されているタグ）
-    new_tags = save_animal_tags - current_tags
-
-    old_tags.each do |old_name|
-    # 古いタグを削除
-      self.tags.delete Tag.find_by(name: old_name)
-    end
-
-    new_tags.each do |new_name|
-    # 新しいタグがテーブルに存在しなければ新規登録
-      animal_tag = Tag.find_or_create_by(name: new_name)
-      self.tags << animal_tag
-    end
-  end
-
-  # 施設側とのアソシエーション
+ # 施設側とのアソシエーション
   belongs_to :facility
 
   # animal_genre(中間テーブル)とのアソシエーション
@@ -48,6 +24,56 @@ class Animal < ApplicationRecord
   has_many_attached :images
   validates :images, presence: true
   validate :validate_image_number
+
+  # タグとのアソシエーション
+  has_many :animal_tags, dependent: :destroy
+  has_many :tags, through: :animal_tags
+
+ # タグ付けの新規投稿用メソッド
+  def save_tags(tags)
+    tags.each do |new_tags|
+      # selfはこの場合コントローラーの@animalになる
+      # anial_tagsがthroughしているのでtagsでアソシエーションを指定すると中間テーブルを通過した際に保存される。
+      self.tags.find_or_create_by(name: new_tags)
+    end
+  end
+
+  # タグ付けの更新用メソッド
+  def update_tags(latest_tags)
+    if self.tags.empty?
+      # 既存のタグがなかったら追加だけ行う
+      latest_tags.each do |latest_tag|
+        self.tags.find_or_create_by(tag: latest_tag)
+      end
+    elsif latest_tags.empty?
+      # 更新対象のタグがなかったら既存のタグをすべて削除
+      # 既に保存がされていたら既に登録されているタグの内容を削除
+      self.tags.each do |tag|
+        self.tags.delete(tag)
+      end
+    else
+      # 既存のタグも更新対象のタグもある場合は差分更新
+      current_tags = self.tags.pluck(:tag)
+      #左を起点に引き算をする
+      #　　　　　　 b             a b c
+      old_tags = current_tags - latest_tags
+      #一致したものを取り出す
+      # a c       a b c            b 
+      new_tags = latest_tags - current_tags
+
+      # a  c
+      old_tags.each do |old_tag|
+        tag = self.tags.find_by(tag: old_tag)
+        self.tags.delete(tag) if tag.present?
+      end
+
+      new_tags.each do |new_tag|
+        # b
+        self.tags.find_or_create_by(tag: new_tag)
+        # self.tags << new_tags
+      end
+    end
+  end
 
   private
 
