@@ -5,38 +5,40 @@
       <%= flash[:notice] %>
     </div>
   <% end %>
-  
+
   <!--募集中か家族が決まったか-->
   <div class="mt-3">
     <%= render "decided", animal: @animal %>
   </div>
-  
+
   <!--動物詳細-->
   <%= render 'animal', animal: @animal %>
-  
+
   <!--タグ-->
   <% @tags.each do |tag| %>
-    <i class="fas fa-tag"></i><%= tag.tag %>
+    <i class="fas fa-tag"></i><%= tag %>
   <% end %>
-   
+  
+  <%#= @tags %>
+
    <!--動物種-->
    <%= render "genre_name", animal: @animal %>
-   
+
     <!--気になるカウント-->
     <%= link_to facility_favorites_path(animal_id: @animal.id) do %>
       <i class="fas fa-star favo mr-1"></i><span class="no-favo"><%= @animal.favorites.count %></span><br>
     <% end %>
 
     <%= @animal.created_at.strftime('%Y/%m/%d') %><br>
-    
+
     <!--コメント-->
     <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
     <div id="comment_facility">
       <%= render "facility/comments/comment", animal: @animal %>
     </div>
-    
+
     <%= render "facility/comments/form", animal: @animal, comment: @comment %>
-    
+
     <%= link_to "編集", edit_facility_animal_path(@animal), class: "btn btn-success mt-5" %>
     <%= link_to "削除", facility_animal_path(@animal), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mt-5" %><br>
     <%= link_to "back", facility_animals_path %>

@@ -8,7 +8,7 @@ class Facility::AnimalsController < ApplicationController
   end
 
   def create
-    @animal = current_facility.animals.new
+    @animal = current_facility.animals.new(animal_params)
     #:animalはanimalで投稿されてきた際にパラメーターとして飛ばされ、その中の[:tag]を取得して、splitで,区切りにしている
     tags = params[:animal][:tag].split(',')# .map(&:strip).uniq
     if @animal.save
@@ -38,7 +38,6 @@ class Facility::AnimalsController < ApplicationController
     @comment_reader = Comment.where(animal_id: @animal.id)
     @comment = Comment.new
     @tags = @animal.tags.pluck(:tag)  # タグ用コード
-    
   end
 
   def edit

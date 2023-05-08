@@ -34,7 +34,7 @@ class Animal < ApplicationRecord
     tags.each do |new_tags|
       # selfはこの場合コントローラーの@animalになる
       # anial_tagsがthroughしているのでtagsでアソシエーションを指定すると中間テーブルを通過した際に保存される。
-      self.tags.find_or_create_by(name: new_tags)
+      self.tags.find_or_create_by(tag: new_tags)
     end
   end
 
