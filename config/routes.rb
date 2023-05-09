@@ -44,6 +44,9 @@ Rails.application.routes.draw do
     resources :animals, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
+      collection do
+        get 'search'
+      end
     end
     # get "/readers/unsubscribe" => "readers#unsubscribe"
     # get "/readers/withdraw" => "readers#withdraw"
