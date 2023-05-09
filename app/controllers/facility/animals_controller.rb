@@ -51,7 +51,7 @@ class Facility::AnimalsController < ApplicationController
     tags = params[:animal][:tag].split(',') # .map(&:strip).uniq
     if @animal.update(animal_params)
       #@animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
-      @animal.update_tags(tags)
+      @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'編集しました'
     else
       render 'edit'
