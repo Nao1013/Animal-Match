@@ -19,13 +19,6 @@ class Reader::AnimalsController < ApplicationController
     @facility = Facility.find(@animal.facility_id)
     @comment = Comment.new
   end
-  
-  def search
-    if params[:keyword].present?
-      @animals = Animal.where('introduct LIKE ?', "%#{params[:keyword]}%")
-      @keyword = params[:keyword]
-    end
-  end
 
   private
 

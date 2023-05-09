@@ -1,13 +1,8 @@
 <% if reader_signed_in? %>
-  <%#= form_tag(reader_search_path, method: :get) do %>
-    <%#= text_field_tag 'content' %>
-    <%#= select_tag 'model', options_for_select({ "施設名" => "facility", "動物" => "animal" }) %>
+  <%= form_tag(reader_search_path, method: :get) do %>
+    <%= text_field_tag 'content' %>
+    <%= select_tag 'model', options_for_select({ "施設名" => "facility", "動物" => "animal" }) %>
     <%#= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
-    <%#= submit_tag '検索' %>
-  <%# end %>
-  
-  <%= form_with url: search_reader_animals_path, local: true, method: :get do |form| %>
-    <%= form.text_field :keyword %>
-    <%= form.submit "検索" %>
+    <%= submit_tag '検索' %>
   <% end %>
 <% end %>

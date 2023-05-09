@@ -58,7 +58,7 @@ class Animal < ApplicationRecord
       #　　　　　　 b             a b c
       old_tags = current_tags - latest_tags
       #一致したものを取り出す
-      # a c       a b c            b 
+      # a c       a b c            b
       new_tags = latest_tags - current_tags
 
       # a  c
