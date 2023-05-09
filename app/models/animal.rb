@@ -69,7 +69,9 @@ class Animal < ApplicationRecord
 
       new_tags.each do |new_tag|
         # b
-        self.tags.find_or_create_by(tag: new_tag)
+        tag = Tag.find_or_create_by!(tag: new_tag)
+        
+        self.animal_tags.create!(tag_id: tag.id)
         # self.tags << new_tags
       end
     end
