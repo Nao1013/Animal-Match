@@ -38,12 +38,21 @@
 
 .top-facility {
   font-size: 20px;
-  background: linear-gradient(transparent 0%, palegreen 0%);
+  background: linear-gradient(transparent 0%, #28a745 0%);
+  color: white;
 }
 
 .top-reader {
   font-size: 20px;
-  background: linear-gradient(transparent 0%, deepskyblue 0%);
+  background: linear-gradient(transparent 0%, #17a2b8 0%);
+  color: white;
+}
+
+.number {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 30px;
 }
 
 .list {

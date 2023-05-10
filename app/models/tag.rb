@@ -6,7 +6,7 @@ class Tag < ApplicationRecord
   # タグ名のバリデーション
   validates :tag, uniqueness: true, presence: true
   # 重複NG
-  # validates :tag, uniqueness: true
+  validates :tag, uniqueness: true
   
   # タグ検索
   def self.search(search)

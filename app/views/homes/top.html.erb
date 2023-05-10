@@ -17,9 +17,9 @@
     <%= link_to "施設のご登録はこちらから", new_facility_registration_path, class: "btn btn-success mt-4" %>
     <%= link_to "個人のご登録はこちらから", new_reader_registration_path, class: "btn btn-info mt-4" %><br>
 
-    <div class="card text-center mt-4 border border-0">
+    <div class="card text-center mt-5 border border-0 shadow">
       <div class="card-body">
-        <h3 class="font-weight-bold" style="border: thick outset silver">サイトについて</h3>
+        <h3 class="font-weight-bold border-bottom border-primary border-5">サイトについて</h3>
         <p class="card-text">
           このアプリは、すべてのワンちゃん、猫ちゃんが幸せなるようにと作りました。<br>
         　これから飼い主になる方、保護犬保護猫の出会いの場になればと思っています<br>
@@ -29,45 +29,47 @@
       </div>
     </div>
 
-    <div class="mt-4 border-top border-dark">
-      <h3 class="font-weight-bold pt-3" style="color: #ffa500;">ご利用方法</h3>
-      <span class="top-facility">【施設側】</span>
+    <div class="mt-5 shadow p-3">
+      <h3 class="font-weight-bold border-bottom border-primary" style="color: #ffa500;">ご利用方法</h3>
+      <span class="top-facility p-1">【施設側】</span>
         <div class="d-flex justify-content-sm-center">
-          <div class="border-right pr-2 border-dark">
-            <%= image_tag "camera_cat.png", size: "200x200" %>
-            <p class="text-left">①保護しているワンちゃん、ネコちゃんの<br>写真撮影をします。</p>
+          <div class="border-right pr-2 border-dark col-sm-3">
+            <%= image_tag "camera_cat.png", size: "200x200"%>
+            <p class="text-left"><span class="number font-weight-bold">➀</span>保護しているワンちゃん、ネコちゃんの写真撮影をします。</p>
           </div>
-          <div class="border-right border-dark border-width-5 pr-2 pl-2">
+          <div class="border-right border-dark pr-2 pl-2 col-sm-3">
             <%= image_tag "website_sns.png", size: "200x200" %>
-            <p class="text-left">②撮影したものを『新規登録』にてサイトに上げます</p>
+            <p class="text-left"><span class="number font-weight-bold pl-2">➁</span>撮影したものを『新規登録』にてサイトに上げます</p>
           </div>
-          <div class="pl-2">
+          <div class="pl-2 col-sm-3">
             <%= image_tag "pet_dog_dakko.png", size: "200x200" %>
-            <p class="text-left">③『気になるボタン』やコメントなどでやり取りし、<br>新しい飼い主様へ迎えれて頂く</p>
+            <p class="text-left"><span class="number font-weight-bold pl-2">➂</span>『気になるボタン』やコメントなどでやり取りし、新しい飼い主様へ迎えれて頂く</p>
+            <%= link_to "施設のご登録はこちらから", new_facility_registration_path, class: "btn btn-success mt-1" %>
           </div>
         </div>
-        
+
         <div class="mt-3">
-      <span class="top-reader">【個人側】</span>
-      <div class="d-flex justify-content-sm-center">
-        <div class="border-right pr-2 border-dark">
-          <%= image_tag "smartphone_suwaru_man.png", size: "200x200" %>
-          <p class="text-left">①一覧画面から気にる子をクリックします</p>
+          <span class="top-reader rounded-3 p-1">【個人側】</span>
+          <div class="d-flex justify-content-sm-center">
+            <div class="border-right pr-2 border-dark col-sm-3">
+              <%= image_tag "smartphone_suwaru_man.png", size: "200x200" %>
+              <p class="text-left"><span class="number font-weight-bold">➀</span>一覧画面から気にる子をクリックします</p>
+            </div>
+            <div class="border-right border-dark pr-2 pl-2 col-sm-3">
+              <%= image_tag "computer_message_app.png", size: "200x200" %>
+              <p class="text-left"><span class="number font-weight-bold pl-2">➁</span>『気になるボタン』やコメントなどでやり取りします</p>
+            </div>
+            <div class="pl-2 col-sm-3">
+              <%= image_tag "pet_cat_woman.png", size: "200x200" %>
+              <p class="text-left"><span class="number font-weight-bold pl-2">➂</span>実際に気になる子へ会いに行き<br>施設側と話し合って頂きお迎えする</p>
+              <%= link_to "個人のご登録はこちらから", new_reader_registration_path, class: "btn btn-info mt-1" %>
+            </div>
+          </div>
         </div>
-        <div class="border-right border-dark border-width-5 pr-2 pl-2">
-          <%= image_tag "computer_message_app.png", size: "200x200" %>
-          <p class="text-left">②『気になるボタン』やコメントなどでやり取りします</p>
-        </div>
-        <div class="pl-2">
-          <%= image_tag "pet_cat_woman.png", size: "200x200" %>
-          <p class="text-left">③実際に気になる子へ会いに行き<br>施設側と話し合って頂きお迎えする</p>
-        </div>
-      </div>
-      </div>
     </div>
 
-    <div class="mb-5">
-      <h3 class="text-danger font-weight-bold mt-4">※注意事項※</h3>
+    <div class="mb-5 mt-5 shadow-lg p-4">
+      <h3 class="text-danger font-weight-bold border-bottom border-primary">※注意事項※</h3>
       <span class="list">施設側の住所を載せていますが、動物の遺棄や廃棄目的でのご利用をお断りしております。</span><br>
       <span class="list">お迎えするにあたり、動物の介護や食事代、病気に罹ったときなどのことを考慮してください。</span><br>
       <span class="list">無理のない多頭飼育をお願い致します。</span><br>

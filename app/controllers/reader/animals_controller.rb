@@ -3,14 +3,18 @@ class Reader::AnimalsController < ApplicationController
  
   def index
     # @facilities = Facility.find(params[:facility_name])
+    
     @reader = current_reader
     @genres = Genre.all
     # if params[:name].present?
       @animals_cat = Genre.find_by(name: "猫").animals
       @animals_dog = Genre.find_by(name: "犬").animals
     # else
+    if params[:tag].present?
+      @animals = Tag.search(params[:tag])# .where(facility_id:current_facility.id)
+    else
       @animals = Animal.all
-    # end
+    end
     # @animals = @animals.where(facility_id: @facilities) # アニマルに紐ずいている現在登録されている施設側を表示させている
   end
 
@@ -18,6 +22,7 @@ class Reader::AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     @facility = Facility.find(@animal.facility_id)
     @comment = Comment.new
+    @tags = @animal.tags.pluck(:tag)
   end
 
   private

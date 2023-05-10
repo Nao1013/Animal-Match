@@ -28,7 +28,7 @@ class Animal < ApplicationRecord
   # タグとのアソシエーション
   has_many :animal_tags, dependent: :destroy
   has_many :tags, through: :animal_tags
-  
+
   # タグの新規投稿と更新
   def save_tags(tags)
   # タグが存在していれば、タグの名前を配列として全て取得
