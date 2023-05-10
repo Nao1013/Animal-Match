@@ -49,10 +49,6 @@
       <% if !current_facility.guest? %>
         <%= link_to "マイページ", facility_facility_path(current_facility.id), class: "btn btn-primary mt-3"  %><br>
       <% end %>
-      <div>
-       <button class="btn btn-secondary mt-3" disabled type="button">DM機能準備中</button>
-      </div>
-        <%#= link_to "DM", facility_rooms_path, class: "btn btn-info mt-3" %>
 
     </div>
 
@@ -81,22 +77,6 @@
       </div>
       <% end %>
 
-      <!--タブ分け(each文で切り替えられるようにしたい)-->
-      <!--<ul class="nav nav-tabs">-->
-      <!--  <li class="nav-item">-->
-      <!--    <%#= link_to "一覧", facility_animals_path, class: "nav-link active" %>-->
-      <!--  </li>-->
-      <!--  <%# @genres.each do |genre| %>-->
-      <!-- <li class="nav-item">-->
-      <!--    <%#= link_to genre.name, facility_animals_path(name: genre.id), class: "nav-link" %>-->
-      <!--  <%# end %>-->
-      <!--</li>-->
-      <!--</ul>-->
-
-      <!--犬・ネコ投稿一覧-->
-      <!--<div class="row">-->
-        <%#= render 'facility/animals/index', animals: @animals %>
-      <!--</div>-->
     </div>
   </div>
 </div>

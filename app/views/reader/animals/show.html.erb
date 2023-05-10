@@ -19,7 +19,7 @@
   <!--★『気になる』ボタン-->
   <% if !current_reader.guest? %>
   <div id="favorite_btn_<%= @animal.id %>">
-    <div class="favorite_btn mt-5"><%= render 'reader/favorites/favorite', animal: @animal %></div>
+    <div class="favorite_btn mt-3"><%= render 'reader/favorites/favorite', animal: @animal %></div>
   </div>
   <% end %>
 
@@ -31,7 +31,7 @@
   <!--コメント-->
     <!--個人側コメント-->
     <% if !current_reader.guest? %>
-    <h3 class="border-bottom font-weight-bold mt-5">コメント</h3>
+    <h3 class="mt-5 font-weight-bold" style="border-bottom: 2px solid gray;">コメント</h3>
    
     <div class="mt-3" id="comment">
       <%= render "reader/comments/comment", animal: @animal %>
@@ -42,13 +42,10 @@
     </div>
     <% end %>
 
-   <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-5 mr-3" %>
+   <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-5 mr-3 mb-3" %>
 
    <% if !current_reader.guest? %>
-     <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-5" %><br>
+     <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-5 mb-3" %><br>
    <% end %>
-   <div>
-     <button class="btn btn-secondary mt-3" disabled type="button">DM機能準備中</button>
-   </div>
-   <%#= link_to "施設へメッセージを送る(準備集)", reader_rooms_path(params: { facility_id: @facility}), method: :post, class: "btn btn-success mt-3" %>
+   
 </div>
