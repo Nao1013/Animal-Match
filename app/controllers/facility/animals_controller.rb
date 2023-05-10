@@ -50,6 +50,11 @@ class Facility::AnimalsController < ApplicationController
     #:animalはanimalで投稿されてきた際にパラメーターとして飛ばされ、その中の[:tag_id]を取得して、splitで,区切りにしている
     tags = params[:animal][:tag].split(',') # .map(&:strip).uniq
     if @animal.update(animal_params)
+      @old_relations=AnimalTag.where(animal_id: @animal.id)
+    # それらを取り出し、消す。消し終わる
+      @old_relations.each do |relation|
+      relation.delete
+      end
       #@animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
       @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'編集しました'
