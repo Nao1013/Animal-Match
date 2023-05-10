@@ -17,20 +17,10 @@ class Reader::SearchsController < ApplicationController
   def search_for(model, content, method)
     # 選択したモデルがfacilityだったら
      if model == 'facility'
-    #   # 選択した検索方法がが完全一致だったら
-    #   if method == 'perfect'
-    #     Facility.where(facility_name: content)
-    #   # 選択した検索方法がが部分一致だったら
-    #   else
         Facility.where('facility_name LIKE ?', '%'+content+'%')
-      # end
     # 選択したモデルがanimalだったら
      elsif model == 'animal'
-      # if method == 'perfect'
-      #   Animal.where(introduct: content)
-      # else
         Animal.where('introduct LIKE ?', '%'+content+'%')
-    #   end
      end
   end
   

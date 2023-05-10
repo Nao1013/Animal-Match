@@ -3,7 +3,6 @@ class Reader::AnimalsController < ApplicationController
  
   def index
     # @facilities = Facility.find(params[:facility_name])
-    
     @reader = current_reader
     @genres = Genre.all
     # if params[:name].present?
@@ -11,7 +10,8 @@ class Reader::AnimalsController < ApplicationController
       @animals_dog = Genre.find_by(name: "犬").animals
     # else
     if params[:tag].present?
-      @animals = Tag.search(params[:tag])# .where(facility_id:current_facility.id)
+      tag = Tag.find_by(tag: params[:tag])
+      @animals = tag.animals
     else
       @animals = Animal.all
     end
