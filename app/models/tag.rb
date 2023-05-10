@@ -9,13 +9,4 @@ class Tag < ApplicationRecord
   # 重複NG
   validates :tag, uniqueness: true
   
-  # タグ検索
-  # def self.search(search)
-  #   if search.present
-  #     tag = Tag.where(tag: search)
-  #     tag[0].animals
-  #   else
-  #     Animals.all
-  #   end
-  # end
 end

@@ -9,9 +9,10 @@ class Reader::AnimalsController < ApplicationController
       @animals_cat = Genre.find_by(name: "猫").animals
       @animals_dog = Genre.find_by(name: "犬").animals
     # else
+    # タグがクリックされたときの絞り込み
     if params[:tag].present?
-      tag = Tag.find_by(tag: params[:tag])
-      @animals = tag.animals
+      tag = Tag.find_by(tag: params[:tag]) # tagの中にTagモデルのカラム名のtagを探してくる
+      @animals = tag.animals # アソシエーションしているので、@animalsの中にtagと結びついているanimalを代入
     else
       @animals = Animal.all
     end
@@ -30,6 +31,5 @@ class Reader::AnimalsController < ApplicationController
   def animal_params
     params.require(:animal).permit(:name, :introduct, :is_decided, :image, genre_ids: [])
   end
-  
   
 end
