@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   # 個人用ログイン後
    namespace :reader do
     resources :animals, only: [:index, :show] do
+      collection do
+        get 'search'
+      end
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end

@@ -9,13 +9,7 @@ class Reader::AnimalsController < ApplicationController
       @animals_cat = Genre.find_by(name: "猫").animals
       @animals_dog = Genre.find_by(name: "犬").animals
     # else
-    # タグがクリックされたときの絞り込み
-    if params[:tag].present?
-      tag = Tag.find_by(tag: params[:tag]) # tagの中にTagモデルのカラム名のtagを探してくる
-      @animals = tag.animals # アソシエーションしているので、@animalsの中にtagと結びついているanimalを代入
-    else
-      @animals = Animal.all
-    end
+     @animals = Animal.all
     # @animals = @animals.where(facility_id: @facilities) # アニマルに紐ずいている現在登録されている施設側を表示させている
   end
 
@@ -24,6 +18,16 @@ class Reader::AnimalsController < ApplicationController
     @facility = Facility.find(@animal.facility_id)
     @comment = Comment.new
     @tags = @animal.tags.pluck(:tag)
+  end
+  
+   # タグがクリックされたときの絞り込み
+  def search
+    if params[:tag].present?
+      tag = Tag.find_by(tag: params[:tag]) # tagの中にTagモデルのカラム名のtagを探してくる
+      @animals = tag.animals # アソシエーションしているので、@animalsの中にtagと結びついているanimalを代入
+    else
+      @animals = Animal.all
+    end
   end
 
   private
