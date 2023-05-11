@@ -44,8 +44,6 @@
 
    <%= link_to "一覧へ", reader_animals_path, class: "btn btn-primary mt-5 mr-3 mb-3" %>
 
-   <% if !current_reader.guest? %>
      <%= link_to "施設詳細", reader_facility_path(@facility), class: "btn btn-warning mt-5 mb-3" %><br>
-   <% end %>
    
 </div>
