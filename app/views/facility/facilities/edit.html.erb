@@ -15,31 +15,41 @@
     <!--プロフィール画像-->
       <div class="row form-group">
         <%= f.label :プロフィール画像, class: "col-sm-3 font-weight-bold" %>
-        <div class="col-sm-3"><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></div>
+        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
       </div>
 
     <!--ユーザー名-->
       <div class="row form-group">
         <%= f.label :ユーザー名, class: "col-sm-3 font-weight-bold" %>
-        <div class="col-sm-3"><%= f.text_field :user_facility_name, autofocus: true, autocomplete: "user_facility_name",placeholder: "ユーザー名(アカウント名)" %></div>
+        <%= f.text_field :user_facility_name, autofocus: true, autocomplete: "user_facility_name",placeholder: "ユーザー名(アカウント名)" %>
       </div>
 
       <!--施設名-->
       <div class="row form-group">
         <%= f.label :施設名, class: "col-sm-3 font-weight-bold" %>
-        <div class="col-sm-3"><%= f.text_field :facility_name, autofocus: true, autocomplete: "facility_name",placeholder: "施設名" %></div>
+        <%= f.text_field :facility_name, autofocus: true, autocomplete: "facility_name",placeholder: "施設名", class: "col-sm-5" %>
       </div>
 
       <!--施設住所-->
       <div class="row form-group">
         <%= f.label :施設住所, class: "col-sm-3 font-weight-bold" %>
-        <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "住所", class: "col-sm-5" %>
+        <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "都道府県" %>
+      </div>
+      
+      <div class="row form-group">
+        <%= f.label :住所2, class: "col-sm-3 font-weight-bold" %>
+        <%= f.text_field :address1, autofocus: true, autocomplete: "address1",placeholder: "市区町村", class: "col-sm-5" %>
+      </div>
+      
+      <div class="row form-group">
+        <%= f.label :住所3, class: "col-sm-3 font-weight-bold" %>
+        <%= f.text_field :address2, autofocus: true, autocomplete: "address2",placeholder: "マンション名など", class: "col-sm-5" %>
       </div>
 
       <!--電話番号-->
       <div class="row form-group">
         <%= f.label :電話番号, class: "col-sm-3 font-weight-bold" %>
-        <div class="col-sm-3"><%= f.text_field :telephone, autofocus: true, autocomplete: "telephone",placeholder: "電話番号"%></div>
+        <%= f.text_field :telephone, autofocus: true, autocomplete: "telephone",placeholder: "電話番号"%>
       </div>
 
       <div class="row form-group">

@@ -38,7 +38,7 @@ class Facility::FacilitiesController < ApplicationController
   private
 
   def facility_params
-    params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :telephone, :profile_image)
+    params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :address1, :address2, :telephone, :profile_image)
   end
   
   def is_matching_login_facility
