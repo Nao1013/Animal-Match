@@ -39,7 +39,8 @@
     <% end %>
     
     <% if !current_reader.guest?%>
-      <%= link_to "退会", reader_reader_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に退会しますか？" %><br>
+      <%= link_to "退会", reader_readers_unsubscribe_path, class: "btn btn-danger mt-2" %>
+      <%#= link_to "退会", reader_reader_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に退会しますか？" %><br>
     <% end %>
     <%= link_to "back", reader_reader_path(@reader), class: "mt-5" %>
   </div>

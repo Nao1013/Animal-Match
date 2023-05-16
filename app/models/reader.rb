@@ -41,5 +41,9 @@ class Reader < ApplicationRecord
   def guest?
     email == "guest@example.com"
   end
+  
+  def active_for_authentication?
+   super && (is_deleted == false)
+  end
 
 end

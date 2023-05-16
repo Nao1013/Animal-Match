@@ -31,4 +31,14 @@ class Reader::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  def reject_withdraw_reader
+    @facility = Facility.find_by(email: params[:reader][:email].downcase)
+    if @facility
+    if (@facility.valid_password?(params[:reader][:password]) && (@reader.active_for_authentication? == false))
+      flash[:notice] = "退会済みのためログインできません。"
+      redirect_to new_reader_session_path
+    end
+    end
+  end
 end

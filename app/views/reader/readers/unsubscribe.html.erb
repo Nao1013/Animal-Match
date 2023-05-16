@@ -1,0 +1,24 @@
+<div class="container text-center col-sm-5 col-md-5 mt-3">
+  <h2><strong>本当に退会しますか？</strong></h2>
+
+  <div class="text-left">
+    <p>
+      退会すると、<span class="list">アカウントと関連するすべての情報が<strong>完全に削除</strong>されます。</span><br>
+      以下の項目についても注意してください。
+    </p>
+    <p>
+      <strong>
+      <span class="list">・投稿したコンテンツやコメントは永久に削除されます。</span><br>
+      <span class="list">・プロフィール情報、設定、履歴などのデータも復元できません。</span><br>
+      <span class="list">・退会後は、以前のアカウントでのログインやアクセスができなくなります。</span>
+      </strong>
+    </p>
+    <p>
+      退会する場合は、『退会する』をクリックしてください。<br>もし退会をしない場合は、『退会しない』をクリックしてください。
+    </p>
+  </div>
+  <div>
+    <%= link_to '退会しない', reader_animals_path, class: "btn btn-primary btn-sm" %>
+    <%= link_to "退会する", reader_readers_withdraw_path(@reader), class: "btn btn-danger btn-sm", method: :get, data: { confirm: "本当に退会しますか？" } %>
+  </div>
+</div>

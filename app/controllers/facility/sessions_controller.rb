@@ -32,13 +32,13 @@ class Facility::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
-  # def reject_withdraw_facility
-  #   @facility = Facility.find_by(email: params[:facility][:email].downcase)
-  #   if @facility
-  #   if (@facility.valid_password?(params[:facility][:password]) && @facility.is_deleted)
-  #     flash[:notice] = "退会済みのためログインできません。"
-  #     redirect_to new_facility_session_path
-  #   end
-  #   end
-  # end
+  def reject_withdraw_facility
+    @facility = Facility.find_by(email: params[:facility][:email].downcase)
+    if @facility
+    if (@facility.valid_password?(params[:facility][:password]) && (@facility.active_for_authentication? == false))
+      flash[:notice] = "退会済みのためログインできません。"
+      redirect_to new_facility_session_path
+    end
+    end
+  end
 end

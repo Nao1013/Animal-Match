@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
-    # get "/facilities/unsubscribe" => "facilities#unsubscribe"
-    # get "/facilities/withdraw" => "facilities#withdraw"
+    get "/facilities/unsubscribe" => "facilities#unsubscribe"
+    get "/facilities/withdraw" => "facilities#withdraw"
     resources :facilities, only: [:show, :edit, :update, :destroy]
     resources :favorites, only: [:index]
     resources :readers, only: [:show]
@@ -48,8 +48,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    # get "/readers/unsubscribe" => "readers#unsubscribe"
-    # get "/readers/withdraw" => "readers#withdraw"
+    get "/readers/unsubscribe" => "readers#unsubscribe"
+    get "/readers/withdraw" => "readers#withdraw"
     resources :readers, only: [:edit, :show, :update, :destroy] do 
       member do
         get :favorites

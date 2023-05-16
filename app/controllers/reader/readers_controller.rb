@@ -22,10 +22,22 @@ class Reader::ReadersController < ApplicationController
     @favorite_animals = Animal.find(favorites)
   end
 
-  def destroy
-    @reader.destroy
-    flash[:alert] = '退会しました。再度ご利用になりたい場合は新規登録をお願い致します。'
-    redirect_to :root #削除に成功すればrootページに戻る
+  # def destroy
+  #   @reader.destroy
+  #   flash[:alert] = '退会しました。再度ご利用になりたい場合は新規登録をお願い致します。'
+  #   redirect_to :root #削除に成功すればrootページに戻る
+  # end
+  
+  def unsubscribe
+    @reader = current_reader
+  end
+
+  def withdraw
+    @reader = current_reader
+    @reader.update(is_deleted: true)
+    reset_session
+    flash[:alert] = "退会しました。再度ご利用の場合は、新規登録をお願い致します。"
+    redirect_to root_path
   end
 
   private
