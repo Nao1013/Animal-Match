@@ -1,9 +1,9 @@
 <div class="container-sm text-center">
-   <% if flash[:alert] %>
-    <div class="alert alert-danger mt-3">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
+  <!-- <%# if flash[:alert] %>-->
+  <!--  <div class="alert alert-danger mt-3">-->
+  <!--    <%#= flash[:alert] %>-->
+  <!--  </div>-->
+  <!--<%# end %>-->
   <h2 class="mt-5">施設側ログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
