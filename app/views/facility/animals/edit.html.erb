@@ -28,10 +28,17 @@
   　<%= f.label :is_decided, "募集中", {value: :false, style: "display: inline-block;"} %>
   </div>
   
-  <%#=　犬・猫選択（固定）%>
-  <% @animal.genres.each do |genre| %>
-    <div class="mt-3"><%= genre.name %></div>
-  <% end %><br>
+   <!--犬・猫種類-->
+    <div class="check_box mt-3">
+      <!--<p class="badge badge-danger">必須</p>-->
+      <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+     　<%= genre.label do %>
+      　 <%= genre.check_box %>
+      　 <%= genre.text %>
+      　<% end %>
+      <% end %>
+      　<p class="text-danger">※選択しない場合、タブで振り分けることができません</p>
+    </div>
   
   <%= f.submit "変更を保存", class: "btn btn-success" %>
 <% end %>

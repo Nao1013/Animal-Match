@@ -5,7 +5,14 @@ class Facility < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   # バリデーション関係
-  validates
+  validates :facility_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :first_name_kana, presence: true
+  validates :last_name_kana, presence: true
+  validates :address, presence: true
+  # validates :address1, presence: true
+  validates :telephone, presence: true
 
   # ゲストログイン
   def self.guest

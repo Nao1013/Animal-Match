@@ -9,6 +9,11 @@ class Animal < ApplicationRecord
 
  # 施設側とのアソシエーション
   belongs_to :facility
+  
+  # 退会した施設の投稿を表示しない
+  def active_facility?
+    facility.active? # Facilityモデルにactive?メソッドが必要です
+  end
 
   # animal_genre(中間テーブル)とのアソシエーション
   has_many :animal_genres, dependent: :destroy
@@ -16,6 +21,9 @@ class Animal < ApplicationRecord
 
   # コメントのアソシエーション
   has_many :comments, dependent: :destroy
+  
+  # 名前のバリデーション
+  validates :name, presence: true
 
    # 説明文バリデーション
   validates :introduct, presence: true, length: {in: 5..10000 }

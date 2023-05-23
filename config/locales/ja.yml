@@ -5,6 +5,7 @@ ja:
       facility: 施設側
       animal: 動物
       comment: コメント
+      genre: 動物種
     attributes:
       reader:
         first_name: 苗字
@@ -43,3 +44,5 @@ ja:
         is_sort: 動物種
       comment:
         comment: コメント
+      genre:
+        name: 動物種
