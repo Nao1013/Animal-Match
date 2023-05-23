@@ -1,0 +1,45 @@
+ja:
+  activerecord:
+    models:
+      reader: 個人
+      facility: 施設側
+      animal: 動物
+      comment: コメント
+    attributes:
+      reader:
+        first_name: 苗字
+        last_name: 名前
+        first_name_kana: ミョウジ
+        last_name_kana: ナマエ
+        user_name: アカウント名
+        prefecture: 都道府県
+        introduct: 説明
+        remember_me: ログインを記憶する
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      facility:
+        facility_name: 施設名
+        first_name: 苗字
+        last_name: 名前
+        first_name_kana: ミョウジ
+        last_name_kana: ナマエ
+        user_facility_name: アカウント名
+        address: 都道府県
+        address1: 市区町村
+        address2: アパート名・部屋番号
+        telephone: 電話番号
+        introduct: 代表者説明
+        facility_intro: 施設説明
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        remember_me: ログインを記憶する
+      animal:
+        name: 名前
+        images: 画像
+        introduct: 説明
+        is_decided: 募集中
+        is_sort: 動物種
+      comment:
+        comment: コメント

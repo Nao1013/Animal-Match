@@ -6,7 +6,7 @@
   <!--<%# end %>-->
   <h2 class="mt-5">施設側ログイン</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_with model: @facility, url: facility_session_path do |f| %>
     <div class="form-group mx-auto col-sm-3">
       <div class="input-group">
         <div class="input-group-prepend">

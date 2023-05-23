@@ -3,6 +3,9 @@ class Facility < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  # バリデーション関係
+  validates
 
   # ゲストログイン
   def self.guest
