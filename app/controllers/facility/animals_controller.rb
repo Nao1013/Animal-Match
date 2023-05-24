@@ -11,9 +11,7 @@ class Facility::AnimalsController < ApplicationController
     @animal = current_facility.animals.new(animal_params)
     #:animalはanimalで投稿されてきた際にパラメーターとして飛ばされ、その中の[:tag]を取得して、splitで,区切りにしている
     tags = params[:animal][:tag].split(',').map(&:strip).uniq
-    @animal.genres = Genre.where(id: params[:animal][:genre_ids])
     if @animal.save
-      @animal.save_genre(name)
       # @animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
       @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'投稿しました'
