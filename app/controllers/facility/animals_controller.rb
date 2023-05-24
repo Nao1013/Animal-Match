@@ -11,7 +11,9 @@ class Facility::AnimalsController < ApplicationController
     @animal = current_facility.animals.new(animal_params)
     #:animalはanimalで投稿されてきた際にパラメーターとして飛ばされ、その中の[:tag]を取得して、splitで,区切りにしている
     tags = params[:animal][:tag].split(',').map(&:strip).uniq
+    @animal.genres = Genre.where(id: params[:animal][:genre_ids])
     if @animal.save
+      @animal.save_genre(name)
       # @animalをつけることanimalモデルの情報を.save_tagsに引き渡してメソッドを走らせることができる
       @animal.save_tags(tags)
       redirect_to facility_animal_path(@animal),notice:'投稿しました'
@@ -22,14 +24,10 @@ class Facility::AnimalsController < ApplicationController
 
   def index
     @genres = Genre.all
-    # if params[:tag].present?
-    #   @animals = Tag.search(params[:tag]).where(facility_id:current_facility.id)
-    # if params[:name].present?
-      @animals_dog = Genre.find_by(name: "犬").animals.where(facility_id:current_facility.id)
-      @animals_cat = Genre.find_by(name: "猫").animals.where(facility_id:current_facility.id)
-    # else
-      @animals = current_facility.animals.where(facility_id:current_facility.id)
-    # end
+    # タブ分け
+    @animals_dog = Genre.find_by(name: "犬").animals.where(facility_id:current_facility.id)
+    @animals_cat = Genre.find_by(name: "猫").animals.where(facility_id:current_facility.id)
+    @animals = current_facility.animals.where(facility_id:current_facility.id)
     @facility = current_facility
   end
 
@@ -42,6 +40,7 @@ class Facility::AnimalsController < ApplicationController
 
   def edit
     @animal = Animal.find(params[:id])
+    @genre = Genre.pluck(:name)
     @tags=@animal.tags.pluck(:tag).join(',')
   end
 

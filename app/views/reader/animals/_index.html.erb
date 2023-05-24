@@ -3,7 +3,7 @@
     <div class="col-sm-4 mt-4">
       <%= link_to reader_animal_path(animal.id) do %>
         <% if animal.images.attached? %>
-          <%= image_tag animal.images.first, class: "rounded-circle", size: "200x200" %>
+          <%= image_tag animal.images.first, class: "rounded-circle index-img" %>
           <% else %>
             <%= image_tag 'no_image', class: "rounded-circle", size: "200x200" %>
           <% end %>
