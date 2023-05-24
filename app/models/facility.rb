@@ -31,6 +31,11 @@ class Facility < ApplicationRecord
   def guest?
     email == 'guest@example.com'
   end
+  
+  # 退会したかどうか
+  def active?
+    !is_deleted # is_deletedが退会フラグのカラム名
+  end
 
   # コメントとのアソシエーション
   has_many :comments, dependent: :destroy

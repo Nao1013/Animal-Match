@@ -9,7 +9,7 @@ class Animal < ApplicationRecord
 
  # 施設側とのアソシエーション
   belongs_to :facility
-  
+
   # 退会した施設の投稿を表示しない
   def active_facility?
     facility.active? # Facilityモデルにactive?メソッドが必要です
@@ -21,10 +21,10 @@ class Animal < ApplicationRecord
 
   # コメントのアソシエーション
   has_many :comments, dependent: :destroy
-  
+
   # 名前のバリデーション
   validates :name, presence: true
-  
+
   # 動物種のバリデーション
   validates :genres, presence: true
 
@@ -35,6 +35,9 @@ class Animal < ApplicationRecord
   has_many_attached :images
   validates :images, presence: true
   validate :validate_image_number
+
+  # 退会した施設が投稿した動物を表示しないようにする
+  scope :active, -> { joins(:facility).where(facilities: { is_deleted: false }) }
 
   # タグとのアソシエーション
   has_many :animal_tags, dependent: :destroy

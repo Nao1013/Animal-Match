@@ -43,7 +43,8 @@ ja:
         is_decided: 募集中
         is_sort: 動物種
         genre_ids: 動物種
+        genres: 動物種名
       comment:
         comment: コメント
-      genre:
+      genres:
         name: 動物種名

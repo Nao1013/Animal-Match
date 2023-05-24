@@ -2,7 +2,6 @@ class Facility::FacilitiesController < ApplicationController
   before_action :authenticate_facility! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
   before_action :set_facility, only: [:show, :edit, :update, :destroy, :index] # IDが存在してるかどうかのみ探している
   before_action :is_matching_login_facility, only: [:edit, :update, :show] # @facilityとログインしているfacilityが同一なのか確認している
-  # before_action :check_active_facility, only: [:show, :index]
 
   def show
   end
@@ -55,7 +54,4 @@ class Facility::FacilitiesController < ApplicationController
     redirect_to root_path unless @facility
   end
   
-  # def check_active_facility
-  #   redirect_to root_path unless @facility.active?
-  # end
 end

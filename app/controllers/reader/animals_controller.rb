@@ -9,7 +9,7 @@ class Reader::AnimalsController < ApplicationController
       @animals_cat = Genre.find_by(name: "猫").animals
       @animals_dog = Genre.find_by(name: "犬").animals
     # else
-     @animals = Animal.all
+     @animals = Animal.active
     # @animals = @animals.where(facility_id: @facilities) # アニマルに紐ずいている現在登録されている施設側を表示させている
   end
 

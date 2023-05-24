@@ -2,7 +2,7 @@ class Reader::ReadersController < ApplicationController
   before_action :authenticate_reader! # ログインしているfacility以外はアクセスできない（ブラウザバッグもできない）
   before_action :set_reader, only: [:favorites, :show, :edit, :update, :favorites, :destroy] # IDが存在してるかどうかのみ探している
   before_action :is_matching_login_reader, only: [:edit, :update, :show, :favorites, :destroy] # @readerとログインしているreaderが同一なのか確認している
-  before_action :check_active_reader, only: [:show, :index]
+  
 
   def edit
   end
