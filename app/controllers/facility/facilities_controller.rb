@@ -18,12 +18,6 @@ class Facility::FacilitiesController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @facility.destroy
-  #   flash[:alert] = '退会しました。再度ご利用の場合は、新規登録をお願い致します。'
-  #   redirect_to :root #削除に成功すればrootページに戻る
-  # end
-
   def unsubscribe
     @facility = current_facility
   end

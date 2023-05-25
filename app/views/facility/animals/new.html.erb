@@ -30,6 +30,7 @@
 
       <!--犬・猫種類-->
     <div class="check_box mt-3">
+      <p class="badge badge-danger">必須</p>
       <%= f.collection_radio_buttons(:genre_ids, Genre.all, :id, :name) do |genre| %>
      　<%= genre.label do %>
       　 <%= genre.radio_button %>

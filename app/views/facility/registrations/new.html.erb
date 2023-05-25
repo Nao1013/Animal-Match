@@ -45,23 +45,23 @@
       </div>
 
       <div class="row form-group">
-        <%= f.label :施設住所, class: "mr-1 ml-3" %>
+        <%= f.label :都道府県, class: "mr-1 ml-3" %>
         <%= f.label :必須, class: "badge badge-danger mr-5" %>
-        <div class="col-2 mr-4"></div>
+        <div class="col-sm-2 mr-4"></div>
         <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "都道府県", class: "col-sm-2" %>
       </div>
 
       <div class="row form-group">
-        <%= f.label :住所2, class: "mr-1 ml-3" %>
-        <%= f.label :必須, class: "badge badge-danger mr-5" %>
+        <%= f.label :市区町村番号, class: "mr-1 ml-3" %>
+        <%= f.label :必須, class: "badge badge-danger" %>
         <div class="col-sm-2 mr-5"></div>
-        <%= f.text_field :address1, autofocus: true, autocomplete: "address",placeholder: "市区町村番号", class: "col-sm-5" %>
+        <%= f.text_field :address1, autofocus: true, autocomplete: "address1",placeholder: "市区町村番号", class: "col-sm-5" %>
       </div>
 
       <div class="row form-group">
-        <%= f.label :住所3, class: "mr-1 ml-3" %>
-        <div class="col-sm-3 mr-4"></div>
-        <%= f.text_field :address2, autofocus: true, autocomplete: "address",placeholder: "マンション名や部屋番号など", class: "col-sm-5" %>
+        <%= f.label :マンション・アパート名, class: "mr-1 ml-3" %>
+        <div class="col-sm-2"></div>
+        <%= f.text_field :address2, autofocus: true, autocomplete: "address2",placeholder: "マンション名や部屋番号など", class: "col-sm-5" %>
       </div>
 
       <div class="row form-group">

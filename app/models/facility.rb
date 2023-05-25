@@ -11,7 +11,7 @@ class Facility < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :last_name_kana, presence: true
   validates :address, presence: true
-  # validates :address1, presence: true
+  validates :address1, presence: true
   validates :telephone, presence: true
 
   # ゲストログイン
