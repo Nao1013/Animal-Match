@@ -70,7 +70,7 @@ class Facility::AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :introduct, :is_decided, images: [], genre_ids: [])
+    params.require(:animal).permit(:name, :introduct, :is_decided, :genre_ids, images: [])
   end
 
   # URLに直打ちしたときの制約

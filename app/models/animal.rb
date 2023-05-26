@@ -26,7 +26,7 @@ class Animal < ApplicationRecord
   validates :name, presence: true
 
   # 動物種のバリデーション
-  validates :genres, presence: true
+  validates :genre_ids, presence: true
 
    # 説明文バリデーション
   validates :introduct, presence: true, length: {in: 5..10000 }
