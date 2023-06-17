@@ -7,6 +7,6 @@ class Reader::FacilitiesController < ApplicationController
   private
   
   def facility_params
-    params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :telephone, :profile_image)
+    params.require(:facility).permit(:first_name, :last_name, :facility_name, :user_facility_name, :introduct, :facility_intro, :address, :telephone, :profile_image, :latitude, :longitude)
   end
 end

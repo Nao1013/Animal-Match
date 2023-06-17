@@ -36,6 +36,12 @@ class Facility < ApplicationRecord
   def active?
     !is_deleted # is_deletedが退会フラグのカラム名
   end
+  
+  # マップ
+  geocoded_by :address
+  geocoded_by :address1
+  geocoded_by :address2
+  after_validation :geocode, if: :address_changed?
 
   # コメントとのアソシエーション
   has_many :comments, dependent: :destroy

@@ -1,4 +1,4 @@
-<%= image_tag facility.get_profile_image(300,300), class: "rounded-circle mt-4", size: "200x200" %>
+<%= image_tag facility.get_profile_image(300, 300), class: "rounded-circle mt-4", size: "200x200" %>
 <% if !current_reader.guest? %>
   <% if facility.user_facility_name.present? %>
    <h3 class="mt-3"><%= facility.user_facility_name %></h3>
@@ -37,6 +37,41 @@
      住所：<%= facility.address %>
     <% if !current_reader.guest? %>
      <%= facility.address1 %><%= facility.address2 %>
-  </p>
-   <p class="mt-2">電話番号：<%= facility.telephone %></p>
+    </p>
+     <p class="mt-2">電話番号：<%= facility.telephone %></p>
+     
+     <script type="text/javascript">
+     function initMap() {
+       var test = {lat: <%= facility.latitude %>, lng: <%= facility.longitude %>};
+       var map = new google.maps.Map(document.getElementById('map'), {
+                 zoom: 15, 
+                 center: test
+                 });
+       var transitLayer = new google.maps.TransitLayer();
+       transitLayer.setMap(map);
+       var contentString = '住所：<%= facility.address %>';
+       var infowindow = new google.maps.InfoWindow({
+         content: contentString
+       });
+       var marker = new google.maps.Marker({
+                     position:test,
+                     map: map,
+                     title: contentString
+                   });
+       marker.addListener('click', function() {
+         infowindow.open(map, marker);
+       });
+     }
+   </script>
+   <script async defer
+             src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+   </script>
+   
+   <style type="text/css">
+     #map { height: 200px;
+           width: 200px;}
+   </style>
+   <div id="map"></div>
    <% end %>
+   
+   
